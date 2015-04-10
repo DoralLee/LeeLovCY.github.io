@@ -236,6 +236,91 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/03/14/XML-JSON/" title="XML&amp;JSON" itemprop="url">XML&amp;JSON</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-14T05:15:27.000Z" itemprop="datePublished"> 发表于 2015-03-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="XML">XML</h3><h4 id="SAX解析">SAX解析</h4><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// <span class="number">1</span>. 获取<span class="type">XML</span>文件的<span class="type">URL</span></span><br><span class="line"><span class="type">NSURL</span> *fileURL = [[<span class="type">NSBundle</span> mainBundle] <span class="type">URLForResource</span>:@<span class="string">"bookstore"</span> withExtension:@<span class="string">"xml"</span>];</span><br><span class="line"></span><br><span class="line">// <span class="number">2</span>. 创建xml解析器对象</span><br><span class="line"><span class="type">NSXMLParser</span> *xmlParser = [[<span class="type">NSXMLParser</span> alloc] initWithContentsOfURL:fileURL];</span><br><span class="line"></span><br><span class="line">// <span class="number">3</span>. 设置代理</span><br><span class="line">xmlParser.delegate = self;</span><br><span class="line"></span><br><span class="line">// <span class="number">4</span>. 开始解析</span><br><span class="line"><span class="type">BOOL</span> <span class="literal">result</span> = [xmlParser parse];</span><br><span class="line"><span class="keyword">if</span> (!<span class="literal">result</span>) &#123;</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"xmlParser parse error!"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>NSXMLperser对象代理方法： </p>
+<ul>
+<li><p>- (void)parserDidStartDocument:(NSXMLParser *)parser</p>
+<blockquote>
+<p>当开始解析XML文档的时候，调用这个方法。通常在这个方法里，<code>创建存储模型对象的数组</code></p>
+</blockquote>
+</li>
+<li><p>- (void)parser:(NSXMLParser )parser didStartElement:(NSString )elementName namespaceURI:(NSString )namespaceURI qualifiedName:(NSString )qName attributes:(NSDictionary *)attributeDict</p>
+<blockquote>
+<p>当开始解析，遇到语速标签的时候，调用这个方法。通常在这个方法里，<code>创建模型对象或解析标签中的属性保存在模型对象中</code></p>
+</blockquote>
+</li>
+<li><p>- (void)parser:(NSXMLParser )parser foundCharacters:(NSString )string</p>
+<blockquote>
+<p>当解析到xml标签的文本内容的时候，调用这个方法，通常在这里先<code>暂存解析到的内容文本内容</code></p>
+</blockquote>
+</li>
+<li><p>- (void)parser:(NSXMLParser )parser didEndElement:(NSString )elementName namespaceURI:(NSString )namespaceURI qualifiedName:(NSString )qName</p>
+<blockquote>
+<p>当解析xml内容遇到结束标签的时候，调用这个方法。通常在这个方法里，<code>需要将模型对象保存入数组中或把标签对应的文本内容解析出来，保存在模型对象中（KVC）</code></p>
+</blockquote>
+</li>
+<li><p>- (void)parserDidEndDocument:(NSXMLParser *)parser</p>
+<blockquote>
+<p>当整个xml文档全部解析结束的时候，该方法会调用</p>
+</blockquote>
+</li>
+<li><p>- (void)parser:(NSXMLParser )parser parseErrorOccurred:(NSError )parseError</p>
+<blockquote>
+<p>当遇到解析错误时，该方法会被调用</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="DOM解析（以GDataXMLNode为例）">DOM解析（以GDataXMLNode为例）</h3><h4 id="使用：">使用：</h4><p>添加头文件搜索路径：<code>Build Settings-&gt;Header Search Paths-&gt;&quot;/usr/include/libxml2&quot;</code><br>用非ARC的方式编译GDataXMLNode.m文件：<code>-fno-objc-arc</code><br>链接libxml2.dylib该动态库：<code>Build Phases-&gt;Link Binary With Libraries-&gt;“libxml2.dylib”</code></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/03/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
   </h1>
   <p class="article-author">By

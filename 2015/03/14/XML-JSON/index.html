@@ -4,25 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | Vodka&#39;s Blog</title>
+    <title>XML&amp;JSON | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+    <meta name="description" content="XMLSAX解析123456789101112131415// 1. 获取XML文件的URLNSURL *fileURL = [[NSBundle mainBundle] URLForResource:@&quot;bookstore&quot; withExtension:@&quot;xml&quot;];// 2. 创建xml解析器对象NSXMLParser *xmlParser = [[NSXMLParser alloc] in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/03/10/hello-world/index.html">
+<meta property="og:title" content="XML&JSON">
+<meta property="og:url" content="http://yoursite.com/2015/03/14/XML-JSON/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta property="og:description" content="XMLSAX解析123456789101112131415// 1. 获取XML文件的URLNSURL *fileURL = [[NSBundle mainBundle] URLForResource:@&quot;bookstore&quot; withExtension:@&quot;xml&quot;];// 2. 创建xml解析器对象NSXMLParser *xmlParser = [[NSXMLParser alloc] in">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="XML&JSON">
+<meta name="twitter:description" content="XMLSAX解析123456789101112131415// 1. 获取XML文件的URLNSURL *fileURL = [[NSBundle mainBundle] URLForResource:@&quot;bookstore&quot; withExtension:@&quot;xml&quot;];// 2. 创建xml解析器对象NSXMLParser *xmlParser = [[NSXMLParser alloc] in">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -81,14 +78,14 @@ Quick">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/03/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2015/03/14/XML-JSON/" title="XML&amp;JSON" itemprop="url">XML&amp;JSON</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2015-03-10T03:02:50.000Z" itemprop="datePublished"> 发表于 2015-03-10</time>
+    <time datetime="2015-03-14T05:15:27.000Z" itemprop="datePublished"> 发表于 2015-03-14</time>
     
   </p>
 </header>
@@ -97,19 +94,46 @@ Quick">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML"><span class="toc-number">1.</span> <span class="toc-text">XML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SAX解析"><span class="toc-number">1.1.</span> <span class="toc-text">SAX解析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM解析（以GDataXMLNode为例）"><span class="toc-number">2.</span> <span class="toc-text">DOM解析（以GDataXMLNode为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用："><span class="toc-number">2.1.</span> <span class="toc-text">使用：</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<h3 id="XML">XML</h3><h4 id="SAX解析">SAX解析</h4><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// <span class="number">1</span>. 获取<span class="type">XML</span>文件的<span class="type">URL</span></span><br><span class="line"><span class="type">NSURL</span> *fileURL = [[<span class="type">NSBundle</span> mainBundle] <span class="type">URLForResource</span>:@<span class="string">"bookstore"</span> withExtension:@<span class="string">"xml"</span>];</span><br><span class="line"></span><br><span class="line">// <span class="number">2</span>. 创建xml解析器对象</span><br><span class="line"><span class="type">NSXMLParser</span> *xmlParser = [[<span class="type">NSXMLParser</span> alloc] initWithContentsOfURL:fileURL];</span><br><span class="line"></span><br><span class="line">// <span class="number">3</span>. 设置代理</span><br><span class="line">xmlParser.delegate = self;</span><br><span class="line"></span><br><span class="line">// <span class="number">4</span>. 开始解析</span><br><span class="line"><span class="type">BOOL</span> <span class="literal">result</span> = [xmlParser parse];</span><br><span class="line"><span class="keyword">if</span> (!<span class="literal">result</span>) &#123;</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"xmlParser parse error!"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>NSXMLperser对象代理方法： </p>
+<ul>
+<li><p>- (void)parserDidStartDocument:(NSXMLParser *)parser</p>
+<blockquote>
+<p>当开始解析XML文档的时候，调用这个方法。通常在这个方法里，<code>创建存储模型对象的数组</code></p>
+</blockquote>
+</li>
+<li><p>- (void)parser:(NSXMLParser )parser didStartElement:(NSString )elementName namespaceURI:(NSString )namespaceURI qualifiedName:(NSString )qName attributes:(NSDictionary *)attributeDict</p>
+<blockquote>
+<p>当开始解析，遇到语速标签的时候，调用这个方法。通常在这个方法里，<code>创建模型对象或解析标签中的属性保存在模型对象中</code></p>
+</blockquote>
+</li>
+<li><p>- (void)parser:(NSXMLParser )parser foundCharacters:(NSString )string</p>
+<blockquote>
+<p>当解析到xml标签的文本内容的时候，调用这个方法，通常在这里先<code>暂存解析到的内容文本内容</code></p>
+</blockquote>
+</li>
+<li><p>- (void)parser:(NSXMLParser )parser didEndElement:(NSString )elementName namespaceURI:(NSString )namespaceURI qualifiedName:(NSString )qName</p>
+<blockquote>
+<p>当解析xml内容遇到结束标签的时候，调用这个方法。通常在这个方法里，<code>需要将模型对象保存入数组中或把标签对应的文本内容解析出来，保存在模型对象中（KVC）</code></p>
+</blockquote>
+</li>
+<li><p>- (void)parserDidEndDocument:(NSXMLParser *)parser</p>
+<blockquote>
+<p>当整个xml文档全部解析结束的时候，该方法会调用</p>
+</blockquote>
+</li>
+<li><p>- (void)parser:(NSXMLParser )parser parseErrorOccurred:(NSError )parseError</p>
+<blockquote>
+<p>当遇到解析错误时，该方法会被调用</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="DOM解析（以GDataXMLNode为例）">DOM解析（以GDataXMLNode为例）</h3><h4 id="使用：">使用：</h4><p>添加头文件搜索路径：<code>Build Settings-&gt;Header Search Paths-&gt;&quot;/usr/include/libxml2&quot;</code><br>用非ARC的方式编译GDataXMLNode.m文件：<code>-fno-objc-arc</code><br>链接libxml2.dylib该动态库：<code>Build Phases-&gt;Link Binary With Libraries-&gt;“libxml2.dylib”</code></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +146,7 @@ Quick">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/03/10/hello-world/" data-title="Hello World | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/03/14/XML-JSON/" data-title="XML&amp;JSON | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,13 +160,21 @@ Quick">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/03/14/XML-JSON/" title="XML&amp;JSON">
+ <a href="/2015/03/31/iOS学习-Quartz2D使用/" title="iOS学习-Quartz2D使用">
   <strong>上一篇：</strong><br/>
   <span>
-  XML&amp;JSON</span>
+  iOS学习-Quartz2D使用</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/03/10/hello-world/"  title="Hello World">
+ <strong>下一篇：</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -154,7 +186,7 @@ Quick">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML"><span class="toc-number">1.</span> <span class="toc-text">XML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SAX解析"><span class="toc-number">1.1.</span> <span class="toc-text">SAX解析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM解析（以GDataXMLNode为例）"><span class="toc-number">2.</span> <span class="toc-text">DOM解析（以GDataXMLNode为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用："><span class="toc-number">2.1.</span> <span class="toc-text">使用：</span></a></li></ol></li></ol>
  
   </div>
 
