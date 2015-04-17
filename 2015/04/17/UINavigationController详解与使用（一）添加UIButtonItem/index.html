@@ -4,43 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hexo——搭建博客 | Vodka&#39;s Blog</title>
+    <title>UINavigationController详解与使用（一）添加UIButtonItem | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description" content="本地搭建hexo
-安装nvm(node.js的版本管理工具）
+    <meta name="description" content="一、UINavigationController导航控制器如何使用
+UINavigationController可以翻译为导航控制器，在iOS里经常用到。
+ 我们看看它如何使用：
 
-cURL：
-1$ curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
-
-Wget:
-1$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.24.1/in">
+下面的图显示了导航控制器的流程。最左侧是根视图，当用户点击其中的General项时，General视图会滑入屏幕；当用户继续点击Auto-Lock项是，Auto-Lock视图将滑入屏幕。相应地，在对象管理上，导航控制器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo——搭建博客">
-<meta property="og:url" content="http://yoursite.com/2015/03/10/Hexo——搭建博客/index.html">
+<meta property="og:title" content="UINavigationController详解与使用（一）添加UIButtonItem">
+<meta property="og:url" content="http://yoursite.com/2015/04/17/UINavigationController详解与使用（一）添加UIButtonItem/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description" content="本地搭建hexo
-安装nvm(node.js的版本管理工具）
+<meta property="og:description" content="一、UINavigationController导航控制器如何使用
+UINavigationController可以翻译为导航控制器，在iOS里经常用到。
+ 我们看看它如何使用：
 
-cURL：
-1$ curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
-
-Wget:
-1$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.24.1/in">
+下面的图显示了导航控制器的流程。最左侧是根视图，当用户点击其中的General项时，General视图会滑入屏幕；当用户继续点击Auto-Lock项是，Auto-Lock视图将滑入屏幕。相应地，在对象管理上，导航控制器">
+<meta property="og:image" content="/images/UINavigationVC/1.png">
+<meta property="og:image" content="/images/UINavigationVC/2.png">
+<meta property="og:image" content="/images/UINavigationVC/3.png">
+<meta property="og:image" content="/images/UINavigationVC/4.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo——搭建博客">
-<meta name="twitter:description" content="本地搭建hexo
-安装nvm(node.js的版本管理工具）
+<meta name="twitter:title" content="UINavigationController详解与使用（一）添加UIButtonItem">
+<meta name="twitter:description" content="一、UINavigationController导航控制器如何使用
+UINavigationController可以翻译为导航控制器，在iOS里经常用到。
+ 我们看看它如何使用：
 
-cURL：
-1$ curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
-
-Wget:
-1$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.24.1/in">
+下面的图显示了导航控制器的流程。最左侧是根视图，当用户点击其中的General项时，General视图会滑入屏幕；当用户继续点击Auto-Lock项是，Auto-Lock视图将滑入屏幕。相应地，在对象管理上，导航控制器">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -99,14 +94,14 @@ Wget:
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/03/10/Hexo——搭建博客/" title="Hexo——搭建博客" itemprop="url">Hexo——搭建博客</a>
+      <a href="/2015/04/17/UINavigationController详解与使用（一）添加UIButtonItem/" title="UINavigationController详解与使用（一）添加UIButtonItem" itemprop="url">UINavigationController详解与使用（一）添加UIButtonItem</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2015-03-10T15:43:59.000Z" itemprop="datePublished"> 发表于 2015-03-10</time>
+    <time datetime="2015-04-17T08:39:03.000Z" itemprop="datePublished"> 发表于 2015-04-17</time>
     
   </p>
 </header>
@@ -115,60 +110,31 @@ Wget:
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地搭建hexo"><span class="toc-number">1.</span> <span class="toc-text">本地搭建hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署到github"><span class="toc-number">2.</span> <span class="toc-text">部署到github</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、UINavigationController导航控制器如何使用"><span class="toc-number">1.</span> <span class="toc-text">一、UINavigationController导航控制器如何使用</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="本地搭建hexo">本地搭建hexo</h3><ol>
-<li><p>安装nvm(node.js的版本管理工具）</p>
-<ul>
-<li><p>cURL：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>curl <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span><span class="number">0</span>.<span class="number">24.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+		<h3 id="一、UINavigationController导航控制器如何使用">一、UINavigationController导航控制器如何使用</h3><ol>
+<li><p>UINavigationController可以翻译为导航控制器，在iOS里经常用到。</p>
+<p> 我们看看它如何使用：</p>
+<blockquote>
+<p>下面的图显示了导航控制器的流程。最左侧是根视图，当用户点击其中的General项时，General视图会滑入屏幕；当用户继续点击Auto-Lock项是，Auto-Lock视图将滑入屏幕。相应地，在对象管理上，导航控制器使用了导航堆栈。根视图控制器在堆栈最底层，接下来入栈的是General视图控制器和Auto-Lock视图控制器。可以调用pushViewControllerAnimated:方法将视图控制器推入栈顶，也可以调用popViewControllerAnimated:方法将视图控制器弹出堆栈。</p>
+</blockquote>
+<p> <img src="/images/UINavigationVC/1.png" alt="image"></p>
 </li>
-<li><p>Wget:</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>wget -qO- <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span><span class="number">0</span>.<span class="number">24.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<li><p>UINavigationController的结构组成</p>
+<p> 看下图，UINavigationController有Navigation bar，Navigation View，Navigation toolbar等组成。</p>
+<p> <img src="/images/UINavigationVC/2.png" alt="image"></p>
+<p> 现在我们建立一个例子，看看如何使用UINavigationController</p>
 </li>
-</ul>
+<li><p>新建一个项目</p>
+<p> 命名为UINavigationControllerDemo，为了更好理解UINavigationController，我们选择Empty Application模板</p>
+<p> <img src="/images/UINavigationVC/3.png" alt="image"></p>
 </li>
-<li><p>安装完成后，重启终端并执行下列命令安装Node.js</p>
- <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm <span class="keyword">install</span> <span class="number">0.10</span></span><br></pre></td></tr></table></figure>
+<li><p>创建一个View Controller，命名为RootViewController:依次选择File-New-New File，默认勾上WithXIB for user interface</p>
+<p> <img src="/images/UINavigationVC/4.png" alt="image"></p>
 </li>
-<li><p>添加如下内容到.zshrc配置文件</p>
- <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -s <span class="string">"/Users/<span class="escape">`u</span>sers<span class="escape">`/</span>.nvm/nvm.sh"</span> ] &amp;&amp; . <span class="string">"/Users/<span class="escape">`u</span>sers<span class="escape">`/</span>.nvm/nvm.sh"</span> # This loads nvm</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将nvm的bin目录添加到环境变量中</p>
- <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">以zsh为例：</span><br><span class="line"><span class="number">1</span>. 打开zsh配置文件</span><br><span class="line">	vi ~/<span class="class">.zshrc</span></span><br><span class="line"><span class="number">2</span>. 添加如下内容到<span class="class">.zshrc</span></span><br><span class="line">	export PATH=<span class="variable">$PATH</span>:~/.nvm/v0.<span class="number">10.38</span>/bin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装hexo</p>
- <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建hexo文件夹，并安装hexo相关组件</p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo init hexo</span><br><span class="line"><span class="variable">$ </span>cd hexo</span><br><span class="line"><span class="variable">$ </span>npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地查看<br> 输入如下命令后，打开浏览器，并输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">localhost:4000</a></p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署的时候有时候会失败，可以安装hexo-deployer-git来解决</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="部署到github">部署到github</h3><ol>
-<li><p>注册github账号</p>
-</li>
-<li><p>创建github账号同名repository</p>
-<pre><code>eg:github账号名为leelovcy，则创建leelovcy<span class="class">.github</span><span class="class">.io</span>
-</code></pre></li>
-<li><p>部署到github上</p>
-<p> 如下所示编辑_config.yml</p>
-<pre><code><span class="attribute">deploy</span>:
-  <span class="attribute">type</span>: git
-  <span class="attribute">repository</span>: <span class="attribute">http</span>:<span class="comment">//github.com/LeeLovCY/LeeLovCY.github.io.git</span>
-  <span class="attribute">branch</span>: master
-</code></pre><p> <code>注意：</code>上述冒号之后有空格</p>
-</li>
-<li><p>输入如下命令，完成到github得部署，之后打开浏览器并输入<leelovcy.github.io>来查看</leelovcy.github.io></p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo d</span><br></pre></td></tr></table></figure>
-</li>
+<li></li>
 </ol>
   
 	</div>
@@ -178,7 +144,7 @@ Wget:
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Hexo——搭建博客/">Hexo——搭建博客</a>
+  <span></span> <a href="/tags/UINavigationController-UIButtonItem/">UINavigationController-UIButtonItem</a>
   </div>
 
 </div>
@@ -187,7 +153,7 @@ Wget:
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/03/10/Hexo——搭建博客/" data-title="Hexo——搭建博客 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/04/17/UINavigationController详解与使用（一）添加UIButtonItem/" data-title="UINavigationController详解与使用（一）添加UIButtonItem | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -200,14 +166,14 @@ Wget:
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/03/14/XML-JSON/" title="XML&amp;JSON">
-  <strong>上一篇：</strong><br/>
-  <span>
-  XML&amp;JSON</span>
+
+<div class="next">
+<a href="/2015/03/31/iOS学习-Quartz2D使用/"  title="iOS学习-Quartz2D使用">
+ <strong>下一篇：</strong><br/> 
+ <span>iOS学习-Quartz2D使用
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -219,7 +185,7 @@ Wget:
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地搭建hexo"><span class="toc-number">1.</span> <span class="toc-text">本地搭建hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署到github"><span class="toc-number">2.</span> <span class="toc-text">部署到github</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、UINavigationController导航控制器如何使用"><span class="toc-number">1.</span> <span class="toc-text">一、UINavigationController导航控制器如何使用</span></a></li></ol>
  
   </div>
 
