@@ -115,11 +115,11 @@ UINavigationController可以翻译为导航控制器，在iOS里经常用到。
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#UINavigationController导航控制器如何使用"><span class="toc-number">1.</span> <span class="toc-text">UINavigationController导航控制器如何使用</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#UINavigationController导航控制器如何使用"><span class="toc-number">1.</span> <span class="toc-text">UINavigationController导航控制器如何使用</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="UINavigationController导航控制器如何使用">UINavigationController导航控制器如何使用</h3><ol>
+		<h4 id="UINavigationController导航控制器如何使用">UINavigationController导航控制器如何使用</h4><ol>
 <li><p>UINavigationController可以翻译为导航控制器，在iOS里经常用到。</p>
 <p> 我们看看它如何使用：</p>
 <blockquote>
@@ -166,6 +166,7 @@ UINavigationController可以翻译为导航控制器，在iOS里经常用到。
 <p> 我们在action：@selector（selectLeftAction:）;<br> action添加了SelectLeftAction和selectRightAction在RootViewController.m文件中添加代码实现：</p>
  <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="typename">void</span>)<span class="string">selectLeftAction:</span>(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    UIAlertView *alter = [[UIAlertView alloc] <span class="string">initWithTitle:</span>@<span class="string">"提示"</span> <span class="string">message:</span>@<span class="string">"你点击了导航栏左按钮"</span> <span class="string">delegate:</span>self  <span class="string">cancelButtonTitle:</span>@<span class="string">"确定"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">    [alter show];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="typename">void</span>)<span class="string">selectRightAction:</span>(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    UIAlertView *alter = [[UIAlertView alloc] <span class="string">initWithTitle:</span>@<span class="string">"提示"</span> <span class="string">message:</span>@<span class="string">"你点击了导航栏右按钮"</span> <span class="string">delegate:</span>self  <span class="string">cancelButtonTitle:</span>@<span class="string">"确定"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">    [alter show];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> 这样在点击左右的UIBarButtonItem时，弹出提示：<br> <img src="/images/UINavigationVC/9.png" alt="image"></p>
+<p> 本篇先到UIBarButtonItem，下篇讲解页面跳转与ToolBar</p>
 </li>
 </ol>
   
@@ -198,6 +199,14 @@ UINavigationController可以翻译为导航控制器，在iOS里经常用到。
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/04/17/UINavigationController详解与使用（二）页面切换及ToolBar/" title="UINavigationController详解与使用（二）页面切换及ToolBar">
+  <strong>上一篇：</strong><br/>
+  <span>
+  UINavigationController详解与使用（二）页面切换及ToolBar</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/03/31/iOS学习-Quartz2D使用/"  title="iOS学习-Quartz2D使用">
@@ -217,7 +226,7 @@ UINavigationController可以翻译为导航控制器，在iOS里经常用到。
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#UINavigationController导航控制器如何使用"><span class="toc-number">1.</span> <span class="toc-text">UINavigationController导航控制器如何使用</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#UINavigationController导航控制器如何使用"><span class="toc-number">1.</span> <span class="toc-text">UINavigationController导航控制器如何使用</span></a></li></ol>
  
   </div>
 

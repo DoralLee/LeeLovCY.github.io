@@ -80,6 +80,93 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/17/UINavigationController详解与使用（二）页面切换及ToolBar/" title="UINavigationController详解与使用（二）页面切换及ToolBar" itemprop="url">UINavigationController详解与使用（二）页面切换及ToolBar</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-17T11:45:18.000Z" itemprop="datePublished"> 发表于 2015-04-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="页面跳转">页面跳转</h4><ol>
+<li><p>RootView跳到SecondView</p>
+<p> 首先我们需要新的一个View。新建SecondView，按住Command键然后按N，弹出新建页面，我们新建SecondView</p>
+<p> <img src="/images/UINavigationVC/10.png" alt="image"></p>
+</li>
+<li><p>为Button添加点击事件，实现跳转</p>
+<p> 在RootViewController.xib中和RootViewController.h文件建立连接<br> <img src="/images/UINavigationVC/11.png" alt="image"></p>
+<p> 在RootViewController.m中实现代码，alloc一个SecondViewController，用pushViewController到navigationController中去，并为SecondViewController这时title为secondView.title = @”Second View”;默认情况下，title为下个页面返回按钮的名字。</p>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">IBAction</span>)gotoSecondView:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">   SecondViewController *secondView = [[SecondViewController alloc] init];</span><br><span class="line">   [<span class="keyword">self</span><span class="variable">.navigationController</span> pushViewController:secondView animated:<span class="literal">YES</span>];</span><br><span class="line">   secondView<span class="variable">.title</span> = <span class="string">@"Second View"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 这是点击GotoSecondView按钮，出现<br> <img src="/images/UINavigationVC/12.png" alt="image"></p>
+</li>
+<li><p>自定义backBarButtonItem</p>
+<p> 左上角的返回上级View的barButtonItem的名字是上级目录的Title，如果title或者适合做button的名字，怎么办呢？我们可以自定义<br> 代码如下：</p>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBarButtonItem</span> *backButton = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithTitle:<span class="string">@"根视图"</span> style:UIBarButtonItemStyleDone target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br><span class="line">  <span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.backBarButton</span> = backButton;</span><br></pre></td></tr></table></figure>
+<p> 效果:<br> <img src="/images/UINavigationVC/13.png" alt="image"></p>
+</li>
+</ol>
+<h4 id="ToolBar">ToolBar</h4><ol>
+<li><p>显示ToolBar</p>
+<p> 在RootViewController.m的<code>-(void)viewDidLoad</code>方法中添加代码，这样Toobar就显示出来了</p>
+<blockquote>
+<p>[self.navigationController setToolbarHidden:NO animated:YES];</p>
+</blockquote>
+</li>
+<li><p>在ToolBar上添加UIBarButtonItem</p>
+<p> 新建几个UIBarButtonItem，然后以数组的形式添加到Toolbar中</p>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBarButtonItem</span> *one = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">UIBarButtonItem</span> *two = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">UIBarButtonItem</span> *three = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">UIBarButtonItem</span> *four = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">UIBarButtonItem</span> *flexItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br><span class="line">[<span class="keyword">self</span> setToolbarItems:[<span class="built_in">NSArray</span> arrayWithObjects:flexItem, one, flexItem, two, flexItem, three, flexItem, four, flexItem, <span class="literal">nil</span>]];</span><br></pre></td></tr></table></figure>
+<p> 效果如下：<br> <img src="/images/UINavigationVC/14.png" alt="image"></p>
+<p> <code>注意：</code>用[self.navigationController.toolbar setItems:(NSArray *)animated:YES]这个方法添加Item是不起效果的。下面需要自己动态添加Toolbar时，这个才起效果。</p>
+</li>
+<li><p>动态添加ToolBar</p>
+<p> 我们在SecondView添加动态的ToolBar<br> 在SecondViewController.h添加</p>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SecondViewController</span> : <span class="title">UIViewController</span></span></span><br><span class="line">&#123;</span><br><span class="line">    UIToolbar *toolBar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p> 在SecondViewController.m添加</p>
+ <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="typename">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    [self.navigationController  <span class="string">setToolbarHidden:</span>YES <span class="string">animated:</span>YES];</span><br><span class="line">	</span><br><span class="line">    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] <span class="string">initWithBarButtonSystemItem:</span>UIBarButtonSystemItemSearch <span class="string">target:</span>self <span class="string">action:</span><span class="annotation">@selector</span>(<span class="string">gotoThridView:</span>)];</span><br><span class="line">    toolBar = [[UIToolbar alloc] <span class="string">initWithFrame:</span>CGRectMake(<span class="number">0.0</span>, self.view.frame.size.height - toolBar.frame.size.height - <span class="number">44.0</span>, self.view.frame.size.width, <span class="number">44.0</span>)];</span><br><span class="line">    [toolBar <span class="string">setBarStyle:</span>UIBarStyleDefault];</span><br><span class="line">    toolBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;</span><br><span class="line">    [toolBar <span class="string">setItems:</span>[NSArray <span class="string">arrayWithObject:</span>addButton]];</span><br><span class="line">    [self.view <span class="string">addSubview:</span>toolBar];</span><br><span class="line">     </span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view from its nib.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 以上我觉得移除自带的Toolbar而不是将其隐藏<br> [self.navigationController.toolbar removeFromSuperview];</p>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/17/UINavigationController详解与使用（一）添加UIButtonItem/" title="UINavigationController详解与使用（一）添加UIButtonItem" itemprop="url">UINavigationController详解与使用（一）添加UIButtonItem</a>
   </h1>
   <p class="article-author">By
@@ -93,7 +180,7 @@
 </header>
     <div class="article-content">
         
-        <h3 id="UINavigationController导航控制器如何使用">UINavigationController导航控制器如何使用</h3><ol>
+        <h4 id="UINavigationController导航控制器如何使用">UINavigationController导航控制器如何使用</h4><ol>
 <li><p>UINavigationController可以翻译为导航控制器，在iOS里经常用到。</p>
 <p> 我们看看它如何使用：</p>
 <blockquote>
@@ -140,6 +227,7 @@
 <p> 我们在action：@selector（selectLeftAction:）;<br> action添加了SelectLeftAction和selectRightAction在RootViewController.m文件中添加代码实现：</p>
  <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="typename">void</span>)<span class="string">selectLeftAction:</span>(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    UIAlertView *alter = [[UIAlertView alloc] <span class="string">initWithTitle:</span>@<span class="string">"提示"</span> <span class="string">message:</span>@<span class="string">"你点击了导航栏左按钮"</span> <span class="string">delegate:</span>self  <span class="string">cancelButtonTitle:</span>@<span class="string">"确定"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">    [alter show];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="typename">void</span>)<span class="string">selectRightAction:</span>(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    UIAlertView *alter = [[UIAlertView alloc] <span class="string">initWithTitle:</span>@<span class="string">"提示"</span> <span class="string">message:</span>@<span class="string">"你点击了导航栏右按钮"</span> <span class="string">delegate:</span>self  <span class="string">cancelButtonTitle:</span>@<span class="string">"确定"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">    [alter show];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> 这样在点击左右的UIBarButtonItem时，弹出提示：<br> <img src="/images/UINavigationVC/9.png" alt="image"></p>
+<p> 本篇先到UIBarButtonItem，下篇讲解页面跳转与ToolBar</p>
 </li>
 </ol>
 
