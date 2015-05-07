@@ -4,22 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Vodka&#39;s Blog</title>
+    <title>面向对象思想——个人理解 | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Vodka's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="基本概念
+ 1.1 类与对象的初探
+ “这个世界时由什么组成的？”这个问题如果让不同的人来回答会得到不同的答案。如果是一个化学家，他也许会告诉你“还用问么，这个世界是由分子、原子、离子等等化学物质组成的”。如果是一个画家呢？他也许会告诉你，“这个世界是由不同的颜色所组成的”......呵呵，众说纷纭吧！但如果让一个分类学家来考虑问题就有趣的多了，他会告诉你“这个世界是由不同类型的物与事所构成的”好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象思想——个人理解">
+<meta property="og:url" content="http://yoursite.com/2015/05/06/面相对象思想——个人理解/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description">
+<meta property="og:description" content="基本概念
+ 1.1 类与对象的初探
+ “这个世界时由什么组成的？”这个问题如果让不同的人来回答会得到不同的答案。如果是一个化学家，他也许会告诉你“还用问么，这个世界是由分子、原子、离子等等化学物质组成的”。如果是一个画家呢？他也许会告诉你，“这个世界是由不同的颜色所组成的”......呵呵，众说纷纭吧！但如果让一个分类学家来考虑问题就有趣的多了，他会告诉你“这个世界是由不同类型的物与事所构成的”好">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vodka's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="面向对象思想——个人理解">
+<meta name="twitter:description" content="基本概念
+ 1.1 类与对象的初探
+ “这个世界时由什么组成的？”这个问题如果让不同的人来回答会得到不同的答案。如果是一个化学家，他也许会告诉你“还用问么，这个世界是由分子、原子、离子等等化学物质组成的”。如果是一个画家呢？他也许会告诉你，“这个世界是由不同的颜色所组成的”......呵呵，众说纷纭吧！但如果让一个分类学家来考虑问题就有趣的多了，他会告诉你“这个世界是由不同类型的物与事所构成的”好">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -72,12 +78,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2015/05/06/面相对象思想——个人理解/" title="面向对象思想——个人理解" itemprop="url">面向对象思想——个人理解</a>
@@ -91,9 +95,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <ol>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<ol>
 <li><p>基本概念</p>
 <p> 1.1 类与对象的初探</p>
 <pre><code> “这个世界时由什么组成的？”这个问题如果让不同的人来回答会得到不同的答案。如果是一个化学家，他也许会告诉你“还用问么，这个世界是由分子、原子、离子等等化学物质组成的”。如果是一个画家呢？他也许会告诉你，“这个世界是由不同的颜色所组成的”<span class="attribute">...</span><span class="attribute">...</span>呵呵，众说纷纭吧！但如果让一个分类学家来考虑问题就有趣的多了，他会告诉你“这个世界是由不同类型的物与事所构成的”好！作为面向对象的程序员来说，我们要站在分类学家的角度去考虑问题！是的，这个世界是由动物、植物等组成的。动物又分为单细胞动物、多细胞动物、哺乳动物等等，哺乳动物又分为人、大象、老虎<span class="attribute">...</span><span class="attribute">...</span>就这样的分下去了！
@@ -136,14 +147,9 @@ addnum (方法名称)
 为了实现数据的封装，提高数据的安全性，我们一般会把类的属性声明为私有的，而把类的方法声明为公共的。这样，对象能够直接调用类中定义的所有方法，当对象想要修改或得到自己的属性的时候就必须要调用以定义好的专用的方法才能够实现。你想想，你会把你的信用卡密码公布出来吗？所以，我们提倡的事：“对象调方法，方法改属性”；
 </code></pre></li>
 </ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -156,28 +162,43 @@ addnum (方法名称)
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2015/05/06/面相对象思想——个人理解/" data-title="面向对象思想——个人理解 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
 
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
-
+<div class="next">
+<a href="/2015/04/30/迎着缺陷奔跑/"  title="迎着缺陷奔跑">
+ <strong>下一篇：</strong><br/> 
+ <span>迎着缺陷奔跑
+</span>
+</a>
 </div>
+
+</nav>
+
+	
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -333,10 +354,68 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
 </script>
 
 
@@ -347,6 +426,26 @@ $(document).ready(function(){
 
 
 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
 
 
 
@@ -378,4 +477,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
