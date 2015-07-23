@@ -4,31 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>CocoaPods 下载和安装 | Vodka&#39;s Blog</title>
+    <title>SVN常用命令集合 | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description" content="下载和安装在安装之前，首先要在本地安装好Ruby环境。如果你在本地已经安装好Ruby环境，那么下载和安装CocoaPods将十分简单，只需要一行命令。在终端中输入如下命令
-1sudo gem install cocoapods
+    <meta name="description" content="SVN常用命令集
 
-但是，如果你在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。我们可以用淘宝的Ruby镜像来访问cocoap">
+svn info 查询svn根目录的信息，这个命令当你想知道">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CocoaPods 下载和安装">
-<meta property="og:url" content="http://yoursite.com/2015/05/25/CocoaPods-下载和安装/index.html">
+<meta property="og:title" content="SVN常用命令集合">
+<meta property="og:url" content="http://yoursite.com/2015/07/23/SVN常用命令集合/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description" content="下载和安装在安装之前，首先要在本地安装好Ruby环境。如果你在本地已经安装好Ruby环境，那么下载和安装CocoaPods将十分简单，只需要一行命令。在终端中输入如下命令
-1sudo gem install cocoapods
+<meta property="og:description" content="SVN常用命令集
 
-但是，如果你在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。我们可以用淘宝的Ruby镜像来访问cocoap">
+svn info 查询svn根目录的信息，这个命令当你想知道">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CocoaPods 下载和安装">
-<meta name="twitter:description" content="下载和安装在安装之前，首先要在本地安装好Ruby环境。如果你在本地已经安装好Ruby环境，那么下载和安装CocoaPods将十分简单，只需要一行命令。在终端中输入如下命令
-1sudo gem install cocoapods
+<meta name="twitter:title" content="SVN常用命令集合">
+<meta name="twitter:description" content="SVN常用命令集
 
-但是，如果你在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。我们可以用淘宝的Ruby镜像来访问cocoap">
+svn info 查询svn根目录的信息，这个命令当你想知道">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -87,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/05/25/CocoaPods-下载和安装/" title="CocoaPods 下载和安装" itemprop="url">CocoaPods 下载和安装</a>
+      <a href="/2015/07/23/SVN常用命令集合/" title="SVN常用命令集合" itemprop="url">SVN常用命令集合</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-25T07:02:45.000Z" itemprop="datePublished"> 发表于 2015-05-25</time>
+    <time datetime="2015-07-23T01:16:36.000Z" itemprop="datePublished"> 发表于 2015-07-23</time>
     
   </p>
 </header>
@@ -103,45 +100,18 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载和安装"><span class="toc-number">1.</span> <span class="toc-text">下载和安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用CocoaPods"><span class="toc-number">2.</span> <span class="toc-text">使用CocoaPods</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h3 id="下载和安装">下载和安装</h3><pre><code>在安装之前，首先要在本地安装好Ruby环境。如果你在本地已经安装好Ruby环境，那么下载和安装CocoaPods将十分简单，只需要一行命令。在终端中输入如下命令
-<span class="comment"><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure></span>
-
-但是，如果你在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中依次敲入命令：
-<span class="comment"><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">source</span> --remove https:<span class="comment">//rubygems.org/</span></span><br><span class="line">gem <span class="keyword">source</span> -a http:<span class="comment">//ruby.taobao.org/</span></span><br></pre></td></tr></table></figure></span>
-
-为了验证你的Ruby镜像是并且仅是taobao，可以用一下命令查看：
-<span class="comment"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="built_in">source</span> <span class="operator">-l</span></span><br></pre></td></tr></table></figure></span>
-
-只有在终端中出现下面文字才表明你上面的命令是成功的：
-<span class="comment"><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> CURRENT SOURCES <span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">http://ruby.taobao.org/</span><br></pre></td></tr></table></figure></span>
-
-此时，你再次在终端中运行：
-<span class="comment"><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure></span>
-</code></pre><h3 id="使用CocoaPods">使用CocoaPods</h3><pre><code>安装好之后就是如何使用它了。我们以AFNetworking来说明吧
-AFNetworking类库在Github地址是:(https://github.com/AFNetworking/AFNetworking)
-为了确定AFnetworking是否支持Cocoapods，可以用Cocoapods的搜索功能验证一下。在终端中输入：
-<span class="comment"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pod</span> search AFnetworking</span><br></pre></td></tr></table></figure></span>
-
-随后你会看到相关信息，准备工作也差不多了，下面让我们进入正题
-首先先利用Xcode创建一个项目工程。随后在终端中进入所创建的项目文件中，然后运行：
-<span class="comment"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">vim</span> init</span><br></pre></td></tr></table></figure></span>
-
-随后cocoapods会为项目自动生成一个Podfile文件，执行：
-<span class="comment"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">vim</span> Podfile</span><br></pre></td></tr></table></figure></span>
-
-然后再Podfile文件中target和end之间输入以下信息：
-<span class="comment"><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'7.0'</span></span><br><span class="line">pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.0"</span></span><br></pre></td></tr></table></figure></span>
-
-随后退出编辑模式，执行：
-<span class="comment"><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure></span>
-
-不过你在执行此条命令时会要等N久，主要是执行上述命令时会升级Cocoapods的spec仓库，加一个参数就可以省略这一步，然后速度就会有相当大的提升，命令如下：
-<span class="comment"><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod install --<span class="keyword">version</span> --<span class="keyword">no</span>-repo-<span class="keyword">update</span></span><br></pre></td></tr></table></figure></span>
-</code></pre>  
+		<ol>
+<li><p>SVN常用命令集</p>
+<blockquote>
+<p>svn info 查询svn根目录的信息，这个命令当你想知道</p>
+</blockquote>
+</li>
+</ol>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -149,7 +119,7 @@ AFNetworking类库在Github地址是:(https://github.com/AFNetworking/AFNetworki
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CocoaPods/">CocoaPods</a>
+  <span></span> <a href="/tags/SVN/">SVN</a>
   </div>
 
 </div>
@@ -158,7 +128,7 @@ AFNetworking类库在Github地址是:(https://github.com/AFNetworking/AFNetworki
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/05/25/CocoaPods-下载和安装/" data-title="CocoaPods 下载和安装 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/23/SVN常用命令集合/" data-title="SVN常用命令集合 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -171,19 +141,11 @@ AFNetworking类库在Github地址是:(https://github.com/AFNetworking/AFNetworki
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/21/OC数组排序/" title="OC数组排序">
-  <strong>上一篇：</strong><br/>
-  <span>
-  OC数组排序</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/05/06/面相对象思想——个人理解/"  title="面向对象思想——个人理解">
+<a href="/2015/07/21/OC数组排序/"  title="OC数组排序">
  <strong>下一篇：</strong><br/> 
- <span>面向对象思想——个人理解
+ <span>OC数组排序
 </span>
 </a>
 </div>
@@ -198,7 +160,7 @@ AFNetworking类库在Github地址是:(https://github.com/AFNetworking/AFNetworki
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载和安装"><span class="toc-number">1.</span> <span class="toc-text">下载和安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用CocoaPods"><span class="toc-number">2.</span> <span class="toc-text">使用CocoaPods</span></a></li></ol>
+ 
  
   </div>
 
