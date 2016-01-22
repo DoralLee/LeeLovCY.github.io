@@ -4,26 +4,37 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>手写代码UIButton图片和文字位置的设置 | Vodka&#39;s Blog</title>
+    <title>swift初体验（一） | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description" content="首先对button的初始化，以及图片和文字的设置
- 1234567891011121314151617181920212223242526//添加放弃和留下按钮   UIButton *dropBtn = [UIButton buttonWithType:UIButtonTypeCustom];   dropBtn.frame = CGRectMake(1*WIDHT/5, getViewHeig">
+    <meta name="description" content="常量和变量
+在swift中我们用let来定义一个常量，如果我们在下面在对a进行赋值的话编译器会给我们报错的
+ 1let a = 0
+
+我们用var来定义一个变量，在swift编译器会自动辨别你所定义的类型，如果我们要显示的定义一个类型，我们可以在变量后面加个:类型，在swift没有进行初始化的值是不能被直接使用的，因为其不会指派一个默认值
+ 1var myString : String = &quot;he">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手写代码UIButton图片和文字位置的设置">
-<meta property="og:url" content="http://yoursite.com/2014/08/12/手写代码UIButton图片和文字位置的设置/index.html">
+<meta property="og:title" content="swift初体验（一）">
+<meta property="og:url" content="http://yoursite.com/2015/06/21/swift初体验（一）/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description" content="首先对button的初始化，以及图片和文字的设置
- 1234567891011121314151617181920212223242526//添加放弃和留下按钮   UIButton *dropBtn = [UIButton buttonWithType:UIButtonTypeCustom];   dropBtn.frame = CGRectMake(1*WIDHT/5, getViewHeig">
-<meta property="og:image" content="/images/手写UIButton/20150812.png">
+<meta property="og:description" content="常量和变量
+在swift中我们用let来定义一个常量，如果我们在下面在对a进行赋值的话编译器会给我们报错的
+ 1let a = 0
+
+我们用var来定义一个变量，在swift编译器会自动辨别你所定义的类型，如果我们要显示的定义一个类型，我们可以在变量后面加个:类型，在swift没有进行初始化的值是不能被直接使用的，因为其不会指派一个默认值
+ 1var myString : String = &quot;he">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手写代码UIButton图片和文字位置的设置">
-<meta name="twitter:description" content="首先对button的初始化，以及图片和文字的设置
- 1234567891011121314151617181920212223242526//添加放弃和留下按钮   UIButton *dropBtn = [UIButton buttonWithType:UIButtonTypeCustom];   dropBtn.frame = CGRectMake(1*WIDHT/5, getViewHeig">
+<meta name="twitter:title" content="swift初体验（一）">
+<meta name="twitter:description" content="常量和变量
+在swift中我们用let来定义一个常量，如果我们在下面在对a进行赋值的话编译器会给我们报错的
+ 1let a = 0
+
+我们用var来定义一个变量，在swift编译器会自动辨别你所定义的类型，如果我们要显示的定义一个类型，我们可以在变量后面加个:类型，在swift没有进行初始化的值是不能被直接使用的，因为其不会指派一个默认值
+ 1var myString : String = &quot;he">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -82,14 +93,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/08/12/手写代码UIButton图片和文字位置的设置/" title="手写代码UIButton图片和文字位置的设置" itemprop="url">手写代码UIButton图片和文字位置的设置</a>
+      <a href="/2015/06/21/swift初体验（一）/" title="swift初体验（一）" itemprop="url">swift初体验（一）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2014-08-12T05:39:25.000Z" itemprop="datePublished"> 发表于 2014-08-12</time>
+    <time datetime="2015-06-21T14:54:13.000Z" itemprop="datePublished"> 发表于 2015-06-21</time>
     
   </p>
 </header>
@@ -98,19 +109,43 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常量和变量"><span class="toc-number">1.</span> <span class="toc-text">常量和变量</span></a></li></ol>
 		
 		</div>
 		
-		<ol>
-<li><p>首先对button的初始化，以及图片和文字的设置</p>
- <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加放弃和留下按钮</span></span><br><span class="line">   UIButton *dropBtn = [UIButton <span class="string">buttonWithType:</span>UIButtonTypeCustom];</span><br><span class="line">   dropBtn.frame = CGRectMake(<span class="number">1</span>*WIDHT/<span class="number">5</span>, getViewHeight(foodNameLabel)+<span class="number">50</span>, <span class="number">60</span>, <span class="number">60</span>);</span><br><span class="line">   [dropBtn <span class="string">setImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"icon_No@2x.png"</span>] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line"></span><br><span class="line">   dropBtn.titleLabel.font = [UIFont <span class="string">systemFontOfSize:</span><span class="number">15</span>];</span><br><span class="line">   [dropBtn <span class="string">setTitleColor:</span>[UIColor blackColor] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   [dropBtn <span class="string">setTitle:</span>@<span class="string">"放弃"</span> <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   dropBtn.imageEdgeInsets = UIEdgeInsetsMake(<span class="number">0</span>, -<span class="number">15</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   dropBtn.titleEdgeInsets = UIEdgeInsetsMake( <span class="number">0</span>, -<span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   [dropBtn <span class="string">addTarget:</span>self <span class="string">action:</span><span class="annotation">@selector</span>(<span class="string">dropAction:</span>) <span class="string">forControlEvents:</span>UIControlEventTouchUpInside];</span><br><span class="line">   </span><br><span class="line">   [self.view <span class="string">addSubview:</span>dropBtn];</span><br><span class="line">   </span><br><span class="line">   UIButton *keepBtn = [UIButton <span class="string">buttonWithType:</span>UIButtonTypeCustom];</span><br><span class="line">   keepBtn.frame = CGRectMake(WIDHT - <span class="number">1</span>*WIDHT/<span class="number">5</span> - <span class="number">60</span>, getViewHeight(foodNameLabel)+<span class="number">50</span>, <span class="number">60</span>, <span class="number">60</span>);</span><br><span class="line">   [keepBtn <span class="string">setImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"icon_OK@2x.png"</span>] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   </span><br><span class="line">   keepBtn.titleLabel.font = [UIFont <span class="string">systemFontOfSize:</span><span class="number">15</span>];</span><br><span class="line">   [keepBtn <span class="string">setTitleColor:</span>[UIColor blackColor] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   [keepBtn <span class="string">setTitle:</span>@<span class="string">"留下"</span> <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   keepBtn.imageEdgeInsets = UIEdgeInsetsMake(<span class="number">0</span>, <span class="number">35</span>, <span class="number">0</span>, -<span class="number">15</span>);</span><br><span class="line">   keepBtn.titleEdgeInsets = UIEdgeInsetsMake( <span class="number">0</span>, -<span class="number">65</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   [keepBtn <span class="string">addTarget:</span>self <span class="string">action:</span><span class="annotation">@selector</span>(<span class="string">keepAction:</span>) <span class="string">forControlEvents:</span>UIControlEventTouchUpInside];</span><br><span class="line">   </span><br><span class="line">   [self.view <span class="string">addSubview:</span>keepBtn];</span><br></pre></td></tr></table></figure>
+		<h3 id="常量和变量">常量和变量</h3><ol>
+<li><p>在swift中我们用<code>let</code>来定义一个常量，如果我们在下面在对a进行赋值的话编译器会给我们报错的</p>
+ <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">a =</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 </li>
+<li><p>我们用<code>var</code>来定义一个变量，在swift编译器会自动辨别你所定义的类型，如果我们要显示的定义一个类型，我们可以在变量后面加个<code>:类型</code>，在swift没有进行初始化的值是不能被直接使用的，因为其不会指派一个默认值</p>
+ <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myString : <span class="built_in">String</span> = <span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在swift中变量主要有Int，Float，Double，String，Bool；当然还有其他的一些基本类型，但是我们主要就是用这些，不知道大家发现了没有，这些和我们在OC中的类型略有区别，他们都是首字母大写的</p>
+</li>
+<li><p>swift中引进了一个新的类型就是元组Tuples,大家可以看到元组有些类似数组，但是有不同于数组，并且和字典也有些许的类似，我觉得可以算作是字典和数组的整合，在元组中我们如果只想取出其中某个值，而其他的我们不在意，那么我们可以用<code>_</code>来代替那个不在意的值</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> registrationRestult = (<span class="literal">true</span>, <span class="string">"好烦"</span>, <span class="string">"男"</span>)</span><br><span class="line">registrationRestult.<span class="number">0</span></span><br><span class="line">registrationRestult.<span class="number">1</span></span><br><span class="line">registrationRestult.<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> <span class="built_in">test</span> = (<span class="built_in">test</span>1:<span class="literal">true</span>, <span class="built_in">test</span>2:<span class="string">"好烦"</span>, <span class="built_in">test</span>3:<span class="string">"真的好烦"</span>)</span><br><span class="line"></span><br><span class="line">test.test1</span><br><span class="line">test.test2</span><br><span class="line">test.test3</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> loginResult : (Bool, String) = (<span class="literal">true</span>, <span class="string">"hahaha"</span>)</span><br><span class="line"><span class="built_in">let</span> (isLoginSuccess, _) = loginResult</span><br><span class="line">isLoginSuccess</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if语句，在swift中我们不能用真值来直接当做true来判断，我们必须指明一个逻辑的值，要么是一个布尔值，要么就是表达式</p>
+</li>
+<li>可选型Optionals，就是指或者是一个值，或者是没有值，没有值时为nil，如下，第二行我们并没有初始化，但是打印出来的是nil，当然我们也可以进行初始化如下第三行，我们可以在确定一定有值得情况下，在值后面加<code>!</code>来说明他肯定是有值的，加<code>!</code>也叫作对可选型的解包这就是可选型了</li>
 </ol>
-<ol>
-<li><p>以上就是所有代码，其中下列代码是对图片和文字位置的设置，UIEdgeInsets属性就上左下右的顺序设置，<code>‘-’加到数字前就是指负向偏移，‘+’是正向偏移</code>，其实imageEdgeInsets中的第一个数值是对图片对于button上边距的距离，第二个数值是对图片对于button左边距的距离，第三个数值是对图片对于button下边距的距离，第四个数值是对图片对于button的右边距的距离，而titleEdgeInsets的设置类似的。</p>
- <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keepBtn.<span class="variable">imageEdgeInsets =</span> UIEdgeInsetsMake(<span class="number">0</span>, <span class="number">35</span>, <span class="number">0</span>, -<span class="number">15</span>);</span><br><span class="line">keepBtn.<span class="variable">titleEdgeInsets =</span> UIEdgeInsetsMake( <span class="number">0</span>, -<span class="number">65</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<p> 我所实现的效果图如下：<br> <img src="/images/手写UIButton/20150812.png" alt="image"><br> 具体需要实现什么效果还是需要你自己把握的</p>
+<pre><code><span class="comment"><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imOptionalVariable:Int?</span><br><span class="line"></span><br><span class="line">imOptionalVariable</span><br><span class="line"></span><br><span class="line">imOptionalVariable = <span class="number">13</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><ol>
+<li>Objective-C中nil是一个空指针，二swift中nil所指更加广泛，我们甚至可以赋值Int，Float类型为nil</li>
+<li><p>nil聚合运算符，是在可选型进行判断时进行使用的，不过b是需要和a解包后的类型一致的</p>
+ <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">a</span> ?? b  =&gt;  <span class="operator">a</span> != nil ? <span class="operator">a</span>! : b</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建数组和字典使用<code>[]</code>,以<code>[]</code>中的值来区分到底是字典还是数组，字典的话是一个一个键值对，创建一个空的字典或者是数组使用<code>[类名]()</code>的形式</p>
+ <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 数组</span><br><span class="line">var shoppingList = ["catfish", "water", "tulips", "blue paint"]</span><br><span class="line">// 字典</span><br><span class="line">var occupations = [</span><br><span class="line"><span class="code">	"Malcolm" : "Captain",</span></span><br><span class="line"><span class="code">	"Kaylee" : "Mechanic"</span></span><br><span class="line">]</span><br><span class="line">// 为字典添加一个键为“Jayne”的值</span><br><span class="line">occupations["Jayne"] = "Public Relations"</span><br><span class="line">// 空字符串类型的数组</span><br><span class="line">let emptyArray = [<span class="link_label">String</span>](<span class="link_url"></span>)</span><br><span class="line">// 空字典</span><br><span class="line">let emptyDictionary = [<span class="link_label">String:Float</span>](<span class="link_url"></span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if和for-in</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let individualScores = [75, 43, 103, 87, 12]</span><br><span class="line"><span class="keyword">var</span> teamScore = 0</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">score</span> <span class="keyword">in</span> individualScores &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">score</span> &gt; 50 &#123;</span><br><span class="line">		teamScore += 3</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		teamScore += 1</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">print</span>(teamScore)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>区间运算符</p>
+<blockquote>
+<p>闭区间[a,b] =&gt; a…b</p>
+<p>前闭后开区间[a,b) =&gt; a..&lt;b</p>
+</blockquote>
 </li>
 </ol>
   
@@ -121,7 +156,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/手写Button设置/">手写Button设置</a>
+  <span></span> <a href="/tags/swift/">swift</a>
   </div>
 
 </div>
@@ -130,7 +165,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2014/08/12/手写代码UIButton图片和文字位置的设置/" data-title="手写代码UIButton图片和文字位置的设置 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/06/21/swift初体验（一）/" data-title="swift初体验（一） | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,19 +178,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/09/08/iOS-Pch文件的使用/" title="iOS--Pch文件的使用">
-  <strong>上一篇：</strong><br/>
-  <span>
-  iOS--Pch文件的使用</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/08/12/Xcode已安装插件的删除/"  title="Xcode已安装插件的删除">
+<a href="/2014/09/08/iOS-Pch文件的使用/"  title="iOS--Pch文件的使用">
  <strong>下一篇：</strong><br/> 
- <span>Xcode已安装插件的删除
+ <span>iOS--Pch文件的使用
 </span>
 </a>
 </div>
@@ -170,7 +197,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常量和变量"><span class="toc-number">1.</span> <span class="toc-text">常量和变量</span></a></li></ol>
  
   </div>
 

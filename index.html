@@ -80,6 +80,95 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/06/21/swift初体验（一）/" title="swift初体验（一）" itemprop="url">swift初体验（一）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2015-06-21T14:54:13.000Z" itemprop="datePublished"> 发表于 2015-06-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="常量和变量">常量和变量</h3><ol>
+<li><p>在swift中我们用<code>let</code>来定义一个常量，如果我们在下面在对a进行赋值的话编译器会给我们报错的</p>
+ <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">a =</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我们用<code>var</code>来定义一个变量，在swift编译器会自动辨别你所定义的类型，如果我们要显示的定义一个类型，我们可以在变量后面加个<code>:类型</code>，在swift没有进行初始化的值是不能被直接使用的，因为其不会指派一个默认值</p>
+ <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myString : <span class="built_in">String</span> = <span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在swift中变量主要有Int，Float，Double，String，Bool；当然还有其他的一些基本类型，但是我们主要就是用这些，不知道大家发现了没有，这些和我们在OC中的类型略有区别，他们都是首字母大写的</p>
+</li>
+<li><p>swift中引进了一个新的类型就是元组Tuples,大家可以看到元组有些类似数组，但是有不同于数组，并且和字典也有些许的类似，我觉得可以算作是字典和数组的整合，在元组中我们如果只想取出其中某个值，而其他的我们不在意，那么我们可以用<code>_</code>来代替那个不在意的值</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> registrationRestult = (<span class="literal">true</span>, <span class="string">"好烦"</span>, <span class="string">"男"</span>)</span><br><span class="line">registrationRestult.<span class="number">0</span></span><br><span class="line">registrationRestult.<span class="number">1</span></span><br><span class="line">registrationRestult.<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> <span class="built_in">test</span> = (<span class="built_in">test</span>1:<span class="literal">true</span>, <span class="built_in">test</span>2:<span class="string">"好烦"</span>, <span class="built_in">test</span>3:<span class="string">"真的好烦"</span>)</span><br><span class="line"></span><br><span class="line">test.test1</span><br><span class="line">test.test2</span><br><span class="line">test.test3</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> loginResult : (Bool, String) = (<span class="literal">true</span>, <span class="string">"hahaha"</span>)</span><br><span class="line"><span class="built_in">let</span> (isLoginSuccess, _) = loginResult</span><br><span class="line">isLoginSuccess</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if语句，在swift中我们不能用真值来直接当做true来判断，我们必须指明一个逻辑的值，要么是一个布尔值，要么就是表达式</p>
+</li>
+<li>可选型Optionals，就是指或者是一个值，或者是没有值，没有值时为nil，如下，第二行我们并没有初始化，但是打印出来的是nil，当然我们也可以进行初始化如下第三行，我们可以在确定一定有值得情况下，在值后面加<code>!</code>来说明他肯定是有值的，加<code>!</code>也叫作对可选型的解包这就是可选型了</li>
+</ol>
+<pre><code><span class="comment"><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imOptionalVariable:Int?</span><br><span class="line"></span><br><span class="line">imOptionalVariable</span><br><span class="line"></span><br><span class="line">imOptionalVariable = <span class="number">13</span></span><br></pre></td></tr></table></figure></span>
+</code></pre><ol>
+<li>Objective-C中nil是一个空指针，二swift中nil所指更加广泛，我们甚至可以赋值Int，Float类型为nil</li>
+<li><p>nil聚合运算符，是在可选型进行判断时进行使用的，不过b是需要和a解包后的类型一致的</p>
+ <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">a</span> ?? b  =&gt;  <span class="operator">a</span> != nil ? <span class="operator">a</span>! : b</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建数组和字典使用<code>[]</code>,以<code>[]</code>中的值来区分到底是字典还是数组，字典的话是一个一个键值对，创建一个空的字典或者是数组使用<code>[类名]()</code>的形式</p>
+ <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 数组</span><br><span class="line">var shoppingList = ["catfish", "water", "tulips", "blue paint"]</span><br><span class="line">// 字典</span><br><span class="line">var occupations = [</span><br><span class="line"><span class="code">	"Malcolm" : "Captain",</span></span><br><span class="line"><span class="code">	"Kaylee" : "Mechanic"</span></span><br><span class="line">]</span><br><span class="line">// 为字典添加一个键为“Jayne”的值</span><br><span class="line">occupations["Jayne"] = "Public Relations"</span><br><span class="line">// 空字符串类型的数组</span><br><span class="line">let emptyArray = [<span class="link_label">String</span>](<span class="link_url"></span>)</span><br><span class="line">// 空字典</span><br><span class="line">let emptyDictionary = [<span class="link_label">String:Float</span>](<span class="link_url"></span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if和for-in</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let individualScores = [75, 43, 103, 87, 12]</span><br><span class="line"><span class="keyword">var</span> teamScore = 0</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">score</span> <span class="keyword">in</span> individualScores &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">score</span> &gt; 50 &#123;</span><br><span class="line">		teamScore += 3</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		teamScore += 1</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">print</span>(teamScore)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>区间运算符</p>
+<blockquote>
+<p>闭区间[a,b] =&gt; a…b</p>
+<p>前闭后开区间[a,b) =&gt; a..&lt;b</p>
+</blockquote>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/swift/">swift</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2014/09/08/iOS-Pch文件的使用/" title="iOS--Pch文件的使用" itemprop="url">iOS--Pch文件的使用</a>
   </h1>
   <p class="article-author">By
@@ -203,67 +292,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/08/12/Xcode已安装插件的删除/" title="Xcode已安装插件的删除" itemprop="url">Xcode已安装插件的删除</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2014-08-12T05:16:29.000Z" itemprop="datePublished"> 发表于 2014-08-12</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>首先进入iterm编辑器中，在home下输入如下命令：</p>
- <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ Library<span class="regexp">/Application\ Support/</span>Developer<span class="regexp">/Shared/</span>Xcode<span class="regexp">/Plug-ins/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入该文件夹下，你可以看到你所装的所有的插件，这是你想删除那个直接将那个文件夹删除就行了，什么？！你不知道怎么删除文件夹，好吧，你按如下操作就可以删除了，不过删除时你要小心了哦，<code>这个命令可是不会提醒你要删除哪个文件的</code>，请务必确认好你要删除的文件，删错了就不好了。</p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>rm -rf 文件名</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Xcode插件删除/">Xcode插件删除</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -284,7 +312,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
+				<li><a href="/tags/Pch文件/" title=".Pch文件">.Pch文件<sup>1</sup></a></li>
 			
 		
 			
@@ -300,6 +328,10 @@
 			
 		
 			
+				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MD5加密/" title="MD5加密">MD5加密<sup>1</sup></a></li>
 			
 		
@@ -312,11 +344,11 @@
 			
 		
 			
-				<li><a href="/tags/Pch文件/" title=".Pch文件">.Pch文件<sup>1</sup></a></li>
+				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
 			
 		
 			
@@ -417,7 +449,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="http://yoursite.com/about" target="_blank" title="Vodka">Vodka</a>
 		
