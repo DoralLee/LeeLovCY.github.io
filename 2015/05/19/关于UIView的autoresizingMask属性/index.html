@@ -4,28 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>SVN常用命令集合 | Vodka&#39;s Blog</title>
+    <title>关于UIView的autoresizingMask属性 | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description" content="SVN常用命令集
-
-svn info 查询svn根目录的信息，这个命令当你想知道某个svn目录是从哪个服务器上下来的时候特别有效svn add 增加一个文件到根目录里，注意要用svn commit上传这个修改svn status 查询当前目录下文件修改的情况，a表示增加，M表示修改svn diff 查看本目录下所有的文件有哪些区别，当然可以指定到文件名svn commit -m “fix bug”">
+    <meta name="description" content="在 UIView 中有一个autoresizingMask的属性，它对应的是一个枚举的值（如下），属性的意思就是自动调整子控件与父控件中间的位置、宽高。
+123456789enum &amp;#123;   UIViewAutoresizingNone                 = 0, //不自动调整   UIViewAutoresizingFlexibleLeftMargin   = 1 &amp;lt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SVN常用命令集合">
-<meta property="og:url" content="http://yoursite.com/2014/07/04/SVN常用命令集合/index.html">
+<meta property="og:title" content="关于UIView的autoresizingMask属性">
+<meta property="og:url" content="http://yoursite.com/2015/05/19/关于UIView的autoresizingMask属性/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description" content="SVN常用命令集
-
-svn info 查询svn根目录的信息，这个命令当你想知道某个svn目录是从哪个服务器上下来的时候特别有效svn add 增加一个文件到根目录里，注意要用svn commit上传这个修改svn status 查询当前目录下文件修改的情况，a表示增加，M表示修改svn diff 查看本目录下所有的文件有哪些区别，当然可以指定到文件名svn commit -m “fix bug”">
+<meta property="og:description" content="在 UIView 中有一个autoresizingMask的属性，它对应的是一个枚举的值（如下），属性的意思就是自动调整子控件与父控件中间的位置、宽高。
+123456789enum &amp;#123;   UIViewAutoresizingNone                 = 0, //不自动调整   UIViewAutoresizingFlexibleLeftMargin   = 1 &amp;lt">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SVN常用命令集合">
-<meta name="twitter:description" content="SVN常用命令集
-
-svn info 查询svn根目录的信息，这个命令当你想知道某个svn目录是从哪个服务器上下来的时候特别有效svn add 增加一个文件到根目录里，注意要用svn commit上传这个修改svn status 查询当前目录下文件修改的情况，a表示增加，M表示修改svn diff 查看本目录下所有的文件有哪些区别，当然可以指定到文件名svn commit -m “fix bug”">
+<meta name="twitter:title" content="关于UIView的autoresizingMask属性">
+<meta name="twitter:description" content="在 UIView 中有一个autoresizingMask的属性，它对应的是一个枚举的值（如下），属性的意思就是自动调整子控件与父控件中间的位置、宽高。
+123456789enum &amp;#123;   UIViewAutoresizingNone                 = 0, //不自动调整   UIViewAutoresizingFlexibleLeftMargin   = 1 &amp;lt">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -84,14 +81,14 @@ svn info 查询svn根目录的信息，这个命令当你想知道某个svn目�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/04/SVN常用命令集合/" title="SVN常用命令集合" itemprop="url">SVN常用命令集合</a>
+      <a href="/2015/05/19/关于UIView的autoresizingMask属性/" title="关于UIView的autoresizingMask属性" itemprop="url">关于UIView的autoresizingMask属性</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2014-07-04T01:16:36.000Z" itemprop="datePublished"> 发表于 2014-07-04</time>
+    <time datetime="2015-05-19T02:57:39.000Z" itemprop="datePublished"> 发表于 2015-05-19</time>
     
   </p>
 </header>
@@ -104,13 +101,9 @@ svn info 查询svn根目录的信息，这个命令当你想知道某个svn目�
 		
 		</div>
 		
-		<ol>
-<li><p>SVN常用命令集</p>
-<blockquote>
-<p>svn info 查询svn根目录的信息，这个命令当你想知道某个svn目录是从哪个服务器上下来的时候特别有效<br>svn add 增加一个文件到根目录里，注意要用svn commit上传这个修改<br>svn status 查询当前目录下文件修改的情况，a表示增加，M表示修改<br>svn diff 查看本目录下所有的文件有哪些区别，当然可以指定到文件名<br>svn commit -m “fix bug” file上传某个文件的修改，并增加注释<br>svn ci 上传所有的修改，会提示你添加修改记录<br>svn log file 查询某个文件的修改记录<br>svn checkout 从svn服务器上去一个目录，带svn信息<br>svn export 从svn服务器上取出一个目录，仅源文件，没有讨厌的.svn信息<br>svn revert 回滚本地所有的未上传的所有修改，慎用，回复该本地所有的修改操作。可一次回滚一个目录或者文件<br>svn revert file —depth=infinity 回滚该目录下的所有文件<br>svn diff -r3 rules.txt 将本地的working目录下的文件和服务器的r3版本之间进行比较<br>svn diff -r 3:2 rules.txt 比较服务器上得r2版本和r3版本    </p>
-</blockquote>
-</li>
-</ol>
+		<p>在 UIView 中有一个autoresizingMask的属性，它对应的是一个枚举的值（如下），属性的意思就是自动调整子控件与父控件中间的位置、宽高。</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingNone</span>                 = <span class="number">0</span>, <span class="comment">//不自动调整</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleLeftMargin</span>   = <span class="number">1</span> &lt;&lt; <span class="number">0</span>, <span class="comment">//自动调整与superView左边距，保证与superView右边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleWidth</span>        = <span class="number">1</span> &lt;&lt; <span class="number">1</span>, <span class="comment">//自动调整自己的宽度，保证与superView左边距和右边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleRightMargin</span>  = <span class="number">1</span> &lt;&lt; <span class="number">2</span>, <span class="comment">//自动调整与superView右边距，保证与superView左边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleTopMargin</span>    = <span class="number">1</span> &lt;&lt; <span class="number">3</span>, <span class="comment">//自动调整与superView上边距，保证与superView下边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleHeight</span>       = <span class="number">1</span> &lt;&lt; <span class="number">4</span>, <span class="comment">//自动调整自己的高度，保证与superView上边距和下边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleBottomMargin</span> = <span class="number">1</span> &lt;&lt; <span class="number">5</span> <span class="comment">//自动调整与superView下边距，保证与superView上边距不变</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当然我们可以进行组合使用的，比如：<br>UIViewAutoresizingFlexibleLeftMargin  | UIViewAutoresizingFlexibleRightMargin 自动调整与superView的左边距和右边距保证左边距和右边距与原来的左边距和右边距的比例不变。比如原来距离为20和30，调整后的距离：68/102 = 20/30</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +112,7 @@ svn info 查询svn根目录的信息，这个命令当你想知道某个svn目�
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/SVN/">SVN</a>
+  <span></span> <a href="/tags/autoresizingMask/">autoresizingMask</a>
   </div>
 
 </div>
@@ -128,7 +121,7 @@ svn info 查询svn根目录的信息，这个命令当你想知道某个svn目�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2014/07/04/SVN常用命令集合/" data-title="SVN常用命令集合 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/05/19/关于UIView的autoresizingMask属性/" data-title="关于UIView的autoresizingMask属性 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -142,18 +135,18 @@ svn info 查询svn根目录的信息，这个命令当你想知道某个svn目�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/07/21/OC数组排序/" title="OC数组排序">
+ <a href="/2015/06/21/swift初体验（一）/" title="swift初体验（一）">
   <strong>上一篇：</strong><br/>
   <span>
-  OC数组排序</span>
+  swift初体验（一）</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/05/25/CocoaPods-下载和安装/"  title="CocoaPods 下载和安装">
+<a href="/2014/09/08/iOS-Pch文件的使用/"  title="iOS--Pch文件的使用">
  <strong>下一篇：</strong><br/> 
- <span>CocoaPods 下载和安装
+ <span>iOS--Pch文件的使用
 </span>
 </a>
 </div>
