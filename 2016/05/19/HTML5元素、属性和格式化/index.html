@@ -4,26 +4,64 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>手写代码UIButton图片和文字位置的设置 | Vodka&#39;s Blog</title>
+    <title>HTML5元素、属性和格式化 | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description" content="首先对button的初始化，以及图片和文字的设置
- 1234567891011121314151617181920212223242526//添加放弃和留下按钮   UIButton *dropBtn = [UIButton buttonWithType:UIButtonTypeCustom];   dropBtn.frame = CGRectMake(1*WIDHT/5, getViewHeig">
+    <meta name="description" content="HTML5元素简介及使用方法
+元素指的是从开始标签到结束标签的所以代码
+HTML元素语法：
+元素的内容是开始标签和结束标签 空元素在开始标签中进行关闭 大多数HTML元素可拥有属性
+
+
+嵌套的HTML元素
+大多数的HTML元素都是可以嵌套的
+
+
+
+HTML5属性使用方法
+标签可以拥有属性为元素提供更多的信息
+属性以键/值对的形式出现 如：href=”http:www.baidu.com”
+常用标签">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手写代码UIButton图片和文字位置的设置">
-<meta property="og:url" content="http://yoursite.com/2014/08/12/手写代码UIButton图片和文字位置的设置/index.html">
+<meta property="og:title" content="HTML5元素、属性和格式化">
+<meta property="og:url" content="http://yoursite.com/2016/05/19/HTML5元素、属性和格式化/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description" content="首先对button的初始化，以及图片和文字的设置
- 1234567891011121314151617181920212223242526//添加放弃和留下按钮   UIButton *dropBtn = [UIButton buttonWithType:UIButtonTypeCustom];   dropBtn.frame = CGRectMake(1*WIDHT/5, getViewHeig">
-<meta property="og:image" content="/images/手写UIButton/20150812.png">
+<meta property="og:description" content="HTML5元素简介及使用方法
+元素指的是从开始标签到结束标签的所以代码
+HTML元素语法：
+元素的内容是开始标签和结束标签 空元素在开始标签中进行关闭 大多数HTML元素可拥有属性
+
+
+嵌套的HTML元素
+大多数的HTML元素都是可以嵌套的
+
+
+
+HTML5属性使用方法
+标签可以拥有属性为元素提供更多的信息
+属性以键/值对的形式出现 如：href=”http:www.baidu.com”
+常用标签">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手写代码UIButton图片和文字位置的设置">
-<meta name="twitter:description" content="首先对button的初始化，以及图片和文字的设置
- 1234567891011121314151617181920212223242526//添加放弃和留下按钮   UIButton *dropBtn = [UIButton buttonWithType:UIButtonTypeCustom];   dropBtn.frame = CGRectMake(1*WIDHT/5, getViewHeig">
+<meta name="twitter:title" content="HTML5元素、属性和格式化">
+<meta name="twitter:description" content="HTML5元素简介及使用方法
+元素指的是从开始标签到结束标签的所以代码
+HTML元素语法：
+元素的内容是开始标签和结束标签 空元素在开始标签中进行关闭 大多数HTML元素可拥有属性
+
+
+嵌套的HTML元素
+大多数的HTML元素都是可以嵌套的
+
+
+
+HTML5属性使用方法
+标签可以拥有属性为元素提供更多的信息
+属性以键/值对的形式出现 如：href=”http:www.baidu.com”
+常用标签">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -82,14 +120,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/08/12/手写代码UIButton图片和文字位置的设置/" title="手写代码UIButton图片和文字位置的设置" itemprop="url">手写代码UIButton图片和文字位置的设置</a>
+      <a href="/2016/05/19/HTML5元素、属性和格式化/" title="HTML5元素、属性和格式化" itemprop="url">HTML5元素、属性和格式化</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2014-08-12T05:39:25.000Z" itemprop="datePublished"> 发表于 2014-08-12</time>
+    <time datetime="2016-05-19T06:25:42.000Z" itemprop="datePublished"> 发表于 2016-05-19</time>
     
   </p>
 </header>
@@ -98,20 +136,192 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5元素简介及使用方法"><span class="toc-number">1.</span> <span class="toc-text">HTML5元素简介及使用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5属性使用方法"><span class="toc-number">2.</span> <span class="toc-text">HTML5属性使用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML格式化"><span class="toc-number">3.</span> <span class="toc-text">HTML格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5样式的使用"><span class="toc-number">4.</span> <span class="toc-text">HTML5样式的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML链接"><span class="toc-number">5.</span> <span class="toc-text">HTML链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML表格"><span class="toc-number">6.</span> <span class="toc-text">HTML表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5列表、块和布局"><span class="toc-number">7.</span> <span class="toc-text">HTML5列表、块和布局</span></a></li></ol>
 		
 		</div>
 		
-		<ol>
-<li><p>首先对button的初始化，以及图片和文字的设置</p>
- <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加放弃和留下按钮</span></span><br><span class="line">   UIButton *dropBtn = [UIButton <span class="string">buttonWithType:</span>UIButtonTypeCustom];</span><br><span class="line">   dropBtn.frame = CGRectMake(<span class="number">1</span>*WIDHT/<span class="number">5</span>, getViewHeight(foodNameLabel)+<span class="number">50</span>, <span class="number">60</span>, <span class="number">60</span>);</span><br><span class="line">   [dropBtn <span class="string">setImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"icon_No@2x.png"</span>] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line"></span><br><span class="line">   dropBtn.titleLabel.font = [UIFont <span class="string">systemFontOfSize:</span><span class="number">15</span>];</span><br><span class="line">   [dropBtn <span class="string">setTitleColor:</span>[UIColor blackColor] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   [dropBtn <span class="string">setTitle:</span>@<span class="string">"放弃"</span> <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   dropBtn.imageEdgeInsets = UIEdgeInsetsMake(<span class="number">0</span>, -<span class="number">15</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   dropBtn.titleEdgeInsets = UIEdgeInsetsMake( <span class="number">0</span>, -<span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   [dropBtn <span class="string">addTarget:</span>self <span class="string">action:</span><span class="annotation">@selector</span>(<span class="string">dropAction:</span>) <span class="string">forControlEvents:</span>UIControlEventTouchUpInside];</span><br><span class="line">   </span><br><span class="line">   [self.view <span class="string">addSubview:</span>dropBtn];</span><br><span class="line">   </span><br><span class="line">   UIButton *keepBtn = [UIButton <span class="string">buttonWithType:</span>UIButtonTypeCustom];</span><br><span class="line">   keepBtn.frame = CGRectMake(WIDHT - <span class="number">1</span>*WIDHT/<span class="number">5</span> - <span class="number">60</span>, getViewHeight(foodNameLabel)+<span class="number">50</span>, <span class="number">60</span>, <span class="number">60</span>);</span><br><span class="line">   [keepBtn <span class="string">setImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"icon_OK@2x.png"</span>] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   </span><br><span class="line">   keepBtn.titleLabel.font = [UIFont <span class="string">systemFontOfSize:</span><span class="number">15</span>];</span><br><span class="line">   [keepBtn <span class="string">setTitleColor:</span>[UIColor blackColor] <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   [keepBtn <span class="string">setTitle:</span>@<span class="string">"留下"</span> <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line">   keepBtn.imageEdgeInsets = UIEdgeInsetsMake(<span class="number">0</span>, <span class="number">35</span>, <span class="number">0</span>, -<span class="number">15</span>);</span><br><span class="line">   keepBtn.titleEdgeInsets = UIEdgeInsetsMake( <span class="number">0</span>, -<span class="number">65</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   [keepBtn <span class="string">addTarget:</span>self <span class="string">action:</span><span class="annotation">@selector</span>(<span class="string">keepAction:</span>) <span class="string">forControlEvents:</span>UIControlEventTouchUpInside];</span><br><span class="line">   </span><br><span class="line">   [self.view <span class="string">addSubview:</span>keepBtn];</span><br></pre></td></tr></table></figure>
+		<h4 id="HTML5元素简介及使用方法">HTML5元素简介及使用方法</h4><ol>
+<li>元素指的是从开始标签到结束标签的所以代码</li>
+<li>HTML元素语法：<blockquote>
+<p>元素的内容是开始标签和结束标签<br> 空元素在开始标签中进行关闭<br> 大多数HTML元素可拥有属性</p>
+</blockquote>
+</li>
+<li>嵌套的HTML元素<blockquote>
+<p>大多数的HTML元素都是可以嵌套的</p>
+</blockquote>
 </li>
 </ol>
-<ol>
-<li><p>以上就是所有代码，其中下列代码是对图片和文字位置的设置，UIEdgeInsets属性就上左下右的顺序设置，<code>‘-’加到数字前就是指负向偏移，‘+’是正向偏移</code>，其实imageEdgeInsets中的第一个数值是对图片对于button上边距的距离，第二个数值是对图片对于button左边距的距离，第三个数值是对图片对于button下边距的距离，第四个数值是对图片对于button的右边距的距离，而titleEdgeInsets的设置类似的。</p>
- <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keepBtn.<span class="variable">imageEdgeInsets =</span> UIEdgeInsetsMake(<span class="number">0</span>, <span class="number">35</span>, <span class="number">0</span>, -<span class="number">15</span>);</span><br><span class="line">keepBtn.<span class="variable">titleEdgeInsets =</span> UIEdgeInsetsMake( <span class="number">0</span>, -<span class="number">65</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<p> 我所实现的效果图如下：<br> <img src="/images/手写UIButton/20150812.png" alt="image"><br> 具体需要实现什么效果还是需要你自己把握的</p>
+<h4 id="HTML5属性使用方法">HTML5属性使用方法</h4><ol>
+<li>标签可以拥有属性为元素提供更多的信息</li>
+<li>属性以键/值对的形式出现<br> 如：href=”http:www.baidu.com”</li>
+<li>常用标签属性：<blockquote>
+<p>h1:align 对其方式<br>body:bgcolor 背景颜色<br>a:target 规定在何处打开连接</p>
+</blockquote>
 </li>
+<li>通用属性：<blockquote>
+<p>class:规定元素的类名<br>id     :规定元素唯一ID<br>style:规定元素的样式<br>title:规定元素的额外信息</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="HTML格式化">HTML格式化</h4><table>
+<thead>
+<tr>
+<th>标签</th>
+<th style="text-align:center">描述          </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> b</td>
+<td style="text-align:center">定义粗体文本</td>
+</tr>
+<tr>
+<td> big</td>
+<td style="text-align:center">定义大号字(H5被替代)</td>
+</tr>
+<tr>
+<td> em</td>
+<td style="text-align:center">定义着重文字</td>
+</tr>
+<tr>
+<td> i</td>
+<td style="text-align:center">定义斜体字</td>
+</tr>
+<tr>
+<td> small</td>
+<td style="text-align:center">定义小号字</td>
+</tr>
+<tr>
+<td> strong</td>
+<td style="text-align:center">定义加重语气</td>
+</tr>
+<tr>
+<td> sub</td>
+<td style="text-align:center">定义下标字</td>
+</tr>
+<tr>
+<td> sup</td>
+<td style="text-align:center">定义上标字</td>
+</tr>
+<tr>
+<td> ins</td>
+<td style="text-align:center">定义插入字</td>
+</tr>
+<tr>
+<td> del</td>
+<td style="text-align:center">定义删除字</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTML5样式的使用">HTML5样式的使用</h4><ol>
+<li>标签：<br> style: 样式定义<br> link: 资源引用</li>
+<li>属性：<br> rel=”stylesheet”: 外部样式表<br> type=”text/css”: 引入文档的类型<br> margin-left: 边距</li>
+<li><p>HTML样式</p>
+<ol>
+<li><p>三种样式表插入方法：<br> 外联样式表：</p>
+ <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">href=</span><span class="string">"mystyle.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p> 内部样式表</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line"><span class="tag">body</span><span class="rules">&#123;<span class="rule"><span class="attribute">backgroun-color</span>:<span class="value">red</span></span></span>&#125;</span><br><span class="line"><span class="tag">p</span> <span class="rules">&#123;<span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">20px</span></span></span></span>&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 内联样式表</p>
+ <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">p</span> style=<span class="string">"color:red"</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="HTML链接">HTML链接</h4><ol>
+<li>链接数据：<br> 文本链接<br> 图片链接</li>
+<li>属性:<br> href属性: 指向另一个文档的链接<br> name属性: 创建文档内的链接</li>
+<li>img标签属性：<br> alt: 替换文本属性<br> width: 宽<br> height: 高</li>
+</ol>
+<h4 id="HTML表格">HTML表格</h4><table>
+<thead>
+<tr>
+<th>表格</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>table</td>
+<td style="text-align:center">定义表格</td>
+</tr>
+<tr>
+<td>caption</td>
+<td style="text-align:center">定义表格标题</td>
+</tr>
+<tr>
+<td>th</td>
+<td style="text-align:center">定义表格的表头</td>
+</tr>
+<tr>
+<td>tr</td>
+<td style="text-align:center">定义表格的行</td>
+</tr>
+<tr>
+<td>td</td>
+<td style="text-align:center">定义表格的单元</td>
+</tr>
+<tr>
+<td>thead</td>
+<td style="text-align:center">定义表格的页眉</td>
+</tr>
+<tr>
+<td>tbody</td>
+<td style="text-align:center">定义表格的主体</td>
+</tr>
+<tr>
+<td>tfoot</td>
+<td style="text-align:center">定义表格的页脚</td>
+</tr>
+<tr>
+<td>col</td>
+<td style="text-align:center">定义表格的列属性</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTML5列表、块和布局">HTML5列表、块和布局</h4><p>一. HTML列表</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ol</td>
+<td style="text-align:center">有序列表</td>
+</tr>
+<tr>
+<td>li</td>
+<td style="text-align:center">无序列表</td>
+</tr>
+<tr>
+<td>dl</td>
+<td style="text-align:center">列表项</td>
+</tr>
+<tr>
+<td>dt</td>
+<td style="text-align:center">列表</td>
+</tr>
+<tr>
+<td>dd</td>
+<td style="text-align:center">描述</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>无序列表<br> 使用标签：ul、li<br> 属性：disc、circle、square</li>
+<li>有序列表<br> 使用标签：ol、li<br> 属性：A、a、I、i、start</li>
+<li>嵌套列表<br> 使用标签：ul、ol、li</li>
+<li>自定义列表<br> 使用标签：dl、dt、dd</li>
+</ol>
+<p>二. 块元素标签的使用</p>
+<ol>
+<li>HTML块元素<br> 块元素在显示时，通常会以新行开始<br> 如：h1、p、ul</li>
+<li>HTML内联元素<br> 内联元素通常不会以新行开始<br> 如：b、a、img</li>
+<li>HTML div元素<br> div元素也别成为块元素，其主要是组合HTML元素的容器</li>
+<li>HTML span元素<br> span元素是内联元素，可作为文本的容器</li>
 </ol>
   
 	</div>
@@ -121,7 +331,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/手写Button设置/">手写Button设置</a>
+  <span></span> <a href="/tags/HTML5基础/">HTML5基础</a>
   </div>
 
 </div>
@@ -130,7 +340,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2014/08/12/手写代码UIButton图片和文字位置的设置/" data-title="手写代码UIButton图片和文字位置的设置 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/05/19/HTML5元素、属性和格式化/" data-title="HTML5元素、属性和格式化 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,19 +353,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/09/08/iOS-Pch文件的使用/" title="iOS--Pch文件的使用">
-  <strong>上一篇：</strong><br/>
-  <span>
-  iOS--Pch文件的使用</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/08/12/Xcode已安装插件的删除/"  title="Xcode已安装插件的删除">
+<a href="/2015/06/21/swift初体验（一）/"  title="swift初体验（一）">
  <strong>下一篇：</strong><br/> 
- <span>Xcode已安装插件的删除
+ <span>swift初体验（一）
 </span>
 </a>
 </div>
@@ -170,7 +372,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5元素简介及使用方法"><span class="toc-number">1.</span> <span class="toc-text">HTML5元素简介及使用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5属性使用方法"><span class="toc-number">2.</span> <span class="toc-text">HTML5属性使用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML格式化"><span class="toc-number">3.</span> <span class="toc-text">HTML格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5样式的使用"><span class="toc-number">4.</span> <span class="toc-text">HTML5样式的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML链接"><span class="toc-number">5.</span> <span class="toc-text">HTML链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML表格"><span class="toc-number">6.</span> <span class="toc-text">HTML表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5列表、块和布局"><span class="toc-number">7.</span> <span class="toc-text">HTML5列表、块和布局</span></a></li></ol>
  
   </div>
 

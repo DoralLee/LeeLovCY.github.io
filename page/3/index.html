@@ -80,6 +80,84 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2014/08/03/iOS——ViewController生命周期/" title="iOS——ViewController生命周期" itemprop="url">iOS——ViewController生命周期</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2014-08-03T08:10:57.000Z" itemprop="datePublished"> 发表于 2014-08-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="view的加载">view的加载</h3><ol>
+<li>ViewController在我们开发中经常用到，它的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。</li>
+<li>在iOS中，有两类Viewcontroller，一类是显示内容的，比如UIViewController、UITableViewController等，同时还可以自定义集成自UIViewController的XXXViewController；另一类是ViewController容器，UINavigationController和UITabBarController等，UINavigationViewController是以Stack的形式来存储和管理ViewController，UITabBarController是以Array的形式来管理Viewcontroller。和Android中Activity一样，iOS开发中，ViewController也有自己的生命周期</li>
+<li><p>首先我们来看看View的加载过程，如下图：</p>
+<p> <img src="/images/ViewController/1.png" alt="image"></p>
+<blockquote>
+<p>从图中可以看出，在view加载过程中首先会调用loadView方法，在这个方法中主要完成一些关键view的初始化工作，比如UINavigationController和UITabBarController等容器类的ViewController；接下来就是加载View，加载成功后，会接着调用ViewDidLoad方法，<code>注意:在loadView之前，是没有View的，也就是说，在这之前，view还没有被初始化。</code>完成viewDidLoad方法后，ViewController里面就成功加载view了，如上图有下角所示。</p>
+</blockquote>
+</li>
+<li><p>在Controller中创建view有两种方式，一种是通过代码创建、一种是通过storyboard或interface builder来创建，后者可以比较直观的配置view的外观和属性，storyboard配合iOS6推出的AutoLayout，应该是Apple之后主推的一种UI定制解决方案。</p>
+</li>
+</ol>
+<h3 id="view的卸载">view的卸载</h3><ol>
+<li><p>我们来看一下view是如何被卸载的</p>
+<p> <img src="/images/ViewController/2.png" alt="image"></p>
+<blockquote>
+<p>由上图可以看出，当系统给发出内存警告时，会调用didReceiveMemoeryWarning方法，如果当前有能被释放的View，系统会调用viewWillUnload方法来释放view，完成后调用viewDidUnload，至此，view就被卸载了。此时原本指向view的变量要被置为nil，具体操作是在viewDidUnload方法中调用self。XXX = nil；</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="小结">小结</h3><ol>
+<li>loadView和viewDidLoad的区别就是，loadView时view还没有生成，viewDidLoad时，view已经生成了，loadView以及viewDidLoad只会被调用一次，因为view是被懒加载的，当再次访问view时，view已存在，就不会在执行loadView和viewDidLoad，当view被添加到其他view中之前，会调用viewWillAppear，之后会调用viewDidAppear。当view从其他view中移除之前，调用viewWillDisAppear，移除之后会调用viewDidDisappear。当view不再使用时，受到内存警告时，ViewController会将view释放并将其指向为nil。</li>
+<li>ViewController的生命周期中各方法执行流程如下：<br>init—&gt;loadView—&gt;viewDidLoad—&gt;viewWillApper—&gt;viewDidApper—&gt;viewWillDisapper—&gt;viewDidDisapper—&gt;viewWillUnload-&gt;viewDidUnload—&gt;dealloc</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/viewController生命周期/">viewController生命周期</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2014/08/03/iOS开发——MD5加密算法/" title="iOS开发——MD5加密算法" itemprop="url">iOS开发——MD5加密算法</a>
   </h1>
   <p class="article-author">By
@@ -219,70 +297,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/07/04/SVN常用命令集合/" title="SVN常用命令集合" itemprop="url">SVN常用命令集合</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2014-07-04T01:16:36.000Z" itemprop="datePublished"> 发表于 2014-07-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>SVN常用命令集</p>
-<blockquote>
-<p>svn info 查询svn根目录的信息，这个命令当你想知道某个svn目录是从哪个服务器上下来的时候特别有效<br>svn add 增加一个文件到根目录里，注意要用svn commit上传这个修改<br>svn status 查询当前目录下文件修改的情况，a表示增加，M表示修改<br>svn diff 查看本目录下所有的文件有哪些区别，当然可以指定到文件名<br>svn commit -m “fix bug” file上传某个文件的修改，并增加注释<br>svn ci 上传所有的修改，会提示你添加修改记录<br>svn log file 查询某个文件的修改记录<br>svn checkout 从svn服务器上去一个目录，带svn信息<br>svn export 从svn服务器上取出一个目录，仅源文件，没有讨厌的.svn信息<br>svn revert 回滚本地所有的未上传的所有修改，慎用，回复该本地所有的修改操作。可一次回滚一个目录或者文件<br>svn revert file —depth=infinity 回滚该目录下的所有文件<br>svn diff -r3 rules.txt 将本地的working目录下的文件和服务器的r3版本之间进行比较<br>svn diff -r 3:2 rules.txt 比较服务器上得r2版本和r3版本    </p>
-</blockquote>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/SVN/">SVN</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
   </nav>
 
 </div>
@@ -300,7 +317,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
+				<li><a href="/tags/Pch文件/" title=".Pch文件">.Pch文件<sup>1</sup></a></li>
 			
 		
 			
@@ -313,6 +330,10 @@
 		
 			
 				<li><a href="/tags/手写Button设置/" title="手写Button设置">手写Button设置<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/autoresizingMask/" title="autoresizingMask">autoresizingMask<sup>1</sup></a></li>
 			
 		
 			
@@ -332,11 +353,11 @@
 			
 		
 			
-				<li><a href="/tags/Pch文件/" title=".Pch文件">.Pch文件<sup>1</sup></a></li>
+				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
 			
 		
 			
@@ -368,7 +389,7 @@
 			
 		
 			
-				<li><a href="/tags/autoresizingMask/" title="autoresizingMask">autoresizingMask<sup>1</sup></a></li>
+				<li><a href="/tags/HTML5基础/" title="HTML5基础">HTML5基础<sup>1</sup></a></li>
 			
 		
 		</ul>

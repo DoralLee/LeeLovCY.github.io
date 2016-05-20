@@ -80,6 +80,243 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/19/HTML5元素、属性和格式化/" title="HTML5元素、属性和格式化" itemprop="url">HTML5元素、属性和格式化</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-19T06:25:42.000Z" itemprop="datePublished"> 发表于 2016-05-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="HTML5元素简介及使用方法">HTML5元素简介及使用方法</h4><ol>
+<li>元素指的是从开始标签到结束标签的所以代码</li>
+<li>HTML元素语法：<blockquote>
+<p>元素的内容是开始标签和结束标签<br> 空元素在开始标签中进行关闭<br> 大多数HTML元素可拥有属性</p>
+</blockquote>
+</li>
+<li>嵌套的HTML元素<blockquote>
+<p>大多数的HTML元素都是可以嵌套的</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="HTML5属性使用方法">HTML5属性使用方法</h4><ol>
+<li>标签可以拥有属性为元素提供更多的信息</li>
+<li>属性以键/值对的形式出现<br> 如：href=”http:www.baidu.com”</li>
+<li>常用标签属性：<blockquote>
+<p>h1:align 对其方式<br>body:bgcolor 背景颜色<br>a:target 规定在何处打开连接</p>
+</blockquote>
+</li>
+<li>通用属性：<blockquote>
+<p>class:规定元素的类名<br>id     :规定元素唯一ID<br>style:规定元素的样式<br>title:规定元素的额外信息</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="HTML格式化">HTML格式化</h4><table>
+<thead>
+<tr>
+<th>标签</th>
+<th style="text-align:center">描述          </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> b</td>
+<td style="text-align:center">定义粗体文本</td>
+</tr>
+<tr>
+<td> big</td>
+<td style="text-align:center">定义大号字(H5被替代)</td>
+</tr>
+<tr>
+<td> em</td>
+<td style="text-align:center">定义着重文字</td>
+</tr>
+<tr>
+<td> i</td>
+<td style="text-align:center">定义斜体字</td>
+</tr>
+<tr>
+<td> small</td>
+<td style="text-align:center">定义小号字</td>
+</tr>
+<tr>
+<td> strong</td>
+<td style="text-align:center">定义加重语气</td>
+</tr>
+<tr>
+<td> sub</td>
+<td style="text-align:center">定义下标字</td>
+</tr>
+<tr>
+<td> sup</td>
+<td style="text-align:center">定义上标字</td>
+</tr>
+<tr>
+<td> ins</td>
+<td style="text-align:center">定义插入字</td>
+</tr>
+<tr>
+<td> del</td>
+<td style="text-align:center">定义删除字</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTML5样式的使用">HTML5样式的使用</h4><ol>
+<li>标签：<br> style: 样式定义<br> link: 资源引用</li>
+<li>属性：<br> rel=”stylesheet”: 外部样式表<br> type=”text/css”: 引入文档的类型<br> margin-left: 边距</li>
+<li><p>HTML样式</p>
+<ol>
+<li><p>三种样式表插入方法：<br> 外联样式表：</p>
+ <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">href=</span><span class="string">"mystyle.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p> 内部样式表</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line"><span class="tag">body</span><span class="rules">&#123;<span class="rule"><span class="attribute">backgroun-color</span>:<span class="value">red</span></span></span>&#125;</span><br><span class="line"><span class="tag">p</span> <span class="rules">&#123;<span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">20px</span></span></span></span>&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 内联样式表</p>
+ <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">p</span> style=<span class="string">"color:red"</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="HTML链接">HTML链接</h4><ol>
+<li>链接数据：<br> 文本链接<br> 图片链接</li>
+<li>属性:<br> href属性: 指向另一个文档的链接<br> name属性: 创建文档内的链接</li>
+<li>img标签属性：<br> alt: 替换文本属性<br> width: 宽<br> height: 高</li>
+</ol>
+<h4 id="HTML表格">HTML表格</h4><table>
+<thead>
+<tr>
+<th>表格</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>table</td>
+<td style="text-align:center">定义表格</td>
+</tr>
+<tr>
+<td>caption</td>
+<td style="text-align:center">定义表格标题</td>
+</tr>
+<tr>
+<td>th</td>
+<td style="text-align:center">定义表格的表头</td>
+</tr>
+<tr>
+<td>tr</td>
+<td style="text-align:center">定义表格的行</td>
+</tr>
+<tr>
+<td>td</td>
+<td style="text-align:center">定义表格的单元</td>
+</tr>
+<tr>
+<td>thead</td>
+<td style="text-align:center">定义表格的页眉</td>
+</tr>
+<tr>
+<td>tbody</td>
+<td style="text-align:center">定义表格的主体</td>
+</tr>
+<tr>
+<td>tfoot</td>
+<td style="text-align:center">定义表格的页脚</td>
+</tr>
+<tr>
+<td>col</td>
+<td style="text-align:center">定义表格的列属性</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTML5列表、块和布局">HTML5列表、块和布局</h4><p>一. HTML列表</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ol</td>
+<td style="text-align:center">有序列表</td>
+</tr>
+<tr>
+<td>li</td>
+<td style="text-align:center">无序列表</td>
+</tr>
+<tr>
+<td>dl</td>
+<td style="text-align:center">列表项</td>
+</tr>
+<tr>
+<td>dt</td>
+<td style="text-align:center">列表</td>
+</tr>
+<tr>
+<td>dd</td>
+<td style="text-align:center">描述</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>无序列表<br> 使用标签：ul、li<br> 属性：disc、circle、square</li>
+<li>有序列表<br> 使用标签：ol、li<br> 属性：A、a、I、i、start</li>
+<li>嵌套列表<br> 使用标签：ul、ol、li</li>
+<li>自定义列表<br> 使用标签：dl、dt、dd</li>
+</ol>
+<p>二. 块元素标签的使用</p>
+<ol>
+<li>HTML块元素<br> 块元素在显示时，通常会以新行开始<br> 如：h1、p、ul</li>
+<li>HTML内联元素<br> 内联元素通常不会以新行开始<br> 如：b、a、img</li>
+<li>HTML div元素<br> div元素也别成为块元素，其主要是组合HTML元素的容器</li>
+<li>HTML span元素<br> span元素是内联元素，可作为文本的容器</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HTML5基础/">HTML5基础</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/06/21/swift初体验（一）/" title="swift初体验（一）" itemprop="url">swift初体验（一）</a>
   </h1>
   <p class="article-author">By
@@ -220,73 +457,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/09/08/iOS-Pch文件的使用/" title="iOS--Pch文件的使用" itemprop="url">iOS--Pch文件的使用</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2014-09-08T06:13:53.000Z" itemprop="datePublished"> 发表于 2014-09-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="Xcode6添加pch文件">Xcode6添加pch文件</h3><p><code>前言：</code>Xcode6中不在为开发者自动创建pch文件，在pch文件中我们可以添加一些琐碎的宏定义，在项目中任何地方都可以引用，加快了编译的速度</p>
-<ol>
-<li><p>Xcode6之后的版本都是需要自己添加的,步骤如下：</p>
-<p> <img src="/images/pch/1.png" alt="image"></p>
-</li>
-<li><p>随后需要进行一些配置</p>
-<p> <img src="/images/pch/2.png" alt="image"></p>
-<p> 在上图中的第三步Prefix Header的值进行设置时最好使用<br> <code>$(SRCROOT)/工程名/pch文件名</code><br> 相对路径的书写方法，不要写成绝对路径，如果使用绝对路径会出现一些问题。</p>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Pch文件/">.Pch文件</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -304,7 +477,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
+				<li><a href="/tags/Pch文件/" title=".Pch文件">.Pch文件<sup>1</sup></a></li>
 			
 		
 			
@@ -317,6 +490,10 @@
 		
 			
 				<li><a href="/tags/手写Button设置/" title="手写Button设置">手写Button设置<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/autoresizingMask/" title="autoresizingMask">autoresizingMask<sup>1</sup></a></li>
 			
 		
 			
@@ -336,11 +513,11 @@
 			
 		
 			
-				<li><a href="/tags/Pch文件/" title=".Pch文件">.Pch文件<sup>1</sup></a></li>
+				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
 			
 		
 			
@@ -372,7 +549,7 @@
 			
 		
 			
-				<li><a href="/tags/autoresizingMask/" title="autoresizingMask">autoresizingMask<sup>1</sup></a></li>
+				<li><a href="/tags/HTML5基础/" title="HTML5基础">HTML5基础<sup>1</sup></a></li>
 			
 		
 		</ul>
