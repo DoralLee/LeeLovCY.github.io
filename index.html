@@ -80,6 +80,161 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/09/18/Javascript基础/" title="Javascript基础" itemprop="url">Javascript基础</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T05:02:18.000Z" itemprop="datePublished"> 发表于 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="JavaScript介绍、实现、输出">JavaScript介绍、实现、输出</h4><h6 id="介绍">介绍</h6><ol>
+<li>JavaScript是互联网上最流行的脚本语言，这门语言可用于web和HTML，更可广泛用于服务器、pc端、移动端。</li>
+<li>JavaScript脚本语言：<br> JavaScript是一种轻量级的编程语言<br> JavaScript是可插入HTML页面的编程代码<br> JavaScript插入HTML页面后，可有所有的浏览器执行</li>
+</ol>
+<h6 id="实现">实现</h6><ol>
+<li>JavaScript用法：<br> HTML中的脚本必须位于<script></script>标签之间<br> 脚本可被放置HTML页面的<body>和<head>部分中</head></body></li>
+<li>JavaScript标签：<br> 在HTML中插入JavaScript，使用<script>标签<br> 在<script></script>之间书写代码</li>
+<li>JavaScript使用限制：<br> 在HTML中，不限制脚本熟料<br> 通常会把脚本放置于<head>标签中，以不干扰页面内容</head></li>
+</ol>
+<p><code>未完待续</code></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/介绍、实现、输出/">介绍、实现、输出</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/22/HTML5基础之二/" title="HTML5基础之二" itemprop="url">HTML5基础之二</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-22T13:36:02.000Z" itemprop="datePublished"> 发表于 2016-05-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="HTML5表单提交和PHP环境搭建">HTML5表单提交和PHP环境搭建</h4><p>一. HTML表单</p>
+<ol>
+<li>表单用于获取不同类型的用户输入</li>
+<li>常用表单标签：<br> <img src="/images/HTML5/1.png" alt="表单标签"></li>
+<li><p>复选框</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">苹果&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span>&gt;</span><br><span class="line">香蕉&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span>&gt;</span><br><span class="line">橘子&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>单选按钮</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">请选择您的性别:</span><br><span class="line">       男&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"radio"</span> name=<span class="string">"sex"</span>&gt;</span><br><span class="line">       女&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"radio"</span> name=<span class="string">"sex"</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下拉列表</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">           &lt;option&gt;www<span class="class">.google</span><span class="class">.com</span>&lt;/option&gt;</span><br><span class="line">           &lt;option&gt;www<span class="class">.baidu</span><span class="class">.com</span>&lt;/option&gt;</span><br><span class="line">           &lt;option&gt;www<span class="class">.hahahaha</span><span class="class">.com</span>&lt;/option&gt;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文本框</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">cols</span>=<span class="value">"30"</span> <span class="attribute">rows</span>=<span class="value">"30"</span>&gt;</span>请再次输入内容<span class="tag">&lt;/<span class="title">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="HTML5框架、背景和实体">HTML5框架、背景和实体</h4><p>一. HTML5框架</p>
+<ol>
+<li>框架标签(frame):(过时)<br> 框架对于页面的设计有着很大的作用</li>
+<li>框架集标签(&lt;frameset&gt;):(过时)<br> 框架集标签定义如何将窗口分割为框架<br> 每一个frameset定义一系列行和列<br> rows/cols的值规定了每行或每列占据屏幕的面积</li>
+<li>常用标签<br> noresize：固定框架大小<br> cols：列<br> rows：行</li>
+<li>内联框架<br> iframe</li>
+</ol>
+<p>二. HTML5背景</p>
+<ol>
+<li>背景标签：<br> Background : 背景图片</li>
+<li>背景颜色：<br> BgColor</li>
+<li>颜色:<br> 颜色是有一个十六进制符号来定义，这个符号由红色、绿色和蓝色的值组成(RGB)<br> 颜色值最小值：0(#00)<br> 颜色值最大值：255(#FF)<br> 红色：#FF0000<br> 绿色：#00FF00<br> 蓝色：#0000FF</li>
+</ol>
+<p>三. HTML5实体</p>
+<ol>
+<li>实体：<br> HTML中预留字符串必须被替换成字符实体<br> 如：&lt;、&gt;、&amp;</li>
+</ol>
+<p><code>未完待续</code></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HTML5基础-2/">HTML5基础(2)</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/05/19/HTML5基础之一/" title="HTML5元素、属性和格式化" itemprop="url">HTML5元素、属性和格式化</a>
   </h1>
   <p class="article-author">By
@@ -108,11 +263,11 @@
 <li>标签可以拥有属性为元素提供更多的信息</li>
 <li>属性以键/值对的形式出现<br> 如：href=”http:www.baidu.com”</li>
 <li>常用标签属性：<blockquote>
-<p>h1:align 对其方式<br>body:bgcolor 背景颜色<br>a:target 规定在何处打开连接</p>
+<p>&lt;h1&gt;:align 对其方式<br>&lt;body&gt;:bgcolor 背景颜色<br>&lt;a&gt;:target 规定在何处打开连接</p>
 </blockquote>
 </li>
 <li>通用属性：<blockquote>
-<p>class:规定元素的类名<br>id     :规定元素唯一ID<br>style:规定元素的样式<br>title:规定元素的额外信息</p>
+<p>&lt;class&gt;:规定元素的类名<br>&lt;id&gt;     :规定元素唯一ID<br>&lt;style&gt;:规定元素的样式<br>&lt;title&gt;:规定元素的额外信息</p>
 </blockquote>
 </li>
 </ol>
@@ -125,43 +280,43 @@
 </thead>
 <tbody>
 <tr>
-<td> b</td>
+<td> &lt;b&gt;</td>
 <td style="text-align:center">定义粗体文本</td>
 </tr>
 <tr>
-<td> big</td>
+<td> &lt;big&gt;</td>
 <td style="text-align:center">定义大号字(H5被替代)</td>
 </tr>
 <tr>
-<td> em</td>
+<td> &lt;em&gt;</td>
 <td style="text-align:center">定义着重文字</td>
 </tr>
 <tr>
-<td> i</td>
+<td> &lt;i&gt;</td>
 <td style="text-align:center">定义斜体字</td>
 </tr>
 <tr>
-<td> small</td>
+<td> &lt;small&gt;</td>
 <td style="text-align:center">定义小号字</td>
 </tr>
 <tr>
-<td> strong</td>
+<td> &lt;strong&gt;</td>
 <td style="text-align:center">定义加重语气</td>
 </tr>
 <tr>
-<td> sub</td>
+<td> &lt;sub&gt;</td>
 <td style="text-align:center">定义下标字</td>
 </tr>
 <tr>
-<td> sup</td>
+<td> &lt;sup&gt;</td>
 <td style="text-align:center">定义上标字</td>
 </tr>
 <tr>
-<td> ins</td>
+<td> &lt;ins&gt;</td>
 <td style="text-align:center">定义插入字</td>
 </tr>
 <tr>
-<td> del</td>
+<td> &lt;del&gt;</td>
 <td style="text-align:center">定义删除字</td>
 </tr>
 </tbody>
@@ -195,39 +350,39 @@
 </thead>
 <tbody>
 <tr>
-<td>table</td>
+<td>&lt;table&gt;</td>
 <td style="text-align:center">定义表格</td>
 </tr>
 <tr>
-<td>caption</td>
+<td>&lt;caption&gt;</td>
 <td style="text-align:center">定义表格标题</td>
 </tr>
 <tr>
-<td>th</td>
+<td>&lt;th&gt;</td>
 <td style="text-align:center">定义表格的表头</td>
 </tr>
 <tr>
-<td>tr</td>
+<td>&lt;tr&gt;</td>
 <td style="text-align:center">定义表格的行</td>
 </tr>
 <tr>
-<td>td</td>
+<td>&lt;td&gt;</td>
 <td style="text-align:center">定义表格的单元</td>
 </tr>
 <tr>
-<td>thead</td>
+<td>&lt;thead&gt;</td>
 <td style="text-align:center">定义表格的页眉</td>
 </tr>
 <tr>
-<td>tbody</td>
+<td>&lt;tbody&gt;</td>
 <td style="text-align:center">定义表格的主体</td>
 </tr>
 <tr>
-<td>tfoot</td>
+<td>&lt;tfoot&gt;</td>
 <td style="text-align:center">定义表格的页脚</td>
 </tr>
 <tr>
-<td>col</td>
+<td>&lt;col&gt;</td>
 <td style="text-align:center">定义表格的列属性</td>
 </tr>
 </tbody>
@@ -242,32 +397,32 @@
 </thead>
 <tbody>
 <tr>
-<td>ol</td>
+<td>&lt;ol&gt;</td>
 <td style="text-align:center">有序列表</td>
 </tr>
 <tr>
-<td>li</td>
+<td>&lt;li&gt;</td>
 <td style="text-align:center">无序列表</td>
 </tr>
 <tr>
-<td>dl</td>
+<td>&lt;dl&gt;</td>
 <td style="text-align:center">列表项</td>
 </tr>
 <tr>
-<td>dt</td>
+<td>&lt;dt&gt;</td>
 <td style="text-align:center">列表</td>
 </tr>
 <tr>
-<td>dd</td>
+<td>&lt;dd&gt;</td>
 <td style="text-align:center">描述</td>
 </tr>
 </tbody>
 </table>
 <ol>
-<li>无序列表<br> 使用标签：ul、li<br> 属性：disc、circle、square</li>
-<li>有序列表<br> 使用标签：ol、li<br> 属性：A、a、I、i、start</li>
-<li>嵌套列表<br> 使用标签：ul、ol、li</li>
-<li>自定义列表<br> 使用标签：dl、dt、dd</li>
+<li>无序列表<br> 使用标签：&lt;ul&gt;、&lt;li&gt;<br> 属性：disc、circle、square</li>
+<li>有序列表<br> 使用标签：&lt;ol&gt;、&lt;li&gt;<br> 属性：A、a、I、i、start</li>
+<li>嵌套列表<br> 使用标签：&lt;ul&gt;、&lt;ol&gt;、&lt;li&gt;</li>
+<li>自定义列表<br> 使用标签：&lt;dl&gt;、&lt;dt&gt;、&lt;dd&gt;</li>
 </ol>
 <p>二. 块元素标签的使用</p>
 <ol>
@@ -278,8 +433,8 @@
 </ol>
 <p>三. HTML布局</p>
 <ol>
-<li>使用div元素布局</li>
-<li>使用table元素布局</li>
+<li>使用&lt;div&gt;元素布局</li>
+<li>使用&lt;table&gt;元素布局</li>
 </ol>
 
         
@@ -316,155 +471,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/21/swift初体验（一）/" title="swift初体验（一）" itemprop="url">swift初体验（一）</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2015-06-21T14:54:13.000Z" itemprop="datePublished"> 发表于 2015-06-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="常量和变量">常量和变量</h3><ol>
-<li><p>在swift中我们用<code>let</code>来定义一个常量，如果我们在下面在对a进行赋值的话编译器会给我们报错的</p>
- <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">a =</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>我们用<code>var</code>来定义一个变量，在swift编译器会自动辨别你所定义的类型，如果我们要显示的定义一个类型，我们可以在变量后面加个<code>:类型</code>，在swift没有进行初始化的值是不能被直接使用的，因为其不会指派一个默认值</p>
- <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myString : <span class="built_in">String</span> = <span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在swift中变量主要有Int，Float，Double，String，Bool；当然还有其他的一些基本类型，但是我们主要就是用这些，不知道大家发现了没有，这些和我们在OC中的类型略有区别，他们都是首字母大写的</p>
-</li>
-<li><p>swift中引进了一个新的类型就是元组Tuples,大家可以看到元组有些类似数组，但是有不同于数组，并且和字典也有些许的类似，我觉得可以算作是字典和数组的整合，在元组中我们如果只想取出其中某个值，而其他的我们不在意，那么我们可以用<code>_</code>来代替那个不在意的值</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> registrationRestult = (<span class="literal">true</span>, <span class="string">"好烦"</span>, <span class="string">"男"</span>)</span><br><span class="line">registrationRestult.<span class="number">0</span></span><br><span class="line">registrationRestult.<span class="number">1</span></span><br><span class="line">registrationRestult.<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> <span class="built_in">test</span> = (<span class="built_in">test</span>1:<span class="literal">true</span>, <span class="built_in">test</span>2:<span class="string">"好烦"</span>, <span class="built_in">test</span>3:<span class="string">"真的好烦"</span>)</span><br><span class="line"></span><br><span class="line">test.test1</span><br><span class="line">test.test2</span><br><span class="line">test.test3</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> loginResult : (Bool, String) = (<span class="literal">true</span>, <span class="string">"hahaha"</span>)</span><br><span class="line"><span class="built_in">let</span> (isLoginSuccess, _) = loginResult</span><br><span class="line">isLoginSuccess</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>if语句，在swift中我们不能用真值来直接当做true来判断，我们必须指明一个逻辑的值，要么是一个布尔值，要么就是表达式</p>
-</li>
-<li>可选型Optionals，就是指或者是一个值，或者是没有值，没有值时为nil，如下，第二行我们并没有初始化，但是打印出来的是nil，当然我们也可以进行初始化如下第三行，我们可以在确定一定有值得情况下，在值后面加<code>!</code>来说明他肯定是有值的，加<code>!</code>也叫作对可选型的解包这就是可选型了</li>
-</ol>
-<pre><code><span class="comment"><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imOptionalVariable:Int?</span><br><span class="line"></span><br><span class="line">imOptionalVariable</span><br><span class="line"></span><br><span class="line">imOptionalVariable = <span class="number">13</span></span><br></pre></td></tr></table></figure></span>
-</code></pre><ol>
-<li>Objective-C中nil是一个空指针，二swift中nil所指更加广泛，我们甚至可以赋值Int，Float类型为nil</li>
-<li><p>nil聚合运算符，是在可选型进行判断时进行使用的，不过b是需要和a解包后的类型一致的</p>
- <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">a</span> ?? b  =&gt;  <span class="operator">a</span> != nil ? <span class="operator">a</span>! : b</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建数组和字典使用<code>[]</code>,以<code>[]</code>中的值来区分到底是字典还是数组，字典的话是一个一个键值对，创建一个空的字典或者是数组使用<code>[类名]()</code>的形式</p>
- <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 数组</span><br><span class="line">var shoppingList = ["catfish", "water", "tulips", "blue paint"]</span><br><span class="line">// 字典</span><br><span class="line">var occupations = [</span><br><span class="line"><span class="code">	"Malcolm" : "Captain",</span></span><br><span class="line"><span class="code">	"Kaylee" : "Mechanic"</span></span><br><span class="line">]</span><br><span class="line">// 为字典添加一个键为“Jayne”的值</span><br><span class="line">occupations["Jayne"] = "Public Relations"</span><br><span class="line">// 空字符串类型的数组</span><br><span class="line">let emptyArray = [<span class="link_label">String</span>](<span class="link_url"></span>)</span><br><span class="line">// 空字典</span><br><span class="line">let emptyDictionary = [<span class="link_label">String:Float</span>](<span class="link_url"></span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>if和for-in</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let individualScores = [75, 43, 103, 87, 12]</span><br><span class="line"><span class="keyword">var</span> teamScore = 0</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">score</span> <span class="keyword">in</span> individualScores &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">score</span> &gt; 50 &#123;</span><br><span class="line">		teamScore += 3</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		teamScore += 1</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">print</span>(teamScore)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>区间运算符</p>
-<blockquote>
-<p>闭区间[a,b] =&gt; a…b</p>
-<p>前闭后开区间[a,b) =&gt; a..&lt;b</p>
-</blockquote>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/swift/">swift</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/19/关于UIView的autoresizingMask属性/" title="关于UIView的autoresizingMask属性" itemprop="url">关于UIView的autoresizingMask属性</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-19T02:57:39.000Z" itemprop="datePublished"> 发表于 2015-05-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>在 UIView 中有一个autoresizingMask的属性，它对应的是一个枚举的值（如下），属性的意思就是自动调整子控件与父控件中间的位置、宽高。</p>
-<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingNone</span>                 = <span class="number">0</span>, <span class="comment">//不自动调整</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleLeftMargin</span>   = <span class="number">1</span> &lt;&lt; <span class="number">0</span>, <span class="comment">//自动调整与superView左边距，保证与superView右边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleWidth</span>        = <span class="number">1</span> &lt;&lt; <span class="number">1</span>, <span class="comment">//自动调整自己的宽度，保证与superView左边距和右边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleRightMargin</span>  = <span class="number">1</span> &lt;&lt; <span class="number">2</span>, <span class="comment">//自动调整与superView右边距，保证与superView左边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleTopMargin</span>    = <span class="number">1</span> &lt;&lt; <span class="number">3</span>, <span class="comment">//自动调整与superView上边距，保证与superView下边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleHeight</span>       = <span class="number">1</span> &lt;&lt; <span class="number">4</span>, <span class="comment">//自动调整自己的高度，保证与superView上边距和下边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleBottomMargin</span> = <span class="number">1</span> &lt;&lt; <span class="number">5</span> <span class="comment">//自动调整与superView下边距，保证与superView上边距不变</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>当然我们可以进行组合使用的，比如：<br>UIViewAutoresizingFlexibleLeftMargin  | UIViewAutoresizingFlexibleRightMargin 自动调整与superView的左边距和右边距保证左边距和右边距与原来的左边距和右边距的比例不变。比如原来距离为20和30，调整后的距离：68/102 = 20/30</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/autoresizingMask/">autoresizingMask</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -482,7 +491,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Pch文件/" title=".Pch文件">.Pch文件<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
 			
 		
 			
@@ -506,6 +515,10 @@
 			
 		
 			
+				<li><a href="/tags/iOS框架/" title="iOS框架">iOS框架<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MD5加密/" title="MD5加密">MD5加密<sup>1</sup></a></li>
 			
 		
@@ -518,11 +531,11 @@
 			
 		
 			
-				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
+				<li><a href="/tags/Pch文件/" title=".Pch文件">.Pch文件<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
+				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
 			
 		
 			
@@ -550,11 +563,11 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+				<li><a href="/tags/介绍、实现、输出/" title="介绍、实现、输出">介绍、实现、输出<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTML5基础-1/" title="HTML5基础(1)">HTML5基础(1)<sup>1</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
 		</ul>
