@@ -4,22 +4,36 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Vodka&#39;s Blog</title>
+    <title>C语言相关 | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Vodka's Blog">
-<meta property="og:url" content="http://yoursite.com/page/8/index.html">
+    <meta name="description" content="函数的分类
+在C语言中可从不同的角度对函数分类
+从函数定义的角度看，函数可分为库函数和用户定义函数两种。stdio.h、stdlib.h
+库函数：由C系统提供，用户无需定义，也不必再程序中做类型说明，只要在程序前包含该函数原型的头文件即可在程序中直接调用
+用户定义函数：由用户按需要写的函数。对于用户自定义函数，不仅要在程序中定义函数本身，而且在主调函数模块中还必须对该被调用函数进行类型说明，然后才">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言相关">
+<meta property="og:url" content="http://yoursite.com/2013/10/03/C语言相关/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description">
+<meta property="og:description" content="函数的分类
+在C语言中可从不同的角度对函数分类
+从函数定义的角度看，函数可分为库函数和用户定义函数两种。stdio.h、stdlib.h
+库函数：由C系统提供，用户无需定义，也不必再程序中做类型说明，只要在程序前包含该函数原型的头文件即可在程序中直接调用
+用户定义函数：由用户按需要写的函数。对于用户自定义函数，不仅要在程序中定义函数本身，而且在主调函数模块中还必须对该被调用函数进行类型说明，然后才">
+<meta property="og:image" content="/images/C语言相关/选择排序.png">
+<meta property="og:image" content="/images/C语言相关/冒泡排序图.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vodka's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="C语言相关">
+<meta name="twitter:description" content="函数的分类
+在C语言中可从不同的角度对函数分类
+从函数定义的角度看，函数可分为库函数和用户定义函数两种。stdio.h、stdlib.h
+库函数：由C系统提供，用户无需定义，也不必再程序中做类型说明，只要在程序前包含该函数原型的头文件即可在程序中直接调用
+用户定义函数：由用户按需要写的函数。对于用户自定义函数，不仅要在程序中定义函数本身，而且在主调函数模块中还必须对该被调用函数进行类型说明，然后才">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -72,118 +86,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/03/10/Hexo——搭建博客/" title="Hexo——搭建博客" itemprop="url">Hexo——搭建博客</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2014-03-10T15:43:59.000Z" itemprop="datePublished"> 发表于 2014-03-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="本地搭建hexo">本地搭建hexo</h3><ol>
-<li><p>安装nvm(node.js的版本管理工具）以下提供两种安装方法</p>
-<ul>
-<li><p>cURL：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>curl <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span><span class="number">0</span>.<span class="number">24.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Wget:</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>wget -qO- <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span><span class="number">0</span>.<span class="number">24.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>安装完成后，重启终端并执行下列命令安装Node.js</p>
- <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm <span class="keyword">install</span> <span class="number">0.10</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加如下内容到.zshrc配置文件</p>
- <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -s <span class="string">"/Users/<span class="escape">`u</span>sers<span class="escape">`/</span>.nvm/nvm.sh"</span> ] &amp;&amp; . <span class="string">"/Users/<span class="escape">`u</span>sers<span class="escape">`/</span>.nvm/nvm.sh"</span> # This loads nvm</span><br></pre></td></tr></table></figure>
-<p> <code>注意：</code>“users”修改为你的家目录名</p>
-</li>
-<li><p>将nvm的bin目录添加到环境变量中</p>
- <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">以zsh为例：</span><br><span class="line"><span class="number">1</span>. 打开zsh配置文件</span><br><span class="line">	vi ~/<span class="class">.zshrc</span></span><br><span class="line"><span class="number">2</span>. 添加如下内容到<span class="class">.zshrc</span></span><br><span class="line">	export PATH=<span class="variable">$PATH</span>:~/.nvm/v0.<span class="number">10.38</span>/bin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装hexo</p>
- <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建hexo文件夹，并安装hexo相关组件</p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo init hexo</span><br><span class="line"><span class="variable">$ </span>cd hexo</span><br><span class="line"><span class="variable">$ </span>npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地查看<br> 输入如下命令后，打开浏览器，并输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">localhost:4000</a></p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署的时候有时候会失败，可以安装hexo-deployer-git来解决</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="部署到github">部署到github</h3><ol>
-<li><p>注册github账号</p>
-</li>
-<li><p>创建github账号同名repository</p>
-<pre><code>eg:github账号名为leelovcy，则创建leelovcy<span class="class">.github</span><span class="class">.io</span>
-</code></pre></li>
-<li><p>部署到github上</p>
-<p> 如下所示编辑_config.yml</p>
-<pre><code><span class="attribute">deploy</span>:
-  <span class="attribute">type</span>: git
-  <span class="attribute">repository</span>: <span class="attribute">http</span>:<span class="comment">//github.com/LeeLovCY/LeeLovCY.github.io.git</span>
-  <span class="attribute">branch</span>: master
-</code></pre><p> <code>注意：</code>上述冒号之后有空格</p>
-</li>
-<li><p>输入如下命令，完成到github得部署，之后打开浏览器并输入<leelovcy.github.io>来查看</leelovcy.github.io></p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo d</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-  <span></span> <a href="/tags/Hexo/">Hexo</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2013/10/03/C语言相关/" title="C语言相关" itemprop="url">C语言相关</a>
@@ -197,9 +103,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h5 id="函数的分类">函数的分类</h5><ul>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#函数的分类"><span class="toc-number">1.</span> <span class="toc-text">函数的分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#程序的编译过程"><span class="toc-number">2.</span> <span class="toc-text">程序的编译过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="##include<>和#include“”的区别"><span class="toc-number">3.</span> <span class="toc-text">#include<>和#include“”的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原码、反码、补码"><span class="toc-number">4.</span> <span class="toc-text">原码、反码、补码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#按位与、按位或、按位异或、取反"><span class="toc-number">5.</span> <span class="toc-text">按位与、按位或、按位异或、取反</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#左移右移"><span class="toc-number">6.</span> <span class="toc-text">左移右移</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组初始化"><span class="toc-number">7.</span> <span class="toc-text">数组初始化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#选择排序"><span class="toc-number">8.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#冒泡排序"><span class="toc-number">9.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#折半查找"><span class="toc-number">10.</span> <span class="toc-text">折半查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二维数组"><span class="toc-number">11.</span> <span class="toc-text">二维数组</span></a></li></ol>
+		
+		</div>
+		
+		<h5 id="函数的分类">函数的分类</h5><ul>
 <li>在C语言中可从不同的角度对函数分类</li>
 <li>从函数定义的角度看，函数可分为库函数和用户定义函数两种。stdio.h、stdlib.h<ul>
 <li>库函数：由C系统提供，用户无需定义，也不必再程序中做类型说明，只要在程序前包含该函数原型的头文件即可在程序中直接调用</li>
@@ -297,14 +210,9 @@ clang编译器会帮我们检查警告和错误
 <li>每个一维数组的元素个数：说明二维数组中每个以为数组的元素个数<br><code>例如：</code></li>
 </ul>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int scores[<span class="link_label">3</span>][<span class="link_reference">5</span>] = &#123;</span><br><span class="line"><span class="code">                   &#123;1, 3, 44, 5, 6&#125;,</span></span><br><span class="line"><span class="code">                   &#123;77, 88, 44, 58, 23&#125;,</span></span><br><span class="line"><span class="code">                   &#123;33, 47, 44, 51, 69&#125;</span></span><br><span class="line"><span class="code">                   &#125;</span></span><br></pre></td></tr></table></figure>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -317,28 +225,43 @@ clang编译器会帮我们检查警告和错误
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2013/10/03/C语言相关/" data-title="C语言相关 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/7/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
-  </nav>
-
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/03/10/Hexo——搭建博客/" title="Hexo——搭建博客">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Hexo——搭建博客</span>
+</a>
 </div>
+
+
+</nav>
+
+	
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#函数的分类"><span class="toc-number">1.</span> <span class="toc-text">函数的分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#程序的编译过程"><span class="toc-number">2.</span> <span class="toc-text">程序的编译过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="##include<>和#include“”的区别"><span class="toc-number">3.</span> <span class="toc-text">#include<>和#include“”的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原码、反码、补码"><span class="toc-number">4.</span> <span class="toc-text">原码、反码、补码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#按位与、按位或、按位异或、取反"><span class="toc-number">5.</span> <span class="toc-text">按位与、按位或、按位异或、取反</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#左移右移"><span class="toc-number">6.</span> <span class="toc-text">左移右移</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组初始化"><span class="toc-number">7.</span> <span class="toc-text">数组初始化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#选择排序"><span class="toc-number">8.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#冒泡排序"><span class="toc-number">9.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#折半查找"><span class="toc-number">10.</span> <span class="toc-text">折半查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二维数组"><span class="toc-number">11.</span> <span class="toc-text">二维数组</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -552,10 +475,68 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
 </script>
 
 
@@ -566,6 +547,26 @@ $(document).ready(function(){
 
 
 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
 
 
 
@@ -597,4 +598,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
