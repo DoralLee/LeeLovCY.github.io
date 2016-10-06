@@ -297,6 +297,153 @@ clang编译器会帮我们检查警告和错误
 <li>每个一维数组的元素个数：说明二维数组中每个以为数组的元素个数<br><code>例如：</code></li>
 </ul>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int scores[<span class="link_label">3</span>][<span class="link_reference">5</span>] = &#123;</span><br><span class="line"><span class="code">                   &#123;1, 3, 44, 5, 6&#125;,</span></span><br><span class="line"><span class="code">                   &#123;77, 88, 44, 58, 23&#125;,</span></span><br><span class="line"><span class="code">                   &#123;33, 47, 44, 51, 69&#125;</span></span><br><span class="line"><span class="code">                   &#125;</span></span><br></pre></td></tr></table></figure>
+<h5 id="指针">指针</h5><h6 id="定义指针">定义指针</h6><ul>
+<li>数据类型 *变量名称</li>
+<li>数据类型：说明将来指针变量能够保存什么类型的变量的地址<br><code>注意：</code>指针变量是什么类型，那么将来就只能保存什么类型变量的地址<br><code>例如：</code>指针变量是int类型，那么将来就只能保存int类型变量的地址</li>
+<li>*：没有任何特殊含义，仅仅是为了标示这是一个指针变量</li>
+<li>变量名称：用于区分不同的变量</li>
+<li><p>指针占用多少字节是根据处于多少位编译器决定的，比如：在64位下就是8个字节</p>
+  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> <span class="built_in">num</span>, *p;</span><br><span class="line">p = &amp;<span class="built_in">num</span>;</span><br><span class="line"><span class="comment">// *p == num(即*p相当于num)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>注意点：</code></p>
+<ul>
+<li>指针只能保存地址</li>
+<li>同一个变量可以有多个指针指向它</li>
+<li>指针的指向可以修改</li>
+<li>不要访问野指针（没有赋值的指针称之为野指针）</li>
+<li>指针类型是什么类型，就只能指向什么类型的数据</li>
+</ul>
+<h6 id="指针相关点">指针相关点</h6><ul>
+<li>指针类型的两个用途：<ul>
+<li>取值的时候，会根据指针类型所占用的字节去取出对应字节的数据</li>
+<li>用于做加法运算，指针+1，其实是加上指针类型占用的长度，如果当前指针类型是int，那么+1本质上加上4个字节</li>
+</ul>
+</li>
+<li>指针保存字符串：<ul>
+<li>通过指针保存一个字符串，其实就是保存的字符串的0个元素的地址</li>
+</ul>
+</li>
+<li>通过数组保存字符串和通过指针保存字符串的区别：<ul>
+<li>如果通过数组来保存字符串，那么字符串是一个变量，可以修改</li>
+<li>如果通过指针来保存字符串，那么字符串是一个常量，不能修改</li>
+<li>数组保存的字符串存储在栈中，而通过指针保存的字符串处处在常量区</li>
+<li>存储在栈中的变量有一个特点，当作用域结束系统会自动释放变量</li>
+<li>存储在常量区的值有一个特点，不会被释放，而且多个相同的值对应的地址相同</li>
+</ul>
+</li>
+</ul>
+<h6 id="指向函数的指针">指向函数的指针</h6><ul>
+<li>函数也会占用一块存储空间，所以函数也有自己的地址，函数的地址保存在函数名中，函数名就是函数的地址</li>
+<li><p>指向函数的指针的定义格式：</p>
+<ul>
+<li>void (*functionP) ( );</li>
+<li>void    ：     代表将来指向的函数没有返回值</li>
+<li>( )    ：    代表将来指向的函数没有参数</li>
+<li>*    ：    代表一个指针</li>
+<li>functionP        ：    代表指针变量的名称</li>
+<li>(*functionP)    ：    代表将来指向一个函数</li>
+</ul>
+</li>
+<li><p>例如：</p>
+  <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> v1 + v2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minus</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> v1 - v2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> choiceFunction(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> (*funcP)(<span class="keyword">int</span>, <span class="keyword">int</span>)) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">return</span> <span class="title">funcP</span><span class="params">(v1, v2)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="结构体">结构体</h5><ul>
+<li>用于保存一组不同类型的数据</li>
+<li><p>定义结构体类型的格式：</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> 结构体类型名称 &#123;</span><br><span class="line">	属性；</span><br><span class="line">&#125;;</span><br><span class="line"><span class="number">1.</span> 先定义结构体类型，再定义结构体</span><br><span class="line"><span class="keyword">struct</span> Person &#123;</span><br><span class="line">	<span class="keyword">char</span> *name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">double</span> height;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 定义结构体变量</span></span><br><span class="line"><span class="keyword">struct</span> Person onePerson;</span><br><span class="line"><span class="comment">// 结构体赋值</span></span><br><span class="line">onePerson.name = <span class="string">"name"</span>;</span><br><span class="line">onePerson.age = <span class="string">"24"</span>;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 定义结构体类型的同时定义结构体变量</span><br><span class="line"><span class="keyword">struct</span> Person &#123;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">char</span> *name;</span><br><span class="line">	<span class="keyword">double</span> height;</span><br><span class="line">&#125; superPerson;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>特别注意：</code>结构体和数组有一点区别，数组不能先定义再进行一次性的初始化，而结构体可以，只不过需要明确的告诉系统{}中是一个结构体</p>
+<h6 id="结构体在内存中的存储细节">结构体在内存中的存储细节</h6><ul>
+<li>定义结构体类型并不会分配存储空间，只有定义结构体变量才会真正的分配存储空间</li>
+<li>结构体是如何分配存储空间：<ul>
+<li>结构体会首先找到所有属性中占用内存空间最大的那个属性，然后按照那个属性的倍数来分配存储空间</li>
+<li>会从第0个属性开始分配空间，如果存储空间不够就会重新分配，并且会将当前数次那个的值，直接存储到新分配的存储空间中，以前剩余的存储空间就不要了</li>
+</ul>
+</li>
+<li>结构体名称并不是结构体的地址，结构体的地址是他第0个属性的地址<br><code>注意：</code>为什么要按照所有属性中占用存储空间最大的属性的字节来分配存储空间？主要是为了提高计算机的运算速度</li>
+</ul>
+<h5 id="枚举">枚举</h5><ul>
+<li>枚举就是专门用于表示集中固定类型的取值</li>
+<li>枚举的本质就是基本数据类型，就是整形</li>
+<li>枚举和结构体一样，要想定义枚举类型变量，那么必须先定义枚举类型</li>
+<li>枚举类型定义的格式  <figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"><span class="class"><span class="keyword">enum</span> 枚举类型名称 &#123;</span></span><br><span class="line">	取值，</span><br><span class="line">&#125;；</span><br><span class="line">*/</span><br><span class="line"><span class="comment">// 1. 定义枚举类型</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Gender</span> </span>&#123;</span><br><span class="line">	male, <span class="comment">// 男</span></span><br><span class="line">	female <span class="comment">// 女</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 2. 通过枚举类型定义枚举变量</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Gender</span> sex;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>注意：</code>由于枚举的本质是整形，所以枚举类型出了可以接收枚举的固定取值以外，还可以接受其他整形的值，也就是枚举类型的变量可以当做int类型的变量来使用</p>
+<ul>
+<li>规范：<ul>
+<li>枚举类型的取值一般以k开头，后面跟上枚举类型的名称，跟上当前取值的含义</li>
+<li>和结构体一样，枚举类型的名称首字母大写</li>
+</ul>
+</li>
+</ul>
+<h5 id="全局变量和局部变量">全局变量和局部变量</h5><h6 id="局部变量">局部变量</h6><ul>
+<li>概念：局部变量就是定义在函数，代码块和函数形参列表中的变量，我们就称之为局部变量</li>
+<li>作用范围：从定义的那遗憾开始一直到遇到大括号或者是遇到return为止</li>
+<li>特点：相同作用于范围内不能出现同名的局部变量，不同作用域范围内同名的局部变量，内部的局部变量会覆盖外部的局部变量<br><code>注意：</code>局部变量没有固定的初始化值，如果没有对局部变量进行初始化，那么局部变量中是一些随机的值，所以在开发中千万不要使用未初始化的局部变量</li>
+<li>存储位置：局部变量存储在栈中，当作用域结束系统会自动释放栈中的局部变量<br><code>注意：</code><ul>
+<li>使用static来修饰局部变量，那么会延长局部变量的生命周期，并且会更改局部变量存储的位置，将局部变量从栈转移到静态区中</li>
+<li>只要使用static修改局部变量之后，当执行到定义局部变量代码就会分配存储空间，但是只有程序结束才会释放该存储空间</li>
+</ul>
+</li>
+</ul>
+<h6 id="全局变量">全局变量</h6><ul>
+<li>概念：写在函数，代码块，形参列表外的变量，称之为全局变量</li>
+<li>特点：如果存在和全局变量同名的局部变量，那么局部变量会覆盖全局变量<br><code>注意：</code>全局变量如果没有进行初始化，那么系统默认会将全局变量初始化为0</li>
+<li>存储位置：全局变量存储在静态区中，他会随着程序的启动而创建，随着程序的结束而结束</li>
+<li><p>全局变量分两种：</p>
+<ul>
+<li>外部全局变量，默认情况下所有的全局变量都是外部全局变量（即可以被其他文件访问的全局变量，我们称之为外部全局变量）<ul>
+<li>特点：可以定义同名的外部全局变量，多个同名的外部全局变量指向同一块存储空间</li>
+</ul>
+</li>
+<li>内部全局变量，只要给全局变量加上static关键字就是内部全局变量（即只能被单枪文件访问的全局变量我们称之为内部全局变量）<ul>
+<li>特点：也可以定义多个同名的内部全局变量，多个同名的全局变量如果不在同一个文件中，那么指向不同的存储空间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>extern关键字用来修饰全局变量，代表声明一个全局变量<br><code>注意：</code>声明全局变量和声明函数一样，仅仅是告诉系统我们有这个全局变量，但并不会真的开辟存储空间</p>
+</li>
+</ul>
+<h5 id="宏定义">宏定义</h5><ul>
+<li>预处理指令：在我们的文件翻译成0和1之前做的操作，称之为预处理指令，不一般情况预处理指令是以#号开头的</li>
+<li><p>宏定义的格式：</p>
+<ul>
+<li><p>不带参数的宏定义</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hexcolor">#def</span>ine 宏名 值</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>带参数的宏定义</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">*	#define 代表定义一个宏</span><br><span class="line">*	SUM 宏的名称</span><br><span class="line">*	(v1, v2) 参数，注意：不需要写数据类型</span><br><span class="line">*	v1+v2 用于替换的内容</span><br><span class="line">*/</span></span><br><span class="line"><span class="hexcolor">#def</span>ine <span class="function"><span class="title">SUM</span><span class="params">(v1, v2)</span></span> v1+v2</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>注意：</code></p>
+<pre><code>-<span class="ruby"> 宏定义后面不要写分号，如果宏名写在双引号中，那么不会被替换
+</span>-<span class="ruby"> 宏定义并不会做任何运算，无论是有参数还是没有参数都仅仅是在翻译成<span class="number">0</span>和<span class="number">1</span>之前做一个简单的“替换”
+</span>-<span class="ruby"> 一般情况下建议写带参数的宏的时候，给每一个参数加上一个<span class="string">`()`</span>，给结果也加上一个<span class="string">`()`</span></span>
+</code></pre><ul>
+<li>宏定义的作用：会在程序翻译成0和1之前，将所有宏名替换为宏的值</li>
+<li>程序编译过程：源代码 —&gt; 预处理 —&gt; 汇编 —&gt; 二进制 —&gt; 可执行文件</li>
+<li>规范：一般情况宏名都大写，多个单词之间用<code>_</code>隔开</li>
+</ul>
+<h5 id="typedef">typedef</h5><ul>
+<li>typedef可以给一个已知的数据类型起别名</li>
+<li>格式：  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> 原有的数据类型 别名</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>注意：</code>typedef不仅能给系统原有的数据类型起别名，也可以给一个自定义的数据类型起别名</p>
+<h5 id="const关键字">const关键字</h5><ul>
+<li>const是一个类型修饰符<ul>
+<li>使用const修饰变量则可以让变量的值不能改变</li>
+<li>常类型是指使用类型修饰符const说明的类型，常类型的变量或对象的值是不能被更新的</li>
+</ul>
+</li>
+</ul>
 
         
         
