@@ -97,7 +97,7 @@
 <li>ViewController在我们开发中经常用到，它的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。</li>
 <li>在iOS中，有两类Viewcontroller，一类是显示内容的，比如UIViewController、UITableViewController等，同时还可以自定义集成自UIViewController的XXXViewController；另一类是ViewController容器，UINavigationController和UITabBarController等，UINavigationViewController是以Stack的形式来存储和管理ViewController，UITabBarController是以Array的形式来管理Viewcontroller。和Android中Activity一样，iOS开发中，ViewController也有自己的生命周期</li>
 <li><p>首先我们来看看View的加载过程，如下图：</p>
-<p> <img src="/images/ViewController/1.png" alt="image"></p>
+<p> <img src="/images/ViewController/1.png" alt="view的加载过程"></p>
 <blockquote>
 <p>从图中可以看出，在view加载过程中首先会调用loadView方法，在这个方法中主要完成一些关键view的初始化工作，比如UINavigationController和UITabBarController等容器类的ViewController；接下来就是加载View，加载成功后，会接着调用ViewDidLoad方法，<code>注意:在loadView之前，是没有View的，也就是说，在这之前，view还没有被初始化。</code>完成viewDidLoad方法后，ViewController里面就成功加载view了，如上图有下角所示。</p>
 </blockquote>
@@ -325,7 +325,7 @@
 			
 		
 			
-				<li><a href="/tags/故事一则/" title="故事一则">故事一则<sup>1</sup></a></li>
+				<li><a href="/tags/HTML5基础-1/" title="HTML5基础(1)">HTML5基础(1)<sup>1</sup></a></li>
 			
 		
 			
