@@ -4,30 +4,43 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>iOS——ViewController生命周期 | Vodka&#39;s Blog</title>
+    <title>类的启动过程--OC | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description" content="view的加载
-ViewController在我们开发中经常用到，它的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。
-在iOS中，有两类Viewcontroller，一类是显示内容的，比如UIViewController、UITableViewController等，同时还可以自定义集成自UIViewController的XXXViewC">
+    <meta name="description" content="只要程序启动就会将所有的类的代码加载到内存中，放到代码区
+load方法会在当前类被加载到内存的时候代用，有且仅会调用一次
+如果存在继承关系，会先调用父类的load方法，然后在调用子类的load方法
+ 12+ (void)load &amp;#123;&amp;#125;
+
+initialize方法当当前类第一次被使用的时候会调用(创建类对象的时候)
+
+initialize方法在整个程序的运行过程中只会被调用一次，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS——ViewController生命周期">
-<meta property="og:url" content="http://yoursite.com/2014/08/03/iOS——ViewController生命周期/index.html">
+<meta property="og:title" content="类的启动过程--OC">
+<meta property="og:url" content="http://yoursite.com/2014/07/07/类的启动过程-OC/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description" content="view的加载
-ViewController在我们开发中经常用到，它的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。
-在iOS中，有两类Viewcontroller，一类是显示内容的，比如UIViewController、UITableViewController等，同时还可以自定义集成自UIViewController的XXXViewC">
-<meta property="og:image" content="/images/ViewController/1.png">
-<meta property="og:image" content="/images/ViewController/2.png">
+<meta property="og:description" content="只要程序启动就会将所有的类的代码加载到内存中，放到代码区
+load方法会在当前类被加载到内存的时候代用，有且仅会调用一次
+如果存在继承关系，会先调用父类的load方法，然后在调用子类的load方法
+ 12+ (void)load &amp;#123;&amp;#125;
+
+initialize方法当当前类第一次被使用的时候会调用(创建类对象的时候)
+
+initialize方法在整个程序的运行过程中只会被调用一次，">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS——ViewController生命周期">
-<meta name="twitter:description" content="view的加载
-ViewController在我们开发中经常用到，它的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。
-在iOS中，有两类Viewcontroller，一类是显示内容的，比如UIViewController、UITableViewController等，同时还可以自定义集成自UIViewController的XXXViewC">
+<meta name="twitter:title" content="类的启动过程--OC">
+<meta name="twitter:description" content="只要程序启动就会将所有的类的代码加载到内存中，放到代码区
+load方法会在当前类被加载到内存的时候代用，有且仅会调用一次
+如果存在继承关系，会先调用父类的load方法，然后在调用子类的load方法
+ 12+ (void)load &amp;#123;&amp;#125;
+
+initialize方法当当前类第一次被使用的时候会调用(创建类对象的时候)
+
+initialize方法在整个程序的运行过程中只会被调用一次，">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -86,14 +99,14 @@ ViewController在我们开发中经常用到，它的职责主要包括管理内
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/08/03/iOS——ViewController生命周期/" title="iOS——ViewController生命周期" itemprop="url">iOS——ViewController生命周期</a>
+      <a href="/2014/07/07/类的启动过程-OC/" title="类的启动过程--OC" itemprop="url">类的启动过程--OC</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2014-08-03T08:10:57.000Z" itemprop="datePublished"> 发表于 2014-08-03</time>
+    <time datetime="2014-07-07T09:21:42.000Z" itemprop="datePublished"> 发表于 2014-07-07</time>
     
   </p>
 </header>
@@ -102,33 +115,25 @@ ViewController在我们开发中经常用到，它的职责主要包括管理内
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#view的加载"><span class="toc-number">1.</span> <span class="toc-text">view的加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view的卸载"><span class="toc-number">2.</span> <span class="toc-text">view的卸载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">小结</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h3 id="view的加载">view的加载</h3><ol>
-<li>ViewController在我们开发中经常用到，它的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。</li>
-<li>在iOS中，有两类Viewcontroller，一类是显示内容的，比如UIViewController、UITableViewController等，同时还可以自定义集成自UIViewController的XXXViewController；另一类是ViewController容器，UINavigationController和UITabBarController等，UINavigationViewController是以Stack的形式来存储和管理ViewController，UITabBarController是以Array的形式来管理Viewcontroller。和Android中Activity一样，iOS开发中，ViewController也有自己的生命周期</li>
-<li><p>首先我们来看看View的加载过程，如下图：</p>
-<p> <img src="/images/ViewController/1.png" alt="view的加载过程"></p>
-<blockquote>
-<p>从图中可以看出，在view加载过程中首先会调用loadView方法，在这个方法中主要完成一些关键view的初始化工作，比如UINavigationController和UITabBarController等容器类的ViewController；接下来就是加载View，加载成功后，会接着调用ViewDidLoad方法，<code>注意:在loadView之前，是没有View的，也就是说，在这之前，view还没有被初始化。</code>完成viewDidLoad方法后，ViewController里面就成功加载view了，如上图有下角所示。</p>
-</blockquote>
+		<ol>
+<li>只要程序启动就会将所有的类的代码加载到内存中，放到代码区</li>
+<li>load方法会在当前类被加载到内存的时候代用，有且仅会调用一次</li>
+<li><p>如果存在继承关系，会先调用父类的load方法，然后在调用子类的load方法</p>
+ <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)load &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在Controller中创建view有两种方式，一种是通过代码创建、一种是通过storyboard或interface builder来创建，后者可以比较直观的配置view的外观和属性，storyboard配合iOS6推出的AutoLayout，应该是Apple之后主推的一种UI定制解决方案。</p>
+<li><p>initialize方法当当前类第一次被使用的时候会调用(创建类对象的时候)</p>
 </li>
-</ol>
-<h3 id="view的卸载">view的卸载</h3><ol>
-<li><p>我们来看一下view是如何被卸载的</p>
-<p> <img src="/images/ViewController/2.png" alt="view的卸载"></p>
-<blockquote>
-<p>由上图可以看出，当系统给发出内存警告时，会调用didReceiveMemoeryWarning方法，如果当前有能被释放的View，系统会调用viewWillUnload方法来释放view，完成后调用viewDidUnload，至此，view就被卸载了。此时原本指向view的变量要被置为nil，具体操作是在viewDidUnload方法中调用self。XXX = nil；</p>
-</blockquote>
+<li>initialize方法在整个程序的运行过程中只会被调用一次，无论你使用多少次这个类都只会调用一次</li>
+<li>initialize用于对某一类进行一次性的初始化</li>
+<li><p>存在继承关系，initialize和load一样</p>
+ <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)initialize &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<h3 id="小结">小结</h3><ol>
-<li>loadView和viewDidLoad的区别就是，loadView时view还没有生成，viewDidLoad时，view已经生成了，loadView以及viewDidLoad只会被调用一次，因为view是被懒加载的，当再次访问view时，view已存在，就不会在执行loadView和viewDidLoad，当view被添加到其他view中之前，会调用viewWillAppear，之后会调用viewDidAppear。当view从其他view中移除之前，调用viewWillDisAppear，移除之后会调用viewDidDisappear。当view不再使用时，受到内存警告时，ViewController会将view释放并将其指向为nil。</li>
-<li>ViewController的生命周期中各方法执行流程如下：<br>init—&gt;loadView—&gt;viewDidLoad—&gt;viewWillApper—&gt;viewDidApper—&gt;viewWillDisapper—&gt;viewDidDisapper—&gt;viewWillUnload-&gt;viewDidUnload—&gt;dealloc</li>
+<li><p>dealloc方法在对象引用计数器为0的时候会自动调用，即销毁对象</p>
+</li>
 </ol>
   
 	</div>
@@ -138,7 +143,7 @@ ViewController在我们开发中经常用到，它的职责主要包括管理内
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/viewController生命周期/">viewController生命周期</a>
+  <span></span> <a href="/tags/类的启动过程/">类的启动过程</a>
   </div>
 
 </div>
@@ -147,7 +152,7 @@ ViewController在我们开发中经常用到，它的职责主要包括管理内
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2014/08/03/iOS——ViewController生命周期/" data-title="iOS——ViewController生命周期 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2014/07/07/类的启动过程-OC/" data-title="类的启动过程--OC | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -161,18 +166,18 @@ ViewController在我们开发中经常用到，它的职责主要包括管理内
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/08/12/Xcode已安装插件的删除/" title="Xcode已安装插件的删除">
+ <a href="/2014/07/21/OC数组排序/" title="OC数组排序">
   <strong>上一篇：</strong><br/>
   <span>
-  Xcode已安装插件的删除</span>
+  OC数组排序</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/08/03/iOS开发——MD5加密算法/"  title="iOS开发——MD5加密算法">
+<a href="/2014/07/04/SVN常用命令集合/"  title="SVN常用命令集合">
  <strong>下一篇：</strong><br/> 
- <span>iOS开发——MD5加密算法
+ <span>SVN常用命令集合
 </span>
 </a>
 </div>
@@ -187,7 +192,7 @@ ViewController在我们开发中经常用到，它的职责主要包括管理内
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#view的加载"><span class="toc-number">1.</span> <span class="toc-text">view的加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view的卸载"><span class="toc-number">2.</span> <span class="toc-text">view的卸载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">小结</span></a></li></ol>
+ 
  
   </div>
 
