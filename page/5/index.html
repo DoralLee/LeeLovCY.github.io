@@ -211,59 +211,55 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/25/CocoaPods-下载和安装/" title="CocoaPods 下载和安装" itemprop="url">CocoaPods 下载和安装</a>
+      <a href="/2014/05/27/iOS沙盒目录结构和使用/" title="iOS沙盒目录结构和使用" itemprop="url">iOS沙盒目录结构和使用</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-25T07:02:45.000Z" itemprop="datePublished"> 发表于 2014-05-25</time>
+    <time datetime="2014-05-27T13:40:18.000Z" itemprop="datePublished"> 发表于 2014-05-27</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <h3 id="下载和安装">下载和安装</h3><ul>
-<li><p>在安装之前，首先要在本地安装好Ruby环境。如果你在本地已经安装好Ruby环境，那么下载和安装CocoaPods将十分简单，只需要一行命令。在终端中输入如下命令</p>
-  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
+        <h4 id="一、沙盒目录结构">一、沙盒目录结构</h4><p>每个APP的沙盒都有相似的目录结构，如图：<br><img src="/images/Bundle/沙盒.jpeg" alt="沙盒目录"></p>
+<p>获取应用程序目录的路径，如下：<br><figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">NSString *homePath </span>=<span class="string"> NSHomeDirectory();</span></span><br></pre></td></tr></table></figure></p>
+<p>该目录中包含：</p>
+<ol>
+<li>Documents：应该将所有的应用程序数据文件写入到这个目录下。这个目录用于存储用户的数据，该路径可以通过配置实现iTunes共享文件，可被iTunes备份。</li>
+<li>AppName.app：这是应用程序的程序包目录，包含应用程序的本身。由于应用程序必须经过签名，所以在运行时不能对这个目录中的内容进行修改，否则可能会使程序无法启动。</li>
+<li>Library：可创建子文件夹，用来放置你希望被备份但是不希望被用户看到的数据，该路径下的文件夹，除Caches以外，都会被iTunes备份。包含：<ol>
+<li>Preferences：包含应用程序的偏好设置文件。不应该直接创建偏好设置文件，而是应该使用NSUserDefaults类来取得和设置应用程序的偏好。</li>
+<li>Caches：用于存放应用程序专用的支持文件，保存应用程序再次启动过程中需要的信息。</li>
+</ol>
 </li>
-<li><p>但是，如果你在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中依次敲入命令：</p>
-  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">source</span> --remove https:<span class="comment">//rubygems.org/</span></span><br><span class="line">gem <span class="keyword">source</span> -a http:<span class="comment">//ruby.taobao.org/</span></span><br></pre></td></tr></table></figure>
+<li>tmp：这个目录用于存放临时文件，保存应用程序再次启动过程中不需要的信息。该目录不会被iTunes备份。</li>
+</ol>
+<h4 id="二、获取各种文件目录的路径">二、获取各种文件目录的路径</h4><ol>
+<li><p>获取沙盒主目录路径</p>
+<figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">NSString *homePath </span>=<span class="string"> NSHomeDirectory();</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>为了验证你的Ruby镜像是并且仅是taobao，可以用一下命令查看：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="built_in">source</span> <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
+<li><p>获取Documents目录路径</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, <span class="literal">YES</span>) firstObject];</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>只有在终端中出现下面文字才表明你上面的命令是成功的：</p>
-  <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> CURRENT SOURCES <span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">http://ruby.taobao.org/</span><br></pre></td></tr></table></figure>
+<li><p>获取Library目录路径</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, <span class="literal">YES</span>) firstObject];</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>此时，你再次在终端中运行：</p>
-  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
+<li><p>获取cache目录路径</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>) firstObject];</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<h3 id="使用CocoaPods">使用CocoaPods</h3><ul>
-<li>安装好之后就是如何使用它了。我们以AFNetworking来说明吧</li>
-<li>AFNetworking类库在Github地址是:(<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a>)</li>
-<li><p>为了确定AFnetworking是否支持Cocoapods，可以用Cocoapods的搜索功能验证一下。在终端中输入：</p>
-  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pod</span> search AFnetworking</span><br></pre></td></tr></table></figure>
+<li><p>获取tmp目录路径</p>
+<figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">NSString *tmpPath </span>=<span class="string"> NSTemporaryDirectory();</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>随后你会看到相关信息，准备工作也差不多了，下面让我们进入正题</p>
-</li>
-<li><p>首先先利用Xcode创建一个项目工程。随后在终端中进入所创建的项目文件中，然后运行：</p>
-  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pod</span> init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>随后cocoapods会为项目自动生成一个Podfile文件，执行：</p>
-  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">vim</span> Podfile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后再Podfile文件中target和end之间输入以下信息：</p>
-  <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'7.0'</span></span><br><span class="line">pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.0"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>随后退出编辑模式，执行：</p>
-  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不过你在执行此条命令时会要等N久，主要是执行上述命令时会升级Cocoapods的spec仓库，加一个参数就可以省略这一步，然后速度就会有相当大的提升，命令如下：</p>
-  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod install --<span class="keyword">verbose</span> --<span class="keyword">no</span>-repo-<span class="keyword">update</span></span><br><span class="line">pod <span class="keyword">update</span> --<span class="keyword">verbose</span> --<span class="keyword">no</span>-repo-<span class="keyword">update</span></span><br></pre></td></tr></table></figure></li>
-</ul>
+</ol>
+<h4 id="三、NSSearchPathForDirectoriesInDomains">三、NSSearchPathForDirectoriesInDomains</h4><p>该方法用于查找目录，返回指定范围的制定名称的目录的路径集合。有三个参数：</p>
+<ol>
+<li><em>directory</em>：NSSearchPathDirectory类型的枚举值，表明我们要搜索的目录名称</li>
+<li><em>domainMask</em>：NSSearchPathDomainMask类型的枚举值，指定搜索的范围，这里的NSUserDomainMask表示搜索的范围限制于当前应用的沙盒目录。还可以写成NSLocalDomainMask(表示/Library)、<br>NSNetworkDomainMask(表示/Network)等。</li>
+<li><em>expandTilde</em>：布尔值，表示是否展开波浪线<code>~</code>。在iOS中<code>~</code>的全写形式是/User/userName，该值为YES表示写成全写形式，为NO表示直接写成<code>~</code>.</li>
+</ol>
 
         
         
@@ -277,7 +273,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CocoaPods/">CocoaPods</a>
+  <span></span> <a href="/tags/沙盒/">沙盒</a>
   </div>
 
 </div>
@@ -347,6 +343,10 @@
 			
 		
 			
+				<li><a href="/tags/沙盒/" title="沙盒">沙盒<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MD5加密/" title="MD5加密">MD5加密<sup>1</sup></a></li>
 			
 		
@@ -392,10 +392,6 @@
 		
 			
 				<li><a href="/tags/JS介绍、实现、输出/" title="JS介绍、实现、输出">JS介绍、实现、输出<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
 			
 		
 		</ul>
