@@ -4,36 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>C语言相关 | Vodka&#39;s Blog</title>
+    <title>Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description" content="函数的分类
-在C语言中可从不同的角度对函数分类
-从函数定义的角度看，函数可分为库函数和用户定义函数两种。stdio.h、stdlib.h
-库函数：由C系统提供，用户无需定义，也不必再程序中做类型说明，只要在程序前包含该函数原型的头文件即可在程序中直接调用
-用户定义函数：由用户按需要写的函数。对于用户自定义函数，不仅要在程序中定义函数本身，而且在主调函数模块中还必须对该被调用函数进行类型说明，然后才">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C语言相关">
-<meta property="og:url" content="http://yoursite.com/2013/10/03/C语言相关/index.html">
+    <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vodka's Blog">
+<meta property="og:url" content="http://yoursite.com/page/9/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description" content="函数的分类
-在C语言中可从不同的角度对函数分类
-从函数定义的角度看，函数可分为库函数和用户定义函数两种。stdio.h、stdlib.h
-库函数：由C系统提供，用户无需定义，也不必再程序中做类型说明，只要在程序前包含该函数原型的头文件即可在程序中直接调用
-用户定义函数：由用户按需要写的函数。对于用户自定义函数，不仅要在程序中定义函数本身，而且在主调函数模块中还必须对该被调用函数进行类型说明，然后才">
-<meta property="og:image" content="/images/C语言相关/选择排序.png">
-<meta property="og:image" content="/images/C语言相关/冒泡排序图.png">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C语言相关">
-<meta name="twitter:description" content="函数的分类
-在C语言中可从不同的角度对函数分类
-从函数定义的角度看，函数可分为库函数和用户定义函数两种。stdio.h、stdlib.h
-库函数：由C系统提供，用户无需定义，也不必再程序中做类型说明，只要在程序前包含该函数原型的头文件即可在程序中直接调用
-用户定义函数：由用户按需要写的函数。对于用户自定义函数，不仅要在程序中定义函数本身，而且在主调函数模块中还必须对该被调用函数进行类型说明，然后才">
+<meta name="twitter:title" content="Vodka's Blog">
+<meta name="twitter:description">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -86,10 +72,12 @@
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2013/10/03/C语言相关/" title="C语言相关" itemprop="url">C语言相关</a>
@@ -103,16 +91,9 @@
     
   </p>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#函数的分类"><span class="toc-number">1.</span> <span class="toc-text">函数的分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#程序的编译过程"><span class="toc-number">2.</span> <span class="toc-text">程序的编译过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="##include<>和#include“”的区别"><span class="toc-number">3.</span> <span class="toc-text">#include<>和#include“”的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原码、反码、补码"><span class="toc-number">4.</span> <span class="toc-text">原码、反码、补码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#按位与、按位或、按位异或、取反"><span class="toc-number">5.</span> <span class="toc-text">按位与、按位或、按位异或、取反</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#左移右移"><span class="toc-number">6.</span> <span class="toc-text">左移右移</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组初始化"><span class="toc-number">7.</span> <span class="toc-text">数组初始化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#选择排序"><span class="toc-number">8.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#冒泡排序"><span class="toc-number">9.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#折半查找"><span class="toc-number">10.</span> <span class="toc-text">折半查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二维数组"><span class="toc-number">11.</span> <span class="toc-text">二维数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#指针"><span class="toc-number">12.</span> <span class="toc-text">指针</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#定义指针"><span class="toc-number">12.1.</span> <span class="toc-text">定义指针</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#指针相关点"><span class="toc-number">12.2.</span> <span class="toc-text">指针相关点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#指向函数的指针"><span class="toc-number">12.3.</span> <span class="toc-text">指向函数的指针</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#结构体"><span class="toc-number">13.</span> <span class="toc-text">结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#结构体在内存中的存储细节"><span class="toc-number">13.1.</span> <span class="toc-text">结构体在内存中的存储细节</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#枚举"><span class="toc-number">14.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#全局变量和局部变量"><span class="toc-number">15.</span> <span class="toc-text">全局变量和局部变量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#局部变量"><span class="toc-number">15.1.</span> <span class="toc-text">局部变量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#全局变量"><span class="toc-number">15.2.</span> <span class="toc-text">全局变量</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#宏定义"><span class="toc-number">16.</span> <span class="toc-text">宏定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#typedef"><span class="toc-number">17.</span> <span class="toc-text">typedef</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#const关键字"><span class="toc-number">18.</span> <span class="toc-text">const关键字</span></a></li></ol>
-		
-		</div>
-		
-		<h5 id="函数的分类">函数的分类</h5><ul>
+    <div class="article-content">
+        
+        <h5 id="函数的分类">函数的分类</h5><ul>
 <li>在C语言中可从不同的角度对函数分类</li>
 <li>从函数定义的角度看，函数可分为库函数和用户定义函数两种。stdio.h、stdlib.h<ul>
 <li>库函数：由C系统提供，用户无需定义，也不必再程序中做类型说明，只要在程序前包含该函数原型的头文件即可在程序中直接调用</li>
@@ -368,9 +349,14 @@ clang编译器会帮我们检查警告和错误
 <p><code>规律：</code></p>
 <pre><code>-<span class="ruby"> 如果const写在指针变量名的旁边，那么指针的指向不能变，而指向的内存空间的值可以改变
 </span>-<span class="ruby"> 如果const写在数据类型的左边或者右边，那么指针的指向可以改变，但是指向的内存空间的值不能改变</span>
-</code></pre>  
-	</div>
-		<footer class="article-footer clearfix">
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -383,43 +369,28 @@ clang编译器会帮我们检查警告和错误
 
 
 
-	<div class="article-share" id="share">
-	
-	  <div data-url="http://yoursite.com/2013/10/03/C语言相关/" data-title="C语言相关 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
-	  </div>
-	
-	</div>
 
+<div class="comments-count">
+	
+</div>
 
 </footer>
 
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2014/01/08/UIApplication相关/" title="UIApplication相关">
-  <strong>上一篇：</strong><br/>
-  <span>
-  UIApplication相关</span>
-</a>
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/8/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+  </nav>
+
 </div>
-
-
-</nav>
-
-	
-
-</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#函数的分类"><span class="toc-number">1.</span> <span class="toc-text">函数的分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#程序的编译过程"><span class="toc-number">2.</span> <span class="toc-text">程序的编译过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="##include<>和#include“”的区别"><span class="toc-number">3.</span> <span class="toc-text">#include<>和#include“”的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原码、反码、补码"><span class="toc-number">4.</span> <span class="toc-text">原码、反码、补码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#按位与、按位或、按位异或、取反"><span class="toc-number">5.</span> <span class="toc-text">按位与、按位或、按位异或、取反</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#左移右移"><span class="toc-number">6.</span> <span class="toc-text">左移右移</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组初始化"><span class="toc-number">7.</span> <span class="toc-text">数组初始化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#选择排序"><span class="toc-number">8.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#冒泡排序"><span class="toc-number">9.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#折半查找"><span class="toc-number">10.</span> <span class="toc-text">折半查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二维数组"><span class="toc-number">11.</span> <span class="toc-text">二维数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#指针"><span class="toc-number">12.</span> <span class="toc-text">指针</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#定义指针"><span class="toc-number">12.1.</span> <span class="toc-text">定义指针</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#指针相关点"><span class="toc-number">12.2.</span> <span class="toc-text">指针相关点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#指向函数的指针"><span class="toc-number">12.3.</span> <span class="toc-text">指向函数的指针</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#结构体"><span class="toc-number">13.</span> <span class="toc-text">结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#结构体在内存中的存储细节"><span class="toc-number">13.1.</span> <span class="toc-text">结构体在内存中的存储细节</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#枚举"><span class="toc-number">14.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#全局变量和局部变量"><span class="toc-number">15.</span> <span class="toc-text">全局变量和局部变量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#局部变量"><span class="toc-number">15.1.</span> <span class="toc-text">局部变量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#全局变量"><span class="toc-number">15.2.</span> <span class="toc-text">全局变量</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#宏定义"><span class="toc-number">16.</span> <span class="toc-text">宏定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#typedef"><span class="toc-number">17.</span> <span class="toc-text">typedef</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#const关键字"><span class="toc-number">18.</span> <span class="toc-text">const关键字</span></a></li></ol>
- 
-  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -633,69 +604,12 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
 
 
 
@@ -704,27 +618,6 @@ $(document).ready(function(){
 
 
 
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
 
 
 
@@ -756,4 +649,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
-</html>
+ </html>
