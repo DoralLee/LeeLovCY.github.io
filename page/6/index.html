@@ -80,6 +80,96 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2014/05/27/iOS沙盒目录结构和使用/" title="iOS沙盒目录结构和使用" itemprop="url">iOS沙盒目录结构和使用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2014-05-27T13:40:18.000Z" itemprop="datePublished"> 发表于 2014-05-27</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="一、沙盒目录结构">一、沙盒目录结构</h4><p>每个APP的沙盒都有相似的目录结构，如图：<br><img src="/images/Bundle/沙盒.jpeg" alt="沙盒目录"></p>
+<p>获取应用程序目录的路径，如下：<br><figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">NSString *homePath </span>=<span class="string"> NSHomeDirectory();</span></span><br></pre></td></tr></table></figure></p>
+<p>该目录中包含：</p>
+<ol>
+<li>Documents：应该将所有的应用程序数据文件写入到这个目录下。这个目录用于存储用户的数据，该路径可以通过配置实现iTunes共享文件，可被iTunes备份。</li>
+<li>AppName.app：这是应用程序的程序包目录，包含应用程序的本身。由于应用程序必须经过签名，所以在运行时不能对这个目录中的内容进行修改，否则可能会使程序无法启动。</li>
+<li>Library：可创建子文件夹，用来放置你希望被备份但是不希望被用户看到的数据，该路径下的文件夹，除Caches以外，都会被iTunes备份。包含：<ol>
+<li>Preferences：包含应用程序的偏好设置文件。不应该直接创建偏好设置文件，而是应该使用NSUserDefaults类来取得和设置应用程序的偏好。</li>
+<li>Caches：用于存放应用程序专用的支持文件，保存应用程序再次启动过程中需要的信息。</li>
+</ol>
+</li>
+<li>tmp：这个目录用于存放临时文件，保存应用程序再次启动过程中不需要的信息。该目录不会被iTunes备份。</li>
+</ol>
+<h4 id="二、获取各种文件目录的路径">二、获取各种文件目录的路径</h4><ol>
+<li><p>获取沙盒主目录路径</p>
+<figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">NSString *homePath </span>=<span class="string"> NSHomeDirectory();</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取Documents目录路径</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, <span class="literal">YES</span>) firstObject];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取Library目录路径</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, <span class="literal">YES</span>) firstObject];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取cache目录路径</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>) firstObject];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取tmp目录路径</p>
+<figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">NSString *tmpPath </span>=<span class="string"> NSTemporaryDirectory();</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="三、NSSearchPathForDirectoriesInDomains">三、NSSearchPathForDirectoriesInDomains</h4><p>该方法用于查找目录，返回指定范围的制定名称的目录的路径集合。有三个参数：</p>
+<ol>
+<li><em>directory</em>：NSSearchPathDirectory类型的枚举值，表明我们要搜索的目录名称</li>
+<li><em>domainMask</em>：NSSearchPathDomainMask类型的枚举值，指定搜索的范围，这里的NSUserDomainMask表示搜索的范围限制于当前应用的沙盒目录。还可以写成NSLocalDomainMask(表示/Library)、<br>NSNetworkDomainMask(表示/Network)等。</li>
+<li><em>expandTilde</em>：布尔值，表示是否展开波浪线<code>~</code>。在iOS中<code>~</code>的全写形式是/User/userName，该值为YES表示写成全写形式，为NO表示直接写成<code>~</code>.</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/沙盒/">沙盒</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2014/05/25/CocoaPods-下载和安装/" title="CocoaPods 下载和安装" itemprop="url">CocoaPods 下载和安装</a>
   </h1>
   <p class="article-author">By
@@ -265,84 +355,6 @@ addnum (方法名称)
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/04/22/UIButton控件设置/" title="UIButton控件设置" itemprop="url">UIButton控件设置</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2014-04-22T08:55:43.000Z" itemprop="datePublished"> 发表于 2014-04-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>创建UIButton对象</p>
-<p> UIButton *bt = [[UIButton alloc]init];</p>
-</li>
-<li><p>隐藏UIButton</p>
-<p> bt.hidden=YES;//此时按钮被隐藏<br> bt.hidden=NO;//此时按钮被显示在视图中</p>
-</li>
-<li><p>设置UIButton的坐标和大小</p>
-<p> [bt setFrame:CGRectMake(100, 100, 100, 40)];</p>
-</li>
-<li><p>设置UIButton的颜色</p>
-<p> [bt setBackgroundColor:[UIColor redColor]]</p>
-</li>
-<li><p>设置UIButton的标题字，forState设置的时按钮的当前状态，此时为正常状态</p>
-<p> [bt setTitle:@”aaa” forState:UIControlStateNormal];</p>
-<p> UIButton的各种状态</p>
-<blockquote>
-<p>   正常状态 UIControlStateNormal;<br>   高亮状态 UIControlStateHighlighted;<br>   禁用状态UIControlStateDisabled；<br>   选中状态 UIControlStateSelected;<br>   代理状态 UIControlStateApplication;<br>   保留状态 UIControlStateReserved;</p>
-</blockquote>
-</li>
-<li><p>设置UIButton在正常状态下的字体颜色</p>
-<p> [bt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];</p>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/UIButton/">UIButton</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next<span></span></a>
@@ -363,7 +375,7 @@ addnum (方法名称)
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
+				<li><a href="/tags/XML-JSON/" title="XML&amp;JSON">XML&amp;JSON<sup>1</sup></a></li>
 			
 		
 			
@@ -411,11 +423,11 @@ addnum (方法名称)
 			
 		
 			
-				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode插件删除/" title="Xcode插件删除">Xcode插件删除<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/XML-JSON/" title="XML&amp;JSON">XML&amp;JSON<sup>1</sup></a></li>
+				<li><a href="/tags/面向对象思想/" title="面向对象思想">面向对象思想<sup>1</sup></a></li>
 			
 		
 			

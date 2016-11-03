@@ -4,22 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Vodka&#39;s Blog</title>
+    <title>JS事件和对象 | Vodka&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Vodka">
     
 
     
-    <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Vodka's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="事件处理
+HTML事件处理 直接添加到HTML结构中 一经修改不仅仅修改一处
+ 123456789101112&amp;lt;div id=&quot;div&quot;&amp;gt;    &amp;lt;button id=&quot;btnId&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;    &amp;lt;a id=&quot;aId&quot; href=&quot;http://www.baidu.com&quot;&amp;gt;百度&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;/* *">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS事件和对象">
+<meta property="og:url" content="http://yoursite.com/2016/05/23/JS事件和对象/index.html">
 <meta property="og:site_name" content="Vodka's Blog">
-<meta property="og:description">
+<meta property="og:description" content="事件处理
+HTML事件处理 直接添加到HTML结构中 一经修改不仅仅修改一处
+ 123456789101112&amp;lt;div id=&quot;div&quot;&amp;gt;    &amp;lt;button id=&quot;btnId&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;    &amp;lt;a id=&quot;aId&quot; href=&quot;http://www.baidu.com&quot;&amp;gt;百度&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;/* *">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vodka's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="JS事件和对象">
+<meta name="twitter:description" content="事件处理
+HTML事件处理 直接添加到HTML结构中 一经修改不仅仅修改一处
+ 123456789101112&amp;lt;div id=&quot;div&quot;&amp;gt;    &amp;lt;button id=&quot;btnId&quot;&amp;gt;按钮&amp;lt;/button&amp;gt;    &amp;lt;a id=&quot;aId&quot; href=&quot;http://www.baidu.com&quot;&amp;gt;百度&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;/* *">
 
     
     <link rel="alternative" href="/atom.xml" title="Vodka&#39;s Blog" type="application/atom+xml">
@@ -72,12 +78,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2016/05/23/JS事件和对象/" title="JS事件和对象" itemprop="url">JS事件和对象</a>
@@ -91,9 +95,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h4 id="事件处理"><strong>事件处理</strong></h4><ol>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#事件处理"><span class="toc-number">1.</span> <span class="toc-text">事件处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件对象"><span class="toc-number">2.</span> <span class="toc-text">事件对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JS内置对象"><span class="toc-number">3.</span> <span class="toc-text">JS内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#String字符串对象"><span class="toc-number">3.1.</span> <span class="toc-text">String字符串对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Date"><span class="toc-number">3.2.</span> <span class="toc-text">Date</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h4 id="事件处理"><strong>事件处理</strong></h4><ol>
 <li><p>HTML事件处理<br> 直接添加到HTML结构中<br> 一经修改不仅仅修改一处</p>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"div"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"btnId"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">id</span>=<span class="value">"aId"</span> <span class="attribute">href</span>=<span class="value">"http://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">/*</span><br><span class="line"> *  HTML事件处理修改时不止要修改一处,修改不方便</span><br><span class="line"> */</span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        alert(<span class="string">"HTML事件处理"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -134,14 +145,9 @@
 </li>
 </ol>
 <h5 id="Date"><strong>Date</strong></h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span> <span class="attribute">onload</span>=<span class="value">"showTime()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">            <span class="keyword">var</span> h = today.getHours();</span><br><span class="line">            <span class="keyword">var</span> m = today.getMinutes();</span><br><span class="line">            <span class="keyword">var</span> s = today.getSeconds();</span><br><span class="line">            h = checkTime(h);</span><br><span class="line">            m = checkTime(m);</span><br><span class="line">            s = checkTime(s);</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"timeTxt"</span>).innerHTML = h+<span class="string">":"</span>+m+<span class="string">":"</span>+s;</span><br><span class="line">            t = setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                showTime();</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">checkTime</span><span class="params">(ms)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (ms &lt; <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"0"</span>+ms;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> ms;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span> = "<span class="attribute">timeTxt</span>"&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -154,396 +160,43 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2016/05/23/JS事件和对象/" data-title="JS事件和对象 | Vodka&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/05/22/HTML5基础之二/" title="HTML5基础之二" itemprop="url">HTML5基础之二</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2016-05-22T13:36:02.000Z" itemprop="datePublished"> 发表于 2016-05-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h4 id="HTML5表单提交和PHP环境搭建">HTML5表单提交和PHP环境搭建</h4><p>一. HTML表单</p>
-<ol>
-<li>表单用于获取不同类型的用户输入</li>
-<li>常用表单标签：<br> <img src="/images/HTML5/1.png" alt="表单标签"></li>
-<li><p>复选框</p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">苹果&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span>&gt;</span><br><span class="line">香蕉&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span>&gt;</span><br><span class="line">橘子&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>单选按钮</p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">请选择您的性别:</span><br><span class="line">       男&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"radio"</span> name=<span class="string">"sex"</span>&gt;</span><br><span class="line">       女&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"radio"</span> name=<span class="string">"sex"</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下拉列表</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">           &lt;option&gt;www<span class="class">.google</span><span class="class">.com</span>&lt;/option&gt;</span><br><span class="line">           &lt;option&gt;www<span class="class">.baidu</span><span class="class">.com</span>&lt;/option&gt;</span><br><span class="line">           &lt;option&gt;www<span class="class">.hahahaha</span><span class="class">.com</span>&lt;/option&gt;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>文本框</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">cols</span>=<span class="value">"30"</span> <span class="attribute">rows</span>=<span class="value">"30"</span>&gt;</span>请再次输入内容<span class="tag">&lt;/<span class="title">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="HTML5框架、背景和实体">HTML5框架、背景和实体</h4><p>一. HTML5框架</p>
-<ol>
-<li>框架标签(frame):(过时)<br> 框架对于页面的设计有着很大的作用</li>
-<li>框架集标签(&lt;frameset&gt;):(过时)<br> 框架集标签定义如何将窗口分割为框架<br> 每一个frameset定义一系列行和列<br> rows/cols的值规定了每行或每列占据屏幕的面积</li>
-<li>常用标签<br> noresize：固定框架大小<br> cols：列<br> rows：行</li>
-<li>内联框架<br> iframe</li>
-</ol>
-<p>二. HTML5背景</p>
-<ol>
-<li>背景标签：<br> Background : 背景图片</li>
-<li>背景颜色：<br> BgColor</li>
-<li>颜色:<br> 颜色是有一个十六进制符号来定义，这个符号由红色、绿色和蓝色的值组成(RGB)<br> 颜色值最小值：0(#00)<br> 颜色值最大值：255(#FF)<br> 红色：#FF0000<br> 绿色：#00FF00<br> 蓝色：#0000FF</li>
-</ol>
-<p>三. HTML5实体</p>
-<ol>
-<li><p>实体：<br> HTML中预留字符串必须被替换成字符实体<br> 如：&lt;、&gt;、&amp;</p>
-</li>
-<li><p>实体并不需要我们特意去记忆，用到的时候可以到网上搜索</p>
-</li>
-</ol>
-<h4 id="XHTML介绍">XHTML介绍</h4><p>一. XHTML</p>
-<ol>
-<li>XHTML值得是可扩展超文本标记语言</li>
-<li>XHTML和HTML4.01几乎是相同的</li>
-<li>XHTML是更严格更纯净的HTML版本</li>
-<li>XHTML是以XML应用的方式定义的HTML</li>
-<li>XHTML得到所有主流浏览器的支持</li>
-<li>用处：为了代码的完整性和良好性</li>
-<li>文档声明：规定了使用通用标记语言的网页语法</li>
-<li>三种类型：STRICT（严格类型）、TRANSITIONAL（过渡类型）、FRAMESET（框架类型）</li>
-</ol>
-<p>二. XHTML属性语法规则</p>
-<ol>
-<li>XHTML属性必须使用小写</li>
-<li>XHTML属性值必须用引号包围</li>
-<li>XHTML属性最小化也是禁止的</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/HTML5基础-2/">HTML5基础(2)</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/05/22/HTML5基础之二/"  title="HTML5基础之二">
+ <strong>下一篇：</strong><br/> 
+ <span>HTML5基础之二
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/05/19/HTML5基础之一/" title="HTML5元素、属性和格式化" itemprop="url">HTML5元素、属性和格式化</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2016-05-19T06:25:42.000Z" itemprop="datePublished"> 发表于 2016-05-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h4 id="HTML声明">HTML声明</h4><ol>
-<li><p>声明：&lt;!DOCTYPE&gt;</p>
-<ul>
-<li>用处：HTML有多个不同的版本，只有完全明白页面中使用的确切HTML版本，浏览器才能完全正确地显示出HTML页面。</li>
-<li><p>HTML5：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>HTML4.01：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    <span class="doctype">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "</span><br><span class="line">http://www.w3.org/TR/html4/frameset.dtd"&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>XHTML1.0</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    <span class="doctype">&lt;!DOCTYPE html</span><br><span class="line">PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"</span><br><span class="line">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="HTML5元素简介及使用方法">HTML5元素简介及使用方法</h4><ol>
-<li>元素指的是从开始标签到结束标签的所以代码</li>
-<li>HTML元素语法：<blockquote>
-<p>元素的内容是开始标签和结束标签<br> 空元素在开始标签中进行关闭<br> 大多数HTML元素可拥有属性</p>
-</blockquote>
-</li>
-<li>嵌套的HTML元素<blockquote>
-<p>大多数的HTML元素都是可以嵌套的</p>
-</blockquote>
-</li>
-</ol>
-<h4 id="HTML5属性使用方法">HTML5属性使用方法</h4><ol>
-<li>标签可以拥有属性为元素提供更多的信息</li>
-<li>属性以键/值对的形式出现<br> 如：href=”http:www.baidu.com”</li>
-<li>常用标签属性：<blockquote>
-<p>&lt;h1&gt;:align 对其方式<br>&lt;body&gt;:bgcolor 背景颜色<br>&lt;a&gt;:target 规定在何处打开连接</p>
-</blockquote>
-</li>
-<li>通用属性：<blockquote>
-<p>&lt;class&gt;:规定元素的类名<br>&lt;id&gt;     :规定元素唯一ID<br>&lt;style&gt;:规定元素的样式<br>&lt;title&gt;:规定元素的额外信息</p>
-</blockquote>
-</li>
-</ol>
-<h4 id="HTML格式化">HTML格式化</h4><table>
-<thead>
-<tr>
-<th>标签</th>
-<th style="text-align:center">描述          </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> &lt;b&gt;</td>
-<td style="text-align:center">定义粗体文本</td>
-</tr>
-<tr>
-<td> &lt;big&gt;</td>
-<td style="text-align:center">定义大号字(H5被替代)</td>
-</tr>
-<tr>
-<td> &lt;em&gt;</td>
-<td style="text-align:center">定义着重文字</td>
-</tr>
-<tr>
-<td> &lt;i&gt;</td>
-<td style="text-align:center">定义斜体字</td>
-</tr>
-<tr>
-<td> &lt;small&gt;</td>
-<td style="text-align:center">定义小号字</td>
-</tr>
-<tr>
-<td> &lt;strong&gt;</td>
-<td style="text-align:center">定义加重语气</td>
-</tr>
-<tr>
-<td> &lt;sub&gt;</td>
-<td style="text-align:center">定义下标字</td>
-</tr>
-<tr>
-<td> &lt;sup&gt;</td>
-<td style="text-align:center">定义上标字</td>
-</tr>
-<tr>
-<td> &lt;ins&gt;</td>
-<td style="text-align:center">定义插入字</td>
-</tr>
-<tr>
-<td> &lt;del&gt;</td>
-<td style="text-align:center">定义删除字</td>
-</tr>
-</tbody>
-</table>
-<h4 id="HTML5样式的使用">HTML5样式的使用</h4><ol>
-<li>标签：<br> style: 样式定义<br> link: 资源引用</li>
-<li>属性：<br> rel=”stylesheet”: 外部样式表<br> type=”text/css”: 引入文档的类型<br> margin-left: 边距</li>
-<li><p>HTML样式</p>
-<ol>
-<li><p>三种样式表插入方法：<br> 外联样式表：</p>
- <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">href=</span><span class="string">"mystyle.css"</span>&gt;</span><br></pre></td></tr></table></figure>
-<p> 内部样式表</p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line"><span class="tag">body</span><span class="rules">&#123;<span class="rule"><span class="attribute">backgroun-color</span>:<span class="value">red</span></span></span>&#125;</span><br><span class="line"><span class="tag">p</span> <span class="rules">&#123;<span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">20px</span></span></span></span>&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p> 内联样式表</p>
- <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">p</span> style=<span class="string">"color:red"</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ol>
-<h4 id="HTML链接">HTML链接</h4><ol>
-<li>链接数据：<br> 文本链接<br> 图片链接</li>
-<li>属性:<br> href属性: 指向另一个文档的链接<br> name属性: 创建文档内的链接</li>
-<li>img标签属性：<br> alt: 替换文本属性<br> width: 宽<br> height: 高</li>
-</ol>
-<h4 id="HTML表格">HTML表格</h4><table>
-<thead>
-<tr>
-<th>表格</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&lt;table&gt;</td>
-<td style="text-align:center">定义表格</td>
-</tr>
-<tr>
-<td>&lt;caption&gt;</td>
-<td style="text-align:center">定义表格标题</td>
-</tr>
-<tr>
-<td>&lt;th&gt;</td>
-<td style="text-align:center">定义表格的表头</td>
-</tr>
-<tr>
-<td>&lt;tr&gt;</td>
-<td style="text-align:center">定义表格的行</td>
-</tr>
-<tr>
-<td>&lt;td&gt;</td>
-<td style="text-align:center">定义表格的单元</td>
-</tr>
-<tr>
-<td>&lt;thead&gt;</td>
-<td style="text-align:center">定义表格的页眉</td>
-</tr>
-<tr>
-<td>&lt;tbody&gt;</td>
-<td style="text-align:center">定义表格的主体</td>
-</tr>
-<tr>
-<td>&lt;tfoot&gt;</td>
-<td style="text-align:center">定义表格的页脚</td>
-</tr>
-<tr>
-<td>&lt;col&gt;</td>
-<td style="text-align:center">定义表格的列属性</td>
-</tr>
-</tbody>
-</table>
-<h4 id="HTML5列表、块和布局">HTML5列表、块和布局</h4><p>一. HTML列表</p>
-<table>
-<thead>
-<tr>
-<th>标签</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&lt;ol&gt;</td>
-<td style="text-align:center">有序列表</td>
-</tr>
-<tr>
-<td>&lt;li&gt;</td>
-<td style="text-align:center">无序列表</td>
-</tr>
-<tr>
-<td>&lt;dl&gt;</td>
-<td style="text-align:center">列表项</td>
-</tr>
-<tr>
-<td>&lt;dt&gt;</td>
-<td style="text-align:center">列表</td>
-</tr>
-<tr>
-<td>&lt;dd&gt;</td>
-<td style="text-align:center">描述</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>无序列表<br> 使用标签：&lt;ul&gt;、&lt;li&gt;<br> 属性：disc、circle、square</li>
-<li>有序列表<br> 使用标签：&lt;ol&gt;、&lt;li&gt;<br> 属性：A、a、I、i、start</li>
-<li>嵌套列表<br> 使用标签：&lt;ul&gt;、&lt;ol&gt;、&lt;li&gt;</li>
-<li>自定义列表<br> 使用标签：&lt;dl&gt;、&lt;dt&gt;、&lt;dd&gt;</li>
-</ol>
-<p>二. 块元素标签的使用</p>
-<ol>
-<li>HTML块元素<br> 块元素在显示时，通常会以新行开始<br> 如：h1、p、ul</li>
-<li>HTML内联元素<br> 内联元素通常不会以新行开始<br> 如：b、a、img</li>
-<li>HTML div元素<br> div元素也别成为块元素，其主要是组合HTML元素的容器</li>
-<li>HTML span元素<br> span元素是内联元素，可作为文本的容器</li>
-</ol>
-<p>三. HTML布局</p>
-<ol>
-<li>使用&lt;div&gt;元素布局</li>
-<li>使用&lt;table&gt;元素布局</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/HTML5基础-1/">HTML5基础(1)</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#事件处理"><span class="toc-number">1.</span> <span class="toc-text">事件处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件对象"><span class="toc-number">2.</span> <span class="toc-text">事件对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JS内置对象"><span class="toc-number">3.</span> <span class="toc-text">JS内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#String字符串对象"><span class="toc-number">3.1.</span> <span class="toc-text">String字符串对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Date"><span class="toc-number">3.2.</span> <span class="toc-text">Date</span></a></li></ol></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -757,10 +410,68 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
 </script>
 
 
@@ -771,6 +482,26 @@ $(document).ready(function(){
 
 
 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
 
 
 
@@ -802,4 +533,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
