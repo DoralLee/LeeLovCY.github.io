@@ -264,15 +264,166 @@
 </ul>
 </li>
 </ol>
+<h4 id="Runtime术语"><strong>Runtime术语</strong></h4><ol>
+<li><p>SEL</p>
+<ul>
+<li><p>它是selector在Objc中的表示类型（Swiftt中是Selector类）。<code>selector</code>是方法选择器，可以理解为区分方法的ID，数据结构：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_selector *SEL;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其本身就是映射到方法的C字符串，可以用Objc编译器命令<code>@selector()</code>或者Runtime中的<code>sel_registerName</code>函数来获得一个SEL类型的方法选择器</p>
+</li>
+<li>不同类中相同名字的方法所对应的方法选择器是相同的，即使方法名字相同而变量类型不同依然会具有相同的方法选择器，于是Objc中方法命名有时会带上参数类型</li>
+</ul>
+</li>
+<li><p>id</p>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_object *<span class="keyword">id</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>那么objc_object是个什么鬼呢：</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">objc_objet</span> </span>&#123;Class isa;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>objc_object结构体包含一个isa指针，根据isa指针就可以顺藤摸瓜找到对象所属的类<br><code>注意：</code>isa指针不总是指向实例对象多数的类，不能依靠它来确定类型，而是应该用class方法来确定实例对象的类，因为KVO的实现机理就是将被观察对象的isa指针指向一个中间类而不是真实的类</p>
+</li>
+</ul>
+</li>
+<li><p>Class</p>
+<ul>
+<li><p>其实Class是个指向objc_class结构体的指针：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>objc_class就是我们摸到的瓜：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> objc_class &#123;</span><br><span class="line">    Class isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">if</span> !__OBJC2__</span></span><br><span class="line">    Class super_class                                        OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name                                         OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">long</span> instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_ivar_list *ivars                             OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_method_list **methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_cache *cache                                 OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">struct</span> objc_protocol_list *protocols                     OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以看到运行时一个类还关联了他的超类指针，类名，成员变量，方法，缓存，附属协议</p>
+</li>
+<li>在Objective-C 2.0的头文件虽然没暴露出objc_class结构体更详细的设计，我们依然可以从Objective-C 1.0的定义中窥探出一点东西：</li>
+<li>在objc_class结构体中：ivars是objc_ivar_list指针；methodLists是指向objc_method_list指针的指针。也就会说动态修改*methodlists的值来添加成员方法，这也是Category的实现原理</li>
+<li><p>其中objc_ivar_list和objc_method_list分别是成员变量列表和方法列表：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> objc_ivar_list &#123;</span><br><span class="line">    <span class="keyword">int</span> ivar_count                                           OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="preprocessor">#ifdef __LP64__</span></span><br><span class="line">    <span class="keyword">int</span> space                                                OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="preprocessor">#endif</span></span><br><span class="line">    <span class="comment">/* variable length structure */</span></span><br><span class="line">    <span class="keyword">struct</span> objc_ivar ivar_list[<span class="number">1</span>]                            OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;                                                            OBJC2_UNAVAILABLE;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> objc_method_list &#123;</span><br><span class="line">    <span class="keyword">struct</span> objc_method_list *obsolete                        OBJC2_UNAVAILABLE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> method_count                                         OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="preprocessor">#ifdef __LP64__</span></span><br><span class="line">    <span class="keyword">int</span> space                                                OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="preprocessor">#endif</span></span><br><span class="line">    <span class="comment">/* variable length structure */</span></span><br><span class="line">    <span class="keyword">struct</span> objc_method method_list[<span class="number">1</span>]                        OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以理解为objc_ivar_list结构体存储着objc_ivar数组列表，而objc_ivar结构体存储了类的单个成员变量的信息；同理objc_method_list结构体存储着objc_method数组列表，而objc_method结构体存储了类的某个方法信息</p>
+</li>
+<li>objc_cache：缓存，它在objc_class的作用很重要，随后会有讲到</li>
+<li>objc_class中也有一个isa对象，这是因为一个Objc类本身同事也是一个对象，为了处理类和对象的关系，Runtime库创建了一种叫做元类（Meta Class）的东西，类对象所属类型就叫做元类，它用来表达类对象本身所具备的元数据。类方法就定义与此。每个类仅有一个类对象，而每个类对象仅有一个与之相关的元类。当你发出一个类似<code>[NSObject alloc]</code>的消息时，事实上是把这个消息给了一个类对象（Class Object），这个类对象必须是一个元类的实例，而这个元类同事也是一个根元类（root mate class）的实例。所有的元类最终都指向根元类为其超类。所有的元类的方法列表都有能够响应消息的类方法。</li>
+</ul>
+</li>
+<li><p>Method</p>
+<ul>
+<li><p>Method是一种代表类中的某个方法的类型</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typedef struct objc_method *<span class="function"><span class="keyword">Method</span>;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>而objc_method在上面的方法列表中提到过，他存储了方法名，方法类型和方法实现</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">objc_method</span> </span>&#123;</span><br><span class="line">    SEL method_name                                          OBJC2_UNAVAILABLE;</span><br><span class="line">    char *method_types                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    IMP method_imp                                           OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;                                                            OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法名类型method_types是个char指针，其实存储着方法的参数类型和返回值类型</p>
+</li>
+<li>method_imp指向了方法的实现，本质上是一个函数指针</li>
+</ul>
+</li>
+<li><p>Ivar</p>
+<ul>
+<li><p>Ivar是一种代表类中实例变量的类型</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_ivar *Ivar;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>objc_ivar在上面成员变量雷彪中也提到过：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> objc_ivar &#123;</span><br><span class="line">    <span class="keyword">char</span> *ivar_name                                          OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">char</span> *ivar_type                                          OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">int</span> ivar_offset                                          OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="preprocessor">#ifdef __LP64__</span></span><br><span class="line">    <span class="keyword">int</span> space                                                OBJC2_UNAVAILABLE;</span><br><span class="line"><span class="preprocessor">#endif</span></span><br><span class="line">&#125;                                                            OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>IMP</p>
+<ul>
+<li><p>IMP在objc.h中的定义是：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typedef id (*IMP)(id, SEL, <span class="keyword">...</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>他就是一个函数指针，这是由编译器生成的。当你发起一个Objc消息之后，最终会执行的那段代码，就是有这个指针制定的。而IMP这个函数指针就指向了这个方法的实现。既然得到了执行某个实例方法的入口，就可以绕开消息传递阶段，直接执行方法</p>
+</li>
+<li>你会发现IMP指向的方法objc_msgSend函数相同，参数都包含id和SEL类型，每个方法名都对应一个SEL类型的方法选择器，而每个实例对象中的SEL对应的方法实现肯定是为一的，通过一组id和SEL参数就能确定为一的方法实现地址</li>
+</ul>
+</li>
+<li><p>Cache</p>
+<ul>
+<li><p>在runtime.h中Cache的定义如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_cache *Cache；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>之前objc_class结构体有一个<code>struct objc_cache *cache</code>，他到底是缓存什么的呢，先看看实现：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> objc_cache &#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> mask <span class="comment">/* total = mask + 1 */</span>                 OBJC2_UNAVAILABLE;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> occupied                                    OBJC2_UNAVAILABLE;</span><br><span class="line">    Method buckets[<span class="number">1</span>]                                        OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Cache为方法调用的性能进行优化，通俗的讲，每当实例对象接受到一个消息时，它不会直接在isa指向的类的方法列表中遍历查找能够响应消息的方法，因为效率太低了，而是优先在Cache中查找。Runtime系统会把被调动的方法存到Cache中（理论上讲，一个方法如果被调用，那么他有可能今后还会调用），下次查找的时候效率更高。</p>
+</li>
+</ul>
+</li>
+<li><p>Property</p>
+<ul>
+<li><p>它是一个指向objc_property结构体的指针：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_property *Property;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_property *objc_property_t;<span class="comment">// 这个更常用一点</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以通过class_copyPropertyList和protocol_copyPropertyList方法来获取类和协议中的属性：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objc_property_t *<span class="function"><span class="title">class_copyPropertyList</span><span class="params">(Class cls, unsigned int *outCount)</span></span></span><br><span class="line">objc_property_t *<span class="function"><span class="title">protocol_copyPropertyList</span><span class="params">(Protocol *proto, unsigned int *outCount)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>返回类型为指向指针的指针，因为属性列表是个数组，每个元素内容都是一个objc_property_t指针，而这两个函数返回值都指向这个指针。</p>
+</li>
+<li><p>例如：声明一个类：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@interface</span> <span class="string">Lender :</span> NSObject &#123;</span><br><span class="line">    <span class="typename">float</span> alone;</span><br><span class="line">&#125;</span><br><span class="line"><span class="annotation">@property</span> <span class="typename">float</span> alone;</span><br><span class="line"><span class="annotation">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以用下面的代码获取属性列表：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">id</span> LenderClass = objc_getClass(<span class="string">"Lender"</span>);</span><br><span class="line"><span class="title">unsigned</span> int outCount;</span><br><span class="line"><span class="title">objc_property_t</span> *properties = class_copyPropertyList(LenderClass, &amp;outCount);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以用property_getName函数来查找属性名称：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const char *<span class="function"><span class="title">property_getName</span><span class="params">(objc_property_t property)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以用class_getProperty和protocol_getProperty通过给出的名称来在类核协议中获取属性的引用：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objc_property_t class_getProperty(Class cls, <span class="keyword">const</span> <span class="keyword">char</span> *name)</span><br><span class="line">objc_property_t protocol_getProperty(Protocol *proto, <span class="keyword">const</span> <span class="keyword">char</span> *name, <span class="built_in">BOOL</span> isRequiredProperty, <span class="built_in">BOOL</span> isInstanceProperty)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以用property_getAttributes函数来发掘属性的名称和@encode类型字符串：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const char *<span class="function"><span class="title">property_getAttributes</span><span class="params">(objc_property_t property)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上面代码放在一起，就能从一个类获取他的属性了：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="property">id</span> LenderClass = objc_getClass(<span class="string">"Lender"</span>);</span><br><span class="line">unsigned int outCount, i;</span><br><span class="line">objc_property_t *properties = class_copyPropertyList(LenderClass, &amp;outCount);</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; outCount; i++) &#123;</span><br><span class="line">    objc_property_t <span class="keyword">property</span> = properties[i];</span><br><span class="line">    fprintf(stdout, <span class="string">"%s %s\n"</span>, property_getName(<span class="keyword">property</span>), property_getAttributes(<span class="keyword">property</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对比下class_copyIvarList函数，使用class_copyPropertyList函数只能获取类的属性，而不包括成员变量。但此时获取的属性名不带下划线的。</p>
+</li>
+</ul>
+</li>
+</ol>
 <h4 id="Runtime作用"><strong>Runtime作用</strong></h4><ol>
 <li>发送消息<ul>
 <li>方法调用的本质，就是让对象发送消息</li>
 <li>objc_msgSend只有对象才能发消息，所以以objc开头</li>
 <li>使用消息机制前提，必须导入<code>#import &lt;objc/runtime.h&gt;</code></li>
+<li>由于Xcode6之后苹果不想我们随便使用runtime，没有参数提示，可进行如下设置<code>build setting -&gt; 搜索msg -&gt; YES改为NO</code>，意思就是不让Xcode严格监听runtime方法</li>
 <li>简单使用：</li>
 <li>clang -rewrite-objc main.m查看最终生成代码<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">Person</span> *person = [[<span class="variable">Person</span> alloc] init];</span><br><span class="line">person.name = @<span class="string">"Kevin"</span>;</span><br><span class="line">person.age = <span class="number">24</span>;</span><br><span class="line"></span><br><span class="line"><span class="pp">----&gt;</span><br><span class="line"></span><br><span class="line">Person *person = objc_msgSend<span class="params">(<span class="function_name">objc_msgSend</span>(<span class="function_name">objc_getClass</span>(<span class="string">"Person"</span>), <span class="function_name">sel_registerName</span>(<span class="string">"alloc"</span>)), <span class="function_name">sel_registerName</span>(<span class="string">"init"</span>))</span>;</span><br><span class="line">objc_msgSend<span class="params">((id)</span>person, sel_registerName<span class="params">(<span class="string">"setName:"</span>)</span>, <span class="params">(<span class="variable">NSString</span> *)</span>&amp;__NSConstantStringImpl__var_folders_jt_pt19d0r12xj4j798kb2sj4vh0000gn_T_main_befc80_mi_0);</span><br><span class="line">objc_msgSend<span class="params">((id)</span>person, sel_registerName<span class="params">(<span class="string">"setAge:"</span>)</span>, 24);</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+</ol>
+<ol>
+<li><p>方法调用流程</p>
+<ul>
+<li>首先对象方法放在类对象方法列表，类方法放在元类方法列表</li>
+<li>通过isa指针去对应的类中查找</li>
+<li>注册方法编号</li>
+<li>根据方法编号去查找对应方法</li>
+<li>找到的只是最终函数的实现地址，根据地址去方法区调用对应函数</li>
+</ul>
+</li>
+<li><p>交换方法</p>
+<ul>
+<li>开发使用场景：系统自带的方法功能不够，给系统自带的方法扩展一些功能，并保持原有功能</li>
+<li>方法一：继承系统的类，重写方法</li>
+<li>方法二：使用runtime，交换方法</li>
+</ul>
+</li>
+<li><p>动态添加方法</p>
+<ul>
+<li>开发使用场景：如果一个类方法非常多，加载类到内存的时候也比较耗费资源，需要给每个方法生成映射表，可以使用动态给某给类添加方法解决</li>
+</ul>
+</li>
+<li><p>给分类添加属性</p>
+<ul>
+<li>原理：给一个类声明属性，其实本质就是给这个类添加关联，并不是直接把这个值的内存空间添加到类内存空间</li>
+</ul>
+</li>
+<li><p>字典转模型</p>
 </li>
 </ol>
 
