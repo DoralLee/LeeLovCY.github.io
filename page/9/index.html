@@ -80,50 +80,43 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/01/08/UIApplication相关/" title="UIApplication相关" itemprop="url">UIApplication相关</a>
+      <a href="/2013/08/03/iOS——ViewController生命周期/" title="iOS——ViewController生命周期" itemprop="url">iOS——ViewController生命周期</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2014-01-08T05:44:19.000Z" itemprop="datePublished"> 发表于 2014-01-08</time>
+    <time datetime="2013-08-03T08:10:57.000Z" itemprop="datePublished"> 发表于 2013-08-03</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <h4 id="AppDelegate">AppDelegate</h4><ol>
-<li><p>应用程序的启动界面完成之后就会调用此方法，也就是应用程序正式启动之前会调用此方法</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(<span class="variable">BOOL</span>)</span>application:<span class="params">(<span class="variable">UIApplication</span> *)</span>application didFinishLaunchingWithOptions:<span class="params">(<span class="variable">NSDictionary</span> *)</span>launchOptions</span></span><br></pre></td></tr></table></figure>
+        <h3 id="view的加载">view的加载</h3><ol>
+<li>ViewController在我们开发中经常用到，它的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。</li>
+<li>在iOS中，有两类Viewcontroller，一类是显示内容的，比如UIViewController、UITableViewController等，同时还可以自定义集成自UIViewController的XXXViewController；另一类是ViewController容器，UINavigationController和UITabBarController等，UINavigationViewController是以Stack的形式来存储和管理ViewController，UITabBarController是以Array的形式来管理Viewcontroller。和Android中Activity一样，iOS开发中，ViewController也有自己的生命周期</li>
+<li><p>首先我们来看看View的加载过程，如下图：</p>
+<p> <img src="/images/ViewController/1.png" alt="view的加载过程"></p>
+<blockquote>
+<p>从图中可以看出，在view加载过程中首先会调用loadView方法，在这个方法中主要完成一些关键view的初始化工作，比如UINavigationController和UITabBarController等容器类的ViewController；接下来就是加载View，加载成功后，会接着调用ViewDidLoad方法，<code>注意:在loadView之前，是没有View的，也就是说，在这之前，view还没有被初始化。</code>完成viewDidLoad方法后，ViewController里面就成功加载view了，如上图有下角所示。</p>
+</blockquote>
 </li>
-<li><p>应用程序进入激活状态的时候会调用此方法，激活状态也就是应用程序可以和用户交互</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(void)</span>applicationDidBecomeActive:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用程序从后台进入前台时调用此方法，应用程序启动的时候不会调用此方法</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(void)</span>applicationWillEnterForeground:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用程序变成不激活状态，如：双击Home或者是单击Home键；应用程序不能响应用户的点击</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(void)</span>applicationWillResignActive:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用程序进入到后台时调用，双击Home键不调用此方法</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(void)</span>applicationDidEnterBackground:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用程序将要终止的时候调用</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(void)</span>applicationWillTerminate:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>综上：</p>
-<ul>
-<li>启动程序代理调用顺序：didFinishLaunchingWithOptions -&gt; applicationDidBecomeActive</li>
-<li>单击Home键进入后台：applicationWillResignActive -&gt; applicationDidEnterBackground</li>
-<li>双击Home键：applicationWillResignActive</li>
-<li>后台进入前台：applicationWillEnterForeground -&gt; applicationDidBecomeActive</li>
-<li>终止程序：applicationDidEnterBackground -&gt; applicationWillTerminate</li>
-</ul>
+<li><p>在Controller中创建view有两种方式，一种是通过代码创建、一种是通过storyboard或interface builder来创建，后者可以比较直观的配置view的外观和属性，storyboard配合iOS6推出的AutoLayout，应该是Apple之后主推的一种UI定制解决方案。</p>
 </li>
 </ol>
-<h4 id="UIApplicationMain">UIApplicationMain</h4><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char <span class="keyword">*</span>argv[]) &#123;</span><br><span class="line">    <span class="comment">@autoreleasepool &#123;</span></span><br><span class="line">    /<span class="keyword">*</span></span><br><span class="line">    <span class="keyword">*</span> UIApplicationMain(<span class="variable">&lt;#int argc#&gt;</span>, <span class="variable">&lt;#char * _Nonnull *argv#&gt;</span>, <span class="variable">&lt;#NSString * _Nullable principalClassName#&gt;</span>, <span class="variable">&lt;#NSString * _Nullable delegateClassName#&gt;</span>)</span><br><span class="line">    <span class="keyword">*</span>/</span><br><span class="line">        return UIApplicationMain(argc, argv, nil, <span class="comment">@"AppDelegate");</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>argc：代表argv[]数组参数的个数<br>argv：加载的是编译后的代码<br>principalClassName：指定的是UIApplication或者是它的子类的类名。nil代表的是使用UIApplication<br>delegateClassName：代理的类名</p>
+<h3 id="view的卸载">view的卸载</h3><ol>
+<li><p>我们来看一下view是如何被卸载的</p>
+<p> <img src="/images/ViewController/2.png" alt="view的卸载"></p>
+<blockquote>
+<p>由上图可以看出，当系统给发出内存警告时，会调用didReceiveMemoeryWarning方法，如果当前有能被释放的View，系统会调用viewWillUnload方法来释放view，完成后调用viewDidUnload，至此，view就被卸载了。此时原本指向view的变量要被置为nil，具体操作是在viewDidUnload方法中调用self。XXX = nil；</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="小结">小结</h3><ol>
+<li>loadView和viewDidLoad的区别就是，loadView时view还没有生成，viewDidLoad时，view已经生成了，loadView以及viewDidLoad只会被调用一次，因为view是被懒加载的，当再次访问view时，view已存在，就不会在执行loadView和viewDidLoad，当view被添加到其他view中之前，会调用viewWillAppear，之后会调用viewDidAppear。当view从其他view中移除之前，调用viewWillDisAppear，移除之后会调用viewDidDisappear。当view不再使用时，受到内存警告时，ViewController会将view释放并将其指向为nil。</li>
+<li>ViewController的生命周期中各方法执行流程如下：<br>init—&gt;loadView—&gt;viewDidLoad—&gt;viewWillApper—&gt;viewDidApper—&gt;viewWillDisapper—&gt;viewDidDisapper—&gt;viewWillUnload-&gt;viewDidUnload—&gt;dealloc</li>
+</ol>
 
         
         
@@ -137,7 +130,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/UIApplication/">UIApplication</a>
+  <span></span> <a href="/tags/viewController生命周期/">viewController生命周期</a>
   </div>
 
 </div>
@@ -165,14 +158,92 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2013/10/03/C语言相关/" title="C语言相关" itemprop="url">C语言相关</a>
+      <a href="/2013/06/22/UIButton控件设置/" title="UIButton控件设置" itemprop="url">UIButton控件设置</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2013-10-03T08:10:39.000Z" itemprop="datePublished"> 发表于 2013-10-03</time>
+    <time datetime="2013-06-22T08:55:43.000Z" itemprop="datePublished"> 发表于 2013-06-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <ol>
+<li><p>创建UIButton对象</p>
+<p> UIButton *bt = [[UIButton alloc]init];</p>
+</li>
+<li><p>隐藏UIButton</p>
+<p> bt.hidden=YES;//此时按钮被隐藏<br> bt.hidden=NO;//此时按钮被显示在视图中</p>
+</li>
+<li><p>设置UIButton的坐标和大小</p>
+<p> [bt setFrame:CGRectMake(100, 100, 100, 40)];</p>
+</li>
+<li><p>设置UIButton的颜色</p>
+<p> [bt setBackgroundColor:[UIColor redColor]]</p>
+</li>
+<li><p>设置UIButton的标题字，forState设置的时按钮的当前状态，此时为正常状态</p>
+<p> [bt setTitle:@”aaa” forState:UIControlStateNormal];</p>
+<p> UIButton的各种状态</p>
+<blockquote>
+<p>   正常状态 UIControlStateNormal;<br>   高亮状态 UIControlStateHighlighted;<br>   禁用状态UIControlStateDisabled；<br>   选中状态 UIControlStateSelected;<br>   代理状态 UIControlStateApplication;<br>   保留状态 UIControlStateReserved;</p>
+</blockquote>
+</li>
+<li><p>设置UIButton在正常状态下的字体颜色</p>
+<p> [bt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];</p>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/UIButton/">UIButton</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/05/03/C语言相关/" title="C语言相关" itemprop="url">C语言相关</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2013-05-03T08:10:39.000Z" itemprop="datePublished"> 发表于 2013-05-03</time>
     
   </p>
 </header>
@@ -565,7 +636,7 @@ clang编译器会帮我们检查警告和错误
 			
 		
 			
-				<li><a href="/tags/数组排序/" title="数组排序">数组排序<sup>1</sup></a></li>
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>1</sup></a></li>
 			
 		
 		</ul>

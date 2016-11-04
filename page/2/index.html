@@ -241,22 +241,40 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/05/19/关于UIView的autoresizingMask属性/" title="关于UIView的autoresizingMask属性" itemprop="url">关于UIView的autoresizingMask属性</a>
+      <a href="/2014/11/04/Runtime/" title="Runtime" itemprop="url">Runtime</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-19T02:57:39.000Z" itemprop="datePublished"> 发表于 2015-05-19</time>
+    <time datetime="2014-11-04T10:01:12.000Z" itemprop="datePublished"> 发表于 2014-11-04</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>在 UIView 中有一个autoresizingMask的属性，它对应的是一个枚举的值（如下），属性的意思就是自动调整子控件与父控件中间的位置、宽高。</p>
-<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> &#123;</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingNone</span>                 = <span class="number">0</span>, <span class="comment">//不自动调整</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleLeftMargin</span>   = <span class="number">1</span> &lt;&lt; <span class="number">0</span>, <span class="comment">//自动调整与superView左边距，保证与superView右边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleWidth</span>        = <span class="number">1</span> &lt;&lt; <span class="number">1</span>, <span class="comment">//自动调整自己的宽度，保证与superView左边距和右边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleRightMargin</span>  = <span class="number">1</span> &lt;&lt; <span class="number">2</span>, <span class="comment">//自动调整与superView右边距，保证与superView左边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleTopMargin</span>    = <span class="number">1</span> &lt;&lt; <span class="number">3</span>, <span class="comment">//自动调整与superView上边距，保证与superView下边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleHeight</span>       = <span class="number">1</span> &lt;&lt; <span class="number">4</span>, <span class="comment">//自动调整自己的高度，保证与superView上边距和下边距不变</span></span><br><span class="line"><span class="constant">   UIViewAutoresizingFlexibleBottomMargin</span> = <span class="number">1</span> &lt;&lt; <span class="number">5</span> <span class="comment">//自动调整与superView下边距，保证与superView上边距不变</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>当然我们可以进行组合使用的，比如：<br>UIViewAutoresizingFlexibleLeftMargin  | UIViewAutoresizingFlexibleRightMargin 自动调整与superView的左边距和右边距保证左边距和右边距与原来的左边距和右边距的比例不变。比如原来距离为20和30，调整后的距离：68/102 = 20/30</p>
+        <h4 id="简介"><strong>简介</strong></h4><ol>
+<li>Runtime简称运行时。OC就是运行时机制，也就是在运行的时候的机制，其中最主要的是消息机制</li>
+<li>对于C语言，<code>函数的调用在变异的时候会决定调用哪些函数</code>。</li>
+<li>对于OC的函数，属于<code>动态调用</code>。在编译的时候你并不知道真正要调用的是哪个函数，只有在真正运行的时候才根据函数的名称找到对应的函数来调用。</li>
+<li>事实证明：<ul>
+<li>在编译阶段，OC可以调用<code>任何函数</code>，即使这个函数并没有实现，只要声明就不会报错</li>
+<li>在编译阶段，C语言调用<code>为实现的函数</code>就是报错，原因正如第二条所说</li>
+</ul>
+</li>
+</ol>
+<h4 id="Runtime作用"><strong>Runtime作用</strong></h4><ol>
+<li>发送消息<ul>
+<li>方法调用的本质，就是让对象发送消息</li>
+<li>objc_msgSend只有对象才能发消息，所以以objc开头</li>
+<li>使用消息机制前提，必须导入<code>#import &lt;objc/runtime.h&gt;</code></li>
+<li>简单使用：</li>
+<li>clang -rewrite-objc main.m查看最终生成代码<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">Person</span> *person = [[<span class="variable">Person</span> alloc] init];</span><br><span class="line">person.name = @<span class="string">"Kevin"</span>;</span><br><span class="line">person.age = <span class="number">24</span>;</span><br><span class="line"></span><br><span class="line"><span class="pp">----&gt;</span><br><span class="line"></span><br><span class="line">Person *person = objc_msgSend<span class="params">(<span class="function_name">objc_msgSend</span>(<span class="function_name">objc_getClass</span>(<span class="string">"Person"</span>), <span class="function_name">sel_registerName</span>(<span class="string">"alloc"</span>)), <span class="function_name">sel_registerName</span>(<span class="string">"init"</span>))</span>;</span><br><span class="line">objc_msgSend<span class="params">((id)</span>person, sel_registerName<span class="params">(<span class="string">"setName:"</span>)</span>, <span class="params">(<span class="variable">NSString</span> *)</span>&amp;__NSConstantStringImpl__var_folders_jt_pt19d0r12xj4j798kb2sj4vh0000gn_T_main_befc80_mi_0);</span><br><span class="line">objc_msgSend<span class="params">((id)</span>person, sel_registerName<span class="params">(<span class="string">"setAge:"</span>)</span>, 24);</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
 
         
         
@@ -270,7 +288,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/autoresizingMask/">autoresizingMask</a>
+  <span></span> <a href="/tags/runtime/">runtime</a>
   </div>
 
 </div>
@@ -388,7 +406,7 @@
 			
 		
 			
-				<li><a href="/tags/数组排序/" title="数组排序">数组排序<sup>1</sup></a></li>
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>1</sup></a></li>
 			
 		
 		</ul>

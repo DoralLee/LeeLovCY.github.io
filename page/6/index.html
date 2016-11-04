@@ -80,14 +80,269 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/27/iOS沙盒目录结构和使用/" title="iOS沙盒目录结构和使用" itemprop="url">iOS沙盒目录结构和使用</a>
+      <a href="/2014/03/10/Hexo——搭建博客/" title="Hexo——搭建博客" itemprop="url">Hexo——搭建博客</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-27T13:40:18.000Z" itemprop="datePublished"> 发表于 2014-05-27</time>
+    <time datetime="2014-03-10T15:43:59.000Z" itemprop="datePublished"> 发表于 2014-03-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="本地搭建hexo">本地搭建hexo</h3><ol>
+<li><p>安装nvm(node.js的版本管理工具）以下提供两种安装方法</p>
+<ul>
+<li><p>cURL：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>curl <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span><span class="number">0</span>.<span class="number">24.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Wget:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>wget -qO- <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span><span class="number">0</span>.<span class="number">24.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>安装完成后，重启终端并执行下列命令安装Node.js</p>
+ <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm <span class="keyword">install</span> <span class="number">0.10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加如下内容到.zshrc配置文件</p>
+ <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -s <span class="string">"/Users/<span class="escape">`u</span>sers<span class="escape">`/</span>.nvm/nvm.sh"</span> ] &amp;&amp; . <span class="string">"/Users/<span class="escape">`u</span>sers<span class="escape">`/</span>.nvm/nvm.sh"</span> # This loads nvm</span><br></pre></td></tr></table></figure>
+<p> <code>注意：</code>“users”修改为你的家目录名</p>
+</li>
+<li><p>将nvm的bin目录添加到环境变量中</p>
+ <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">以zsh为例：</span><br><span class="line"><span class="number">1</span>. 打开zsh配置文件</span><br><span class="line">	vi ~/<span class="class">.zshrc</span></span><br><span class="line"><span class="number">2</span>. 添加如下内容到<span class="class">.zshrc</span></span><br><span class="line">	export PATH=<span class="variable">$PATH</span>:~/.nvm/v0.<span class="number">10.38</span>/bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装hexo</p>
+ <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建hexo文件夹，并安装hexo相关组件</p>
+ <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo init hexo</span><br><span class="line"><span class="variable">$ </span>cd hexo</span><br><span class="line"><span class="variable">$ </span>npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地查看<br> 输入如下命令后，打开浏览器，并输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">localhost:4000</a></p>
+ <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>部署的时候有时候会失败，可以安装hexo-deployer-git来解决</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="部署到github">部署到github</h3><ol>
+<li><p>注册github账号</p>
+</li>
+<li><p>创建github账号同名repository</p>
+<pre><code>eg:github账号名为leelovcy，则创建leelovcy<span class="class">.github</span><span class="class">.io</span>
+</code></pre></li>
+<li><p>部署到github上</p>
+<p> 如下所示编辑_config.yml</p>
+<pre><code><span class="attribute">deploy</span>:
+  <span class="attribute">type</span>: git
+  <span class="attribute">repository</span>: <span class="attribute">http</span>:<span class="comment">//github.com/LeeLovCY/LeeLovCY.github.io.git</span>
+  <span class="attribute">branch</span>: master
+</code></pre><p> <code>注意：</code>上述冒号之后有空格</p>
+</li>
+<li><p>输入如下命令，完成到github得部署，之后打开浏览器并输入<leelovcy.github.io>来查看</leelovcy.github.io></p>
+ <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo d</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Hexo/">Hexo</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/02/19/iOS自带框架/" title="iOS自带框架" itemprop="url">iOS自带框架</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2014-02-19T12:27:33.000Z" itemprop="datePublished"> 发表于 2014-02-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <ol>
+<li><p>一款App立足的两大要素</p>
+<blockquote>
+<p>美观的UI界面<br>实用的功能</p>
+</blockquote>
+</li>
+<li><p>框架表格</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>框架名称</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foundation</td>
+<td>提供OC的基础类（像NSObject）、基本数据类型等</td>
+</tr>
+<tr>
+<td>UIKit</td>
+<td>创建和管理应用程序的用户界面</td>
+</tr>
+<tr>
+<td>QuartzCore</td>
+<td>提供动画特效以及通过硬件进行渲染的能力</td>
+</tr>
+<tr>
+<td>CoreGraphics</td>
+<td>提供2D绘制的基于C的API</td>
+</tr>
+<tr>
+<td>SystemConfiguration</td>
+<td>检测当前网络是否可用和硬件设备状态</td>
+</tr>
+<tr>
+<td>AVFoundation</td>
+<td>提供音频录制和回放的底层API，同事也负责管理音频硬件</td>
+</tr>
+<tr>
+<td>CFNetwork</td>
+<td>访问和配置网络，像HTTP、FTP和Bonjour Services</td>
+</tr>
+<tr>
+<td>CoreFoundation</td>
+<td>提供抽象的常用数据类型，如Unicode strings、XML、URL等</td>
+</tr>
+<tr>
+<td>CoreLocation</td>
+<td>使用GPS和WIFI获取位置信息</td>
+</tr>
+<tr>
+<td>GameKit</td>
+<td>为游戏提供网络功能，点对点互联和游戏中的语音交流</td>
+</tr>
+<tr>
+<td>AddressBook</td>
+<td>提供访问用户联系人信息的功能</td>
+</tr>
+<tr>
+<td>AddressBookUI</td>
+<td>提供一个用户界面，用于显示存储在地址薄中的联系人信息</td>
+</tr>
+<tr>
+<td>AudioToolBox</td>
+<td>提供音频录制和回放的底层API，同时也负责管理音频硬件</td>
+</tr>
+<tr>
+<td>AudioUnit</td>
+<td>提供一个接口，让我们的应用程序可以对着音频进行处理</td>
+</tr>
+<tr>
+<td>MapKit</td>
+<td>为应用程序提供内嵌地图的接口</td>
+</tr>
+<tr>
+<td>MediaPlayer</td>
+<td>提供播放视频和音频的功能</td>
+</tr>
+<tr>
+<td>MessageUI</td>
+<td>提供师徒控制接口用以处理E-mail和短信</td>
+</tr>
+<tr>
+<td>OpenGLES</td>
+<td>提供动画特效以及通过硬件进行渲染的能力</td>
+</tr>
+<tr>
+<td>StoreKit</td>
+<td>为应用程序提供在程序运行中消费的支持””</td>
+</tr>
+</tbody>
+</table>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS框架/">iOS框架</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/01/27/iOS沙盒目录结构和使用/" title="iOS沙盒目录结构和使用" itemprop="url">iOS沙盒目录结构和使用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
+		
+  <p class="article-time">
+    <time datetime="2014-01-27T13:40:18.000Z" itemprop="datePublished"> 发表于 2014-01-27</time>
     
   </p>
 </header>
@@ -143,197 +398,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/沙盒/">沙盒</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/05/25/CocoaPods-下载和安装/" title="CocoaPods 下载和安装" itemprop="url">CocoaPods 下载和安装</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2014-05-25T07:02:45.000Z" itemprop="datePublished"> 发表于 2014-05-25</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="下载和安装">下载和安装</h3><ul>
-<li><p>在安装之前，首先要在本地安装好Ruby环境。如果你在本地已经安装好Ruby环境，那么下载和安装CocoaPods将十分简单，只需要一行命令。在终端中输入如下命令</p>
-  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>但是，如果你在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中依次敲入命令：</p>
-  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">source</span> --remove https:<span class="comment">//rubygems.org/</span></span><br><span class="line">gem <span class="keyword">source</span> -a http:<span class="comment">//ruby.taobao.org/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>为了验证你的Ruby镜像是并且仅是taobao，可以用一下命令查看：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="built_in">source</span> <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>只有在终端中出现下面文字才表明你上面的命令是成功的：</p>
-  <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> CURRENT SOURCES <span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">http://ruby.taobao.org/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>此时，你再次在终端中运行：</p>
-  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="使用CocoaPods">使用CocoaPods</h3><ul>
-<li>安装好之后就是如何使用它了。我们以AFNetworking来说明吧</li>
-<li>AFNetworking类库在Github地址是:(<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a>)</li>
-<li><p>为了确定AFnetworking是否支持Cocoapods，可以用Cocoapods的搜索功能验证一下。在终端中输入：</p>
-  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pod</span> search AFnetworking</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>随后你会看到相关信息，准备工作也差不多了，下面让我们进入正题</p>
-</li>
-<li><p>首先先利用Xcode创建一个项目工程。随后在终端中进入所创建的项目文件中，然后运行：</p>
-  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pod</span> init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>随后cocoapods会为项目自动生成一个Podfile文件，执行：</p>
-  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">vim</span> Podfile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后再Podfile文件中target和end之间输入以下信息：</p>
-  <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'7.0'</span></span><br><span class="line">pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.0"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>随后退出编辑模式，执行：</p>
-  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不过你在执行此条命令时会要等N久，主要是执行上述命令时会升级Cocoapods的spec仓库，加一个参数就可以省略这一步，然后速度就会有相当大的提升，命令如下：</p>
-  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod install --<span class="keyword">verbose</span> --<span class="keyword">no</span>-repo-<span class="keyword">update</span></span><br><span class="line">pod <span class="keyword">update</span> --<span class="keyword">verbose</span> --<span class="keyword">no</span>-repo-<span class="keyword">update</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/CocoaPods/">CocoaPods</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/05/06/面相对象思想——个人理解/" title="面向对象思想——个人理解" itemprop="url">面向对象思想——个人理解</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://yoursite.com/about" title="Vodka" target="_blank" itemprop="author">Vodka</a>
-		
-  <p class="article-time">
-    <time datetime="2014-05-06T09:28:23.000Z" itemprop="datePublished"> 发表于 2014-05-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>基本概念</p>
-<p> 1.1 类与对象的初探</p>
-<pre><code> “这个世界时由什么组成的？”这个问题如果让不同的人来回答会得到不同的答案。如果是一个化学家，他也许会告诉你“还用问么，这个世界是由分子、原子、离子等等化学物质组成的”。如果是一个画家呢？他也许会告诉你，“这个世界是由不同的颜色所组成的”<span class="attribute">...</span><span class="attribute">...</span>呵呵，众说纷纭吧！但如果让一个分类学家来考虑问题就有趣的多了，他会告诉你“这个世界是由不同类型的物与事所构成的”好！作为面向对象的程序员来说，我们要站在分类学家的角度去考虑问题！是的，这个世界是由动物、植物等组成的。动物又分为单细胞动物、多细胞动物、哺乳动物等等，哺乳动物又分为人、大象、老虎<span class="attribute">...</span><span class="attribute">...</span>就这样的分下去了！
-
-现在，站在抽象的角度，我们给“类”下个定义吧！我的意思是，站在抽象的角度，你回答我“什么是人类？”首先让我们来看看人类所具有的一些特征，这个特征包括属性（一些参数，数值）以及方法（一些行为，他能干什么！）。每个人都身高、体重、年龄、血型等等一些属性。人会劳动、人都会直立行走、人都会用自己的头脑去创造工具等等这些方法。“人类”只是一个抽象的概念，它仅仅是一个概念，它使不存在的实体！但是所有具备“人类”这个群体的属性与方法的对象都叫人！这个对象“人”是实际存在的实体！每个人都是这个群体的一个对象。老虎为什么不是人？因为它不具备人类这个群体的属性与方法，老虎不会直立行走，不会使用工具等等！所以说老虎不是人！
-
-由此可见————类描述了一组有相同特性（属性）和相同行为（方法）的对象。在程序中，类实际上就是数据类型！例如：整数，小树等等。整数也有一组特性和行为。面型过程的语言与面向对象的语言的区别就在于，面相过程的语言不允许程序员自己定义数据类型，而只能使用程序中内置的数据类型！而为了模拟真实世界，为了更好地解决问题，往往我们需要创建解决问题所必需的数据类型！面向对象编程为我们提供了解决方案。
-</code></pre><p> 1.2 内置数据类型与函数</p>
-<pre><code>计算机程序在存储数据时必须跟踪3个基本属性为：
-1. 信息存储在何处；
-2. 存储的值是多少；
-3. 存储的信息是什么类型的；
-
-让我们来看看编程语言的内置数据类型都有哪些！（这个不大好说，因为每门语言都有自己独特的数据类型，但这毕竟是少数，比如在JAVA中有byte类型的数据，而在C++中就没有）比如整数“int”，浮点类型的数据“float”！字符串“string”，以及数组还有结构体等等。然而在写程序的时候，根据需要我们会创建一个类型的变量或常量。例如：忧郁我们需要创建一个整形的变量i为5，我们就可以这样做，int i = 5；而根据需要我很有可能改变i的值，也就是从新给它赋值，比如让它等于6，就可以在所需的地方改为i = 6；由此我们知道，在“值”上可以发生变化的量就叫变量。不会发生变化的量就叫做常量了，在C++中用count关键字来声明，而在JAVA中则使用final关键字来声明。由于不同语言的声明格式不一样，这里就不做一一介绍，详细的内容清查阅相关书籍！
-
-在这里我们主要讨论一下函数，我们可以把函数想象成一个“实现某种特定功能的黑匣子”————这个功能是由你来设定的，举个例子说：现在我问你“2+3等于多少？”我相信你能很快的回答我等于5。让我们来分析分析这句话包含什么信息！首先我要把你的大脑想象成是一个黑匣子，我并不知道也没有必要知道你的大脑是如何工作的（也就是怎么运算的），我关心的只是我传给你的事什么信息？你对信息做了哪些处理？以及你返回给我的什么信息？需要提醒你一下的是每个方法都会返回一个信息给调用者的，除了构造函数外。我现在需要把自己当做是一名程序员，而你呢？当然就是计算机了！计算机可没有人那么聪明，它只会按事先约好的特定的格式运行，我想让它具有如上所述的功能，我就要先定义这个黑匣子！首先我要告诉这个黑匣子会有两个整数值给你（这就是所谓的参数，是程序员需要给黑匣子的信息），然后就要定义这个黑匣子内部实现这两个整数相加的运算（这就是黑匣子对数据所做的加工，根据需要，你可以任何的加工）。最后再标注它返回给我一个同样是整型的数值（这时黑匣子返回给程序员的信息）。一个函数就这样定义完了，让我们来看看书写格式：
-
-<span class="comment"><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">addnum</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
-</code></pre><p> 具体的含义是这样的：</p>
-<pre><code><span class="keyword">int</span>(返回值类型) 
-addnum (方法名称)
-(<span class="keyword">int</span> x, <span class="keyword">int</span> y)(传入的参数)
-<span class="keyword">return</span> x+y;(内部实现方法，实现相加运算，并<span class="keyword">return</span>返回给调用者结果)
-
-就像上面一样，因为我问你，你才会回答我，如果我不问你，你就不用回答我！在计算机中也一样，定义好这个函数在哪里调用呢？我只能告诉你，哪里需要就在哪里调用！
-
-关于函数的话题还有很多很多，这里就不一一介绍了，我的目的就是先说说函数是怎么一回事儿！为下面的讨论作铺垫！
-</code></pre><p> 1.3 指针以及引用</p>
-<pre><code><span class="comment">指针及引用是在C</span><span class="literal">+</span><span class="literal">+</span><span class="comment">中有的，JAVA中没有。JAVA中取消了对内存的操作，随之而来的事也取消了操作符重载的操作。不过在稍后还是会介绍一些操作符重载的功能等。引用主要还是用在函数参数的传递上。所以在这里就不做过多的介绍了。</span>
-</code></pre></li>
-<li><p>深入探讨面相对对象</p>
-<p> 2.1 “类型”的内部的细节</p>
-<pre><code>面相对象的变成语言最大的特色就是可以编写自己所需的数据类型，以更好的解决问题。就像前面所说的，人这个“类”是什么也做不了的，因为“人类”只是一个抽象的概念，它不是实实在在的“东西”，而这个“东西”就是所谓的对象。只有人这个“对象”才能去工作。而类呢？类是对象的描述！对象从类中产生出来！此时，对象具有类所描述的所有的属性以及方法。再来举个例子！例如电视机，电视机都有工作原理图，那么什么电视机呢？只要它能够实现工作原理图的所有功能的物体，我们都叫它电视机。你想想是不是这么一回事儿？可是，电视机原理图是不能工作的，也就是这个原理图不能收看节目，只有电视机这个“实体”----即所谓的“对象”才能收看节目，也就是说，从类生成出对象之后才算得上是真正的有意义！才能开始工作。此时，电视机拥有电视原理图所描述的所有的属性及方法！明白了吧，呵呵！
-
-类是属性与方法的集合。而这些属性与方法可以被声明为私有的（<span class="keyword">private</span>），公共的（<span class="keyword">public</span>）或是受保护（<span class="keyword">protected</span>）的，他们描述了对类成员的访问控制。下面介绍一下：
-<span class="number">1.</span> 公共的（<span class="keyword">public</span>）：把变量声明为公共类型的之后，那么就可以通过对象来直接访问，一切都是暴露无遗的！也就是说，你的信用卡密码别人也能够直接得到。
-<span class="number">2.</span> 私有的（<span class="keyword">private</span>）：如果把变量声明为私有的情况就好多了，想要得到我的信用卡面，对象必须要调用专用的方法才能够得到。
-<span class="number">3.</span> 受保护的（<span class="keyword">protected</span>）：介绍继承时在讨论。
-<span class="number">4.</span> 默认控制访问符（friendly）：Java中又而C++中没有。
-为了实现数据的封装，提高数据的安全性，我们一般会把类的属性声明为私有的，而把类的方法声明为公共的。这样，对象能够直接调用类中定义的所有方法，当对象想要修改或得到自己的属性的时候就必须要调用以定义好的专用的方法才能够实现。你想想，你会把你的信用卡密码公布出来吗？所以，我们提倡的事：“对象调方法，方法改属性”；
-</code></pre></li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/面向对象思想/">面向对象思想</a>
   </div>
 
 </div>
@@ -451,7 +515,7 @@ addnum (方法名称)
 			
 		
 			
-				<li><a href="/tags/数组排序/" title="数组排序">数组排序<sup>1</sup></a></li>
+				<li><a href="/tags/runtime/" title="runtime">runtime<sup>1</sup></a></li>
 			
 		
 		</ul>
